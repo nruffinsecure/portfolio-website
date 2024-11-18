@@ -1,0 +1,119 @@
+---
+const { title } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="logo">NR</div>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/services">Services</a>
+          <a href="/projects">Projects</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <style is:global>
+      :root {
+        --primary-color: #2563eb;
+        --text-color: #1f2937;
+        --background-color: #ffffff;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-color);
+        background: var(--background-color);
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid #eaeaea;
+      }
+
+      .nav-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+      }
+
+      .nav-links a {
+        margin-left: 2rem;
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 6rem 2rem 2rem;
+      }
+
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s ease forwards;
+      }
+
+      .slide-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.8s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </body>
+</html>

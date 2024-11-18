@@ -1,0 +1,176 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+<MainLayout title="Projects | Web Developer">
+  <div class="projects fade-in">
+    <h1 class="slide-up">Recent Projects</h1>
+    <p class="subtitle slide-up">Explore some of my latest work</p>
+    
+    <div class="project-grid">
+      <!-- E-commerce Website -->
+      <div class="project-card slide-up">
+        <div class="project-image">
+          <img src="/images/ecommerce.jpg" alt="E-commerce Website" />
+        </div>
+        <div class="project-content">
+          <h3>E-commerce Website</h3>
+          <p>Modern online store with a full product catalog and secure checkout process.</p>
+          <div class="tech-stack">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+          </div>
+          <a href="https://github.com/nruffinsecure/ecommerce-website" class="view-project" target="_blank">View Project</a>
+        </div>
+      </div>
+
+      <!-- Portfolio Website -->
+      <div class="project-card slide-up">
+        <div class="project-image">
+          <img src="/images/portfolio.jpg" alt="Portfolio Website" />
+        </div>
+        <div class="project-content">
+          <h3>Portfolio Website</h3>
+          <p>Creative showcase for professionals with a clean and minimalist design.</p>
+          <div class="tech-stack">
+            <span>Astro</span>
+            <span>JavaScript</span>
+            <span>CSS</span>
+          </div>
+          <a href="https://github.com/nruffinsecure/portfolio-website" class="view-project" target="_blank">View Project</a>
+        </div>
+      </div>
+
+      <!-- Business Landing Page -->
+      <div class="project-card slide-up">
+        <div class="project-image">
+          <img src="/images/business.jpg" alt="Business Landing Page" />
+        </div>
+        <div class="project-content">
+          <h3>Business Landing Page</h3>
+          <p>Conversion-focused landing page built for lead generation.</p>
+          <div class="tech-stack">
+            <span>Next.js</span>
+            <span>Tailwind</span>
+            <span>Analytics</span>
+          </div>
+          <a href="https://github.com/nruffinsecure/business-landing" class="view-project" target="_blank">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .projects {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(45deg, #2563eb, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #4b5563;
+      margin-bottom: 3rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+
+    p {
+      color: #4b5563;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .tech-stack {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tech-stack span {
+      background: #f3f4f6;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      color: #4b5563;
+    }
+
+    .view-project {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .view-project:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+    }
+  </style>
+</MainLayout>
