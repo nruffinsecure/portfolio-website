@@ -20,7 +20,10 @@ import MainLayout from '../layouts/MainLayout.astro';
             <span>Node.js</span>
             <span>MongoDB</span>
           </div>
-          <a href="https://github.com/nruffinsecure/ecommerce-website" class="view-project" target="_blank">View Project</a>
+          <div class="testimonial">
+            <p class="quote">"Nick delivered an amazing e-commerce platform that helped increase our sales by 40%. Professional and efficient!"</p>
+            <p class="author">- James R., Fashion Boutique Owner</p>
+          </div>
         </div>
       </div>
 
@@ -37,7 +40,10 @@ import MainLayout from '../layouts/MainLayout.astro';
             <span>JavaScript</span>
             <span>CSS</span>
           </div>
-          <a href="https://github.com/nruffinsecure/portfolio-website" class="view-project" target="_blank">View Project</a>
+          <div class="testimonial">
+            <p class="quote">"The portfolio site Nick created perfectly showcases my work. The attention to detail is outstanding."</p>
+            <p class="author">- Sarah M., Professional Photographer</p>
+          </div>
         </div>
       </div>
 
@@ -54,7 +60,10 @@ import MainLayout from '../layouts/MainLayout.astro';
             <span>Tailwind</span>
             <span>Analytics</span>
           </div>
-          <a href="https://github.com/nruffinsecure/business-landing" class="view-project" target="_blank">View Project</a>
+          <div class="testimonial">
+            <p class="quote">"Our conversion rate doubled after implementing Nick's landing page design. Exactly what we needed!"</p>
+            <p class="author">- Michael T., Marketing Director</p>
+          </div>
         </div>
       </div>
     </div>
@@ -150,20 +159,25 @@ import MainLayout from '../layouts/MainLayout.astro';
       color: #4b5563;
     }
 
-    .view-project {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: all 0.2s ease;
+    .testimonial {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      border-left: 4px solid #2563eb;
     }
 
-    .view-project:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    .quote {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+
+    .author {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #1f2937;
     }
 
     @media (max-width: 768px) {
