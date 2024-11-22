@@ -16,6 +16,7 @@ import ServicesHero from '../components/ServicesHero.astro';
           <li>Contact Form</li>
           <li>Basic SEO</li>
         </ul>
+        <a href="/contact" class="learn-more">Learn More <span class="arrow">→</span></a>
       </div>
 
       <div class="service-card slide-up">
@@ -27,6 +28,7 @@ import ServicesHero from '../components/ServicesHero.astro';
           <li>Advanced Features</li>
           <li>SEO Optimization</li>
         </ul>
+        <a href="/contact" class="learn-more">Learn More <span class="arrow">→</span></a>
       </div>
 
       <div class="service-card slide-up">
@@ -38,6 +40,7 @@ import ServicesHero from '../components/ServicesHero.astro';
           <li>Security Monitoring</li>
           <li>Performance Optimization</li>
         </ul>
+        <a href="/contact" class="learn-more">Learn More <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -92,6 +95,29 @@ import ServicesHero from '../components/ServicesHero.astro';
     li {
       padding: 0.5rem 0;
       color: #4b5563;
+    }
+
+    .learn-more {
+      display: inline-flex;
+      align-items: center;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .arrow {
+      margin-left: 0.5rem;
+      transition: transform 0.2s ease;
+    }
+
+    .learn-more:hover {
+      transform: translateX(4px);
+    }
+
+    .learn-more:hover .arrow {
+      transform: translateX(4px);
     }
   </style>
 </MainLayout>
