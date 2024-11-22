@@ -1,10 +1,11 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import ServicesHero from '../components/ServicesHero.astro';
 ---
+
 <MainLayout title="Services | Web Developer">
+  <ServicesHero />
   <div class="services fade-in">
-    <h1 class="slide-up">My Services</h1>
-    
     <div class="service-grid">
       <div class="service-card slide-up">
         <h3>Basic Website</h3>
@@ -46,15 +47,6 @@ import MainLayout from '../layouts/MainLayout.astro';
       max-width: 1200px;
       margin: 0 auto;
       padding-top: 2rem;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      background: linear-gradient(45deg, #2563eb, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
     .service-grid {
