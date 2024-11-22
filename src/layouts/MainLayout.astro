@@ -1,6 +1,7 @@
 ---
 const { title } = Astro.props;
 ---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,13 +15,20 @@ const { title } = Astro.props;
   <body>
     <nav class="navbar">
       <div class="nav-content">
-        <div class="logo">NR</div>
-        <div class="nav-links">
-          <a href="/">Home</a>
-          <a href="/services">Services</a>
-          <a href="/projects">Projects</a>
-          <a href="/contact">Contact</a>
+        <div class="logo">
+          <a href="/" class="logo-link">NR</a>
         </div>
+        <div class="nav-links">
+          <a href="/" class="nav-item">Home</a>
+          <a href="/services" class="nav-item">Services</a>
+          <a href="/projects" class="nav-item">Projects</a>
+          <a href="/contact" class="nav-item">Contact</a>
+        </div>
+        <button class="mobile-menu" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </nav>
     <main>
@@ -31,6 +39,8 @@ const { title } = Astro.props;
         --primary-color: #2563eb;
         --text-color: #1f2937;
         --background-color: #ffffff;
+        --hover-color: #1d4ed8;
+        --nav-height: 4rem;
       }
       
       * {
@@ -43,54 +53,123 @@ const { title } = Astro.props;
         font-family: 'Inter', sans-serif;
         color: var(--text-color);
         background: var(--background-color);
+        line-height: 1.6;
       }
 
       .navbar {
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
-        border-bottom: 1px solid #eaeaea;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        height: var(--nav-height);
       }
 
       .nav-content {
         max-width: 1200px;
+        height: 100%;
         margin: 0 auto;
-        padding: 1rem 2rem;
+        padding: 0 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
 
-      .logo {
+      .logo-link {
+        text-decoration: none;
         font-weight: 700;
         font-size: 1.5rem;
         color: var(--primary-color);
+        transition: transform 0.2s ease;
       }
 
-      .nav-links a {
-        margin-left: 2rem;
+      .logo-link:hover {
+        transform: scale(1.05);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-item {
         text-decoration: none;
         color: var(--text-color);
         font-weight: 500;
-        transition: color 0.2s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+        position: relative;
       }
 
-      .nav-links a:hover {
+      .nav-item::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+
+      .nav-item:hover::after {
+        width: 100%;
+      }
+
+      .nav-item:hover {
         color: var(--primary-color);
+        background: rgba(37, 99, 235, 0.1);
+      }
+
+      .mobile-menu {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .mobile-menu span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--text-color);
+        margin: 5px 0;
+        transition: all 0.3s ease;
       }
 
       main {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 6rem 2rem 2rem;
+        padding: calc(var(--nav-height) + 2rem) 2rem 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        .nav-content {
+          padding: 0 1rem;
+        }
+      }
+
+      @media (hover: hover) {
+        .nav-item:hover {
+          transform: translateY(-2px);
+        }
       }
 
       .fade-in {
         opacity: 0;
-        animation: fadeIn 1s ease forwards;
+        animation: fadeIn 0.8s ease forwards;
       }
 
       .slide-up {
