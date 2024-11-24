@@ -25,12 +25,17 @@ export async function POST({ request }) {
 
     return new Response(JSON.stringify({ id: session.id }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   } catch (error) {
+    console.error('Stripe session error:', error);
     return new Response(JSON.stringify({ error: error.message }), {
       status: 400,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   }
 }
