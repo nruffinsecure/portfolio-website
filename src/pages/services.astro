@@ -16,7 +16,9 @@ import ServicesHero from '../components/ServicesHero.astro';
           <li>Contact Form</li>
           <li>Basic SEO</li>
         </ul>
-        <a href="/contact" class="learn-more">Learn More <span class="arrow">→</span></a>
+        <button id="basic-payment" class="payment-button">
+          Pay Now <span class="arrow">→</span>
+        </button>
       </div>
 
       <div class="service-card slide-up">
@@ -28,7 +30,9 @@ import ServicesHero from '../components/ServicesHero.astro';
           <li>Advanced Features</li>
           <li>SEO Optimization</li>
         </ul>
-        <a href="/contact" class="learn-more">Learn More <span class="arrow">→</span></a>
+        <button id="standard-payment" class="payment-button">
+          Pay Now <span class="arrow">→</span>
+        </button>
       </div>
 
       <div class="service-card slide-up">
@@ -40,10 +44,55 @@ import ServicesHero from '../components/ServicesHero.astro';
           <li>Security Monitoring</li>
           <li>Performance Optimization</li>
         </ul>
-        <a href="/contact" class="learn-more">Learn More <span class="arrow">→</span></a>
+        <button id="maintenance-payment" class="payment-button">
+          Pay Now <span class="arrow">→</span>
+        </button>
       </div>
     </div>
   </div>
+
+  <script>
+    import { loadStripe } from '@stripe/stripe-js';
+    
+    const stripe = await loadStripe(import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
+    const prices = {
+      'basic': 180000,
+      'standard': 350000,
+      'maintenance': 15000
+    };
+
+    const handlePayment = async (serviceType) => {
+      try {
+        const response = await fetch('/api/create-checkout-session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            serviceType,
+            amount: prices[serviceType]
+          })
+        });
+
+        const session = await response.json();
+        
+        const result = await stripe.redirectToCheckout({
+          sessionId: session.id,
+        });
+
+        if (result.error) {
+          console.error(result.error);
+        }
+      } catch (error) {
+        console.error('Payment error:', error);
+      }
+    };
+
+    document.getElementById('basic-payment').addEventListener('click', () => handlePayment('basic'));
+    document.getElementById('standard-payment').addEventListener('click', () => handlePayment('standard'));
+    document.getElementById('maintenance-payment').addEventListener('click', () => handlePayment('maintenance'));
+  </script>
 
   <style>
     .services {
@@ -97,14 +146,18 @@ import ServicesHero from '../components/ServicesHero.astro';
       color: #4b5563;
     }
 
-    .learn-more {
+    .payment-button {
       display: inline-flex;
       align-items: center;
       color: #2563eb;
-      text-decoration: none;
+      background: none;
+      border: none;
       font-weight: 500;
       margin-top: 1.5rem;
+      cursor: pointer;
       transition: all 0.2s ease;
+      font-size: 1rem;
+      padding: 0;
     }
 
     .arrow {
@@ -112,11 +165,11 @@ import ServicesHero from '../components/ServicesHero.astro';
       transition: transform 0.2s ease;
     }
 
-    .learn-more:hover {
+    .payment-button:hover {
       transform: translateX(4px);
     }
 
-    .learn-more:hover .arrow {
+    .payment-button:hover .arrow {
       transform: translateX(4px);
     }
   </style>
