@@ -3,106 +3,222 @@ import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout title="Home | Web Developer">
-  <section class="hero">
-    <div class="cloud-container">
-      <img src="/images/home_cloud.jpg" alt="Dramatic cloud formation" class="cloud-image" />
-    </div>
-    <div class="content-wrapper fade-in">
-      <h1 class="slide-up">Web Development Services</h1>
-      <p class="subtitle slide-up">Professional websites for businesses and creators</p>
-      <div class="cta-buttons slide-up">
-        <a href="/services" class="cta-primary">View Services</a>
-        <a href="/contact" class="cta-secondary">Contact Me</a>
+  <div class="hero-wrapper">
+    <section class="hero-section">
+      <picture>
+        <source srcset="/images/mountain_one.jpg" type="image/jpeg">
+        <img 
+          src="/images/mountain_one.jpg" 
+          alt="Dramatic mountain peak" 
+          class="hero-image"
+          width="1920"
+          height="1080"
+          fetchpriority="high"
+        >
+      </picture>
+      <div class="hero-content">
+        <span class="service-tag">WEBSITE DESIGN & DEVELOPMENT</span>
+        <h1>Elevate Your Digital Presence</h1>
+        <h2>Modern solutions for the digital age</h2>
+        <div class="cta-wrapper">
+          <a href="/services">Learn more <span class="arrow">></span></a>
+          <a href="/quote-form">Get started <span class="arrow">></span></a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="feature-section dark">
+      <div class="feature-content">
+        <h2>Cloud-Powered Performance</h2>
+        <h3>Built on Cloudflare's global network.</h3>
+        <a href="/services" class="learn-more">Learn more <span class="arrow">></span></a>
+      </div>
+      <div class="feature-image">
+        <img src="/images/mountain_two.jpg" alt="Cloud infrastructure" width="1920" height="1080">
+      </div>
+    </section>
+
+    <section class="feature-section light">
+      <div class="feature-image">
+        <img src="/images/mountain_three.jpg" alt="Modern design" width="1920" height="1080">
+      </div>
+      <div class="feature-content">
+        <h2>Modern Design</h2>
+        <h3>Responsive websites that work everywhere.</h3>
+        <a href="/projects" class="learn-more">See our work <span class="arrow">></span></a>
+      </div>
+    </section>
+
+    <section class="feature-section dark">
+      <div class="feature-content">
+        <h2>Enterprise Security</h2>
+        <h3>Protected by industry-leading security.</h3>
+        <a href="/services" class="learn-more">Learn more <span class="arrow">></span></a>
+      </div>
+      <div class="feature-image">
+        <img src="/images/mountain_four.jpg" alt="Security infrastructure" width="1920" height="1080">
+      </div>
+    </section>
+  </div>
 
   <style>
-    .hero {
-      position: relative;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .hero-wrapper {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
-      padding: 2rem;
     }
 
-    .cloud-container {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .hero-section {
+      position: relative;
       width: 100%;
       height: 100%;
-      z-index: 1;
     }
 
-    .cloud-image {
+    .hero-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      opacity: 0.8;
     }
 
-    .content-wrapper {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      padding: 0 20px;
+      color: #fff;
+    }
+
+    .service-tag {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700;
-      background: linear-gradient(45deg, #2563eb, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-      line-height: 1.2;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
     }
 
-    .subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: #4b5563;
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 400;
       margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      opacity: 0.9;
     }
 
-    .cta-buttons {
+    .feature-section {
+      width: 100vw;
+      min-height: 100vh;
       display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
+      padding: 0;
+      overflow: hidden;
     }
 
-    .cta-primary, .cta-secondary {
-      padding: 0.875rem 2rem;
-      border-radius: 8px;
+    .feature-section.dark {
+      background-color: #000;
+      color: #f5f5f7;
+    }
+
+    .feature-section.light {
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+    }
+
+    .feature-content {
+      flex: 1;
+      padding: 0 6rem;
+      text-align: center;
+    }
+
+    .feature-image {
+      flex: 1;
+      height: 100vh;
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feature-section h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-section h3 {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .cta-wrapper, .learn-more {
+      color: #2997ff;
       text-decoration: none;
-      font-weight: 500;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1.2rem;
+      transition: opacity 0.3s ease;
     }
 
-    .cta-primary {
-      background: #2563eb;
-      color: white;
+    .cta-wrapper {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
     }
 
-    .cta-secondary {
-      border: 2px solid #2563eb;
-      color: #2563eb;
+    .cta-wrapper a {
+      color: #2997ff;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
     }
 
-    .cta-primary:hover, .cta-secondary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
+    .cta-wrapper a:hover, .learn-more:hover {
+      opacity: 0.7;
     }
 
-    @med
+    .arrow {
+      display: inline-block;
+      margin-left: 0.2em;
+    }
+
+    @media (max-width: 768px) {
+      .feature-section {
+        flex-direction: column;
+      }
+
+      .feature-content {
+        padding: 4rem 2rem;
+      }
+
+      .feature-image {
+        height: 60vh;
+      }
+
+      .feature-section.light .feature-image {
+        order: -1;
+      }
+
+      .cta-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</MainLayout>

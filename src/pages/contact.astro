@@ -1,12 +1,16 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 ---
+
 <MainLayout title="Contact | Web Developer">
-  <div class="contact fade-in">
-    <h1 class="slide-up">Get In Touch</h1>
-    <p class="subtitle slide-up">Let's discuss your project</p>
-    
-    <div class="contact-container slide-up">
+  <div class="contact-container">
+    <div class="contact-header">
+      <span class="contact-tag">GET IN TOUCH</span>
+      <h1>Let's discuss your project</h1>
+      <p>Transform your digital presence with a custom website</p>
+    </div>
+
+    <div class="form-section">
       <form action="https://formspree.io/f/mjkvovpw" method="POST" class="contact-form">
         <div class="form-group">
           <label for="name">Name</label>
@@ -23,92 +27,135 @@ import MainLayout from '../layouts/MainLayout.astro';
           <textarea id="message" name="message" rows="5" required></textarea>
         </div>
         
-        <button type="submit">Send Message</button>
+        <button type="submit">Send Message <span class="arrow">></span></button>
       </form>
     </div>
   </div>
 
   <style>
-    .contact {
-      max-width: 800px;
-      margin: 0 auto;
-      padding-top: 2rem;
+    .contact-container {
+      width: 100%;
+      min-height: 100vh;
+      background: #000;
+      color: #f5f5f7;
+      padding: 120px 20px;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+
+    .contact-tag {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: #2997ff;
+      margin-bottom: 16px;
+      display: block;
     }
 
     h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(45deg, #2563eb, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.003em;
     }
 
-    .subtitle {
-      text-align: center;
-      color: #4b5563;
-      margin-bottom: 3rem;
+    .contact-header p {
+      font-size: 21px;
+      color: #86868b;
     }
 
-    .contact-container {
-      padding: 2rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .form-section {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 18px;
+      backdrop-filter: blur(20px);
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      max-width: 600px;
-      margin: 0 auto;
+      gap: 24px;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 8px;
     }
 
     label {
+      font-size: 14px;
+      color: #f5f5f7;
       font-weight: 500;
-      color: #1f2937;
     }
 
     input, textarea {
-      padding: 0.75rem;
-      border: 1px solid #e5e7eb;
-      border-radius: 6px;
-      font-family: inherit;
-      transition: border-color 0.2s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 9px;
+      padding: 12px 16px;
+      color: #f5f5f7;
+      font-size: 16px;
+      transition: all 0.3s ease;
     }
 
     input:focus, textarea:focus {
       outline: none;
-      border-color: #2563eb;
+      border-color: #2997ff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
     }
 
     button {
-      padding: 0.75rem 1.5rem;
-      background: #2563eb;
-      color: white;
+      background: #2997ff;
+      color: #fff;
       border: none;
-      border-radius: 6px;
-      font-weight: 500;
+      border-radius: 50px;
+      padding: 12px 32px;
+      font-size: 17px;
+      font-weight: 400;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: opacity 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
     }
 
     button:hover {
-      transform: translateY(-2px);
-      background: #1d4ed8;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+      opacity: 0.8;
+    }
+
+    .arrow {
+      font-size: 14px;
     }
 
     @media (max-width: 768px) {
       .contact-container {
-        padding: 1.5rem;
+        padding: 80px 20px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .contact-header p {
+        font-size: 17px;
+      }
+
+      .form-section {
+        padding: 24px;
       }
     }
   </style>

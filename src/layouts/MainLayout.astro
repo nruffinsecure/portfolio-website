@@ -6,7 +6,7 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,11 +37,11 @@ const { title } = Astro.props;
 
     <style is:global>
       :root {
-        --primary-color: #2563eb;
-        --text-color: #1f2937;
-        --background-color: #ffffff;
-        --hover-color: #1d4ed8;
-        --nav-height: 4rem;
+        --primary-color: #2997ff;
+        --text-color: #f5f5f7;
+        --background-color: #000;
+        --hover-color: #0077ed;
+        --nav-height: 44px;
       }
       
       * {
@@ -50,79 +50,77 @@ const { title } = Astro.props;
         box-sizing: border-box;
       }
 
+      html, body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         color: var(--text-color);
         background: var(--background-color);
-        line-height: 1.6;
+        line-height: 1.47059;
+        letter-spacing: -0.022em;
       }
 
       .navbar {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
         position: fixed;
         width: 100%;
         top: 0;
-        z-index: 1000;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
         height: var(--nav-height);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .nav-content {
-        max-width: 1200px;
+        max-width: 980px;
         height: 100%;
         margin: 0 auto;
-        padding: 0 2rem;
+        padding: 0 22px;
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
 
       .logo-link {
+        color: var(--text-color);
+        font-size: 21px;
+        font-weight: 600;
         text-decoration: none;
-        font-weight: 700;
-        font-size: 1.5rem;
-        color: var(--primary-color);
-        transition: transform 0.2s ease;
+        opacity: 0.8;
+        transition: opacity 0.3s;
       }
 
       .logo-link:hover {
-        transform: scale(1.05);
+        opacity: 1;
       }
 
       .nav-links {
         display: flex;
-        gap: 2rem;
+        gap: 2.4em;
       }
 
       .nav-item {
-        text-decoration: none;
         color: var(--text-color);
-        font-weight: 500;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        transition: all 0.2s ease;
-        position: relative;
-      }
-
-      .nav-item::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-color);
-        transition: width 0.3s ease;
-      }
-
-      .nav-item:hover::after {
-        width: 100%;
+        text-decoration: none;
+        font-size: 12px;
+        opacity: 0.8;
+        transition: opacity 0.3s;
       }
 
       .nav-item:hover {
-        color: var(--primary-color);
-        background: rgba(37, 99, 235, 0.1);
+        opacity: 1;
+      }
+
+      main {
+        width: 100vw;
+        margin: 0;
+        padding-top: var(--nav-height);
       }
 
       .mobile-menu {
@@ -130,39 +128,33 @@ const { title } = Astro.props;
         background: none;
         border: none;
         cursor: pointer;
-        padding: 0.5rem;
+        padding: 0;
       }
 
       .mobile-menu span {
         display: block;
-        width: 25px;
-        height: 2px;
+        width: 18px;
+        height: 1.5px;
         background: var(--text-color);
-        margin: 5px 0;
+        margin: 4px 0;
         transition: all 0.3s ease;
       }
 
       @media (max-width: 768px) {
         .nav-links {
-          display: flex;
+          display: none;
           position: fixed;
           top: var(--nav-height);
           left: 0;
           right: 0;
-          background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(10px);
+          background: rgba(0, 0, 0, 0.95);
+          padding: 1rem;
           flex-direction: column;
           align-items: center;
-          padding: 2rem;
-          gap: 2rem;
-          transform: translateY(-100vh);
-          transition: transform 0.3s ease-in-out;
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-          z-index: 999;
         }
 
         .nav-links.active {
-          transform: translateY(0);
+          display: flex;
         }
 
         .mobile-menu {
@@ -179,55 +171,6 @@ const { title } = Astro.props;
 
         .mobile-menu.active span:nth-child(3) {
           transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        .nav-content {
-          padding: 0 1rem;
-        }
-
-        .nav-item {
-          width: 100%;
-          text-align: center;
-          padding: 1rem;
-        }
-      }
-
-      main {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: calc(var(--nav-height) + 2rem) 2rem 2rem;
-      }
-
-      @media (hover: hover) {
-        .nav-item:hover {
-          transform: translateY(-2px);
-        }
-      }
-
-      .fade-in {
-        opacity: 0;
-        animation: fadeIn 0.8s ease forwards;
-      }
-
-      .slide-up {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: slideUp 0.8s ease forwards;
-      }
-
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
         }
       }
     </style>
@@ -247,21 +190,9 @@ const { title } = Astro.props;
         }
 
         hamburger.addEventListener('click', toggleMenu);
-
-        const menuItems = document.querySelectorAll('.nav-item');
-        menuItems.forEach(item => {
-          item.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-              toggleMenu();
-            }
-          });
-        });
       }
 
-      // Initialize on page load
       initializeMenu();
-
-      // Reinitialize after page transitions
       document.addEventListener('astro:after-swap', initializeMenu);
     </script>
   </body>

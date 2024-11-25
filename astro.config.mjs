@@ -15,5 +15,19 @@ export default defineConfig({
         usePolling: true,
       },
     },
+    build: {
+      cssCodeSplit: false,
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
+        },
+      },
+    },
+    optimizeDeps: {
+      exclude: ['@astrojs/cloudflare'],
+    },
+    ssr: {
+      noExternal: ['@astrojs/cloudflare'],
+    },
   },
 });
