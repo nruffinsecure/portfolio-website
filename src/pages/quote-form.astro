@@ -233,17 +233,22 @@ import MainLayout from '../layouts/MainLayout.astro';
     }
   </style>
 
-  <script>
-    document.getElementById('requirementsForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      const formObject = Object.fromEntries(formData);
-      
-      // Here you would typically send the form data to your backend
-      console.log('Form submitted:', formObject);
-      
-      alert('Thank you! We will review your requirements and contact you shortly.');
-      e.target.reset();
-    });
+  <script define:vars={{ serviceType: Astro.url.searchParams.get('type') }}>
+    const form = document.getElementById('requirementsForm');
+    
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formElement = e.currentTarget;
+        if (formElement instanceof HTMLFormElement) {
+          const formData = new FormData(formElement);
+          const formObject = Object.fromEntries(formData);
+          
+          console.log('Form submitted:', formObject);
+          alert('Thank you! We will review your requirements and contact you shortly.');
+          formElement.reset();
+        }
+      });
+    }
   </script>
 </MainLayout>
