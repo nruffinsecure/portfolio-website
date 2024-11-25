@@ -1,0 +1,249 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Website Requirements | Web Developer">
+  <div class="hero-section">
+    <img src="/images/servicebench.jpg" alt="Service Bench" class="hero-image">
+    <div class="hero-overlay">
+      <h1>Let's Build Your Website</h1>
+      <p>Tell us about your project requirements</p>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <form id="requirementsForm" class="quote-form">
+      <div class="form-section">
+        <h2>Basic Information</h2>
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>Project Details</h2>
+        <div class="form-group">
+          <label for="businessType">Type of Business/Project</label>
+          <input type="text" id="businessType" name="businessType" placeholder="e.g., Restaurant, E-commerce, Portfolio" required>
+        </div>
+
+        <div class="form-group">
+          <label>Required Features</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item">
+              <input type="checkbox" name="features" value="responsive">
+              Responsive Design
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="features" value="contact">
+              Contact Form
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="features" value="gallery">
+              Image Gallery
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="features" value="blog">
+              Blog Section
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="features" value="ecommerce">
+              E-commerce
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="features" value="seo">
+              SEO Optimization
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="timeline">Desired Timeline</label>
+          <select id="timeline" name="timeline" required>
+            <option value="">Select Timeline</option>
+            <option value="1month">Within 1 month</option>
+            <option value="2months">1-2 months</option>
+            <option value="3months">2-3 months</option>
+            <option value="flexible">Flexible</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Budget Range</label>
+          <select id="budget" name="budget" required>
+            <option value="">Select Budget Range</option>
+            <option value="1000-2000">$1,000 - $2,000</option>
+            <option value="2000-5000">$2,000 - $5,000</option>
+            <option value="5000plus">$5,000+</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Additional Requirements or Comments</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us more about your project needs..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-button">Submit Request</button>
+    </form>
+  </div>
+
+  <style>
+    .hero-section {
+      position: relative;
+      height: 400px;
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero-overlay h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: 2rem auto 4rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-section {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .form-section h2 {
+      color: #1f2937;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #4b5563;
+    }
+
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 0.5rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.375rem;
+      font-size: 1rem;
+      color: #1f2937;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      ring: 2px solid #2563eb;
+    }
+
+    .submit-button {
+      background: #2563eb;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 0.375rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      width: 100%;
+    }
+
+    .submit-button:hover {
+      background: #1d4ed8;
+    }
+
+    @media (max-width: 640px) {
+      .hero-section {
+        height: 300px;
+      }
+
+      .hero-overlay h1 {
+        font-size: 2rem;
+      }
+
+      .form-container {
+        margin: 1rem;
+        padding: 1rem;
+      }
+    }
+  </style>
+
+  <script>
+    document.getElementById('requirementsForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const formObject = Object.fromEntries(formData);
+      
+      // Here you would typically send the form data to your backend
+      console.log('Form submitted:', formObject);
+      
+      alert('Thank you! We will review your requirements and contact you shortly.');
+      e.target.reset();
+    });
+  </script>
+</MainLayout>

@@ -1,11 +1,10 @@
 import Stripe from 'stripe';
 
-export async function POST({ request }) {
-  const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY);
+export async function onRequest({ request, env }) {
+  const stripe = new Stripe(env.STRIPE_SECRET_KEY);
 
   try {
     const data = await request.json();
-    
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [{
@@ -19,23 +18,17 @@ export async function POST({ request }) {
         quantity: 1,
       }],
       mode: 'payment',
-      success_url: `${import.meta.env.PUBLIC_SITE_URL}/thank-you`,
-      cancel_url: `${import.meta.env.PUBLIC_SITE_URL}/services`,
+      success_url: `${env.PUBLIC_SITE_URL}/thank-you`,
+      cancel_url: `${env.PUBLIC_SITE_URL}/services`,
     });
 
     return new Response(JSON.stringify({ id: session.id }), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    console.error('Stripe session error:', error);
     return new Response(JSON.stringify({ error: error.message }), {
       status: 400,
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
     });
   }
 }
