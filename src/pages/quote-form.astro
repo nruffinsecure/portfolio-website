@@ -12,7 +12,7 @@ import MainLayout from '../layouts/MainLayout.astro';
   </div>
 
   <div class="form-container">
-    <form id="requirementsForm" class="quote-form">
+    <form action="https://formspree.io/f/mjkvovpw" method="POST" class="quote-form">
       <div class="form-section">
         <h2>Basic Information</h2>
         <div class="form-group">
@@ -42,27 +42,27 @@ import MainLayout from '../layouts/MainLayout.astro';
           <label>Required Features</label>
           <div class="checkbox-grid">
             <label class="checkbox-item">
-              <input type="checkbox" name="features" value="responsive">
+              <input type="checkbox" name="features[]" value="responsive">
               Responsive Design
             </label>
             <label class="checkbox-item">
-              <input type="checkbox" name="features" value="contact">
+              <input type="checkbox" name="features[]" value="contact">
               Contact Form
             </label>
             <label class="checkbox-item">
-              <input type="checkbox" name="features" value="gallery">
+              <input type="checkbox" name="features[]" value="gallery">
               Image Gallery
             </label>
             <label class="checkbox-item">
-              <input type="checkbox" name="features" value="blog">
+              <input type="checkbox" name="features[]" value="blog">
               Blog Section
             </label>
             <label class="checkbox-item">
-              <input type="checkbox" name="features" value="ecommerce">
+              <input type="checkbox" name="features[]" value="ecommerce">
               E-commerce
             </label>
             <label class="checkbox-item">
-              <input type="checkbox" name="features" value="seo">
+              <input type="checkbox" name="features[]" value="seo">
               SEO Optimization
             </label>
           </div>
@@ -95,6 +95,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         </div>
       </div>
 
+      <input type="hidden" name="_next" value="/thank-you">
       <button type="submit" class="submit-button">Submit Request</button>
     </form>
   </div>
@@ -232,23 +233,4 @@ import MainLayout from '../layouts/MainLayout.astro';
       }
     }
   </style>
-
-  <script define:vars={{ serviceType: Astro.url.searchParams.get('type') }}>
-    const form = document.getElementById('requirementsForm');
-    
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formElement = e.currentTarget;
-        if (formElement instanceof HTMLFormElement) {
-          const formData = new FormData(formElement);
-          const formObject = Object.fromEntries(formData);
-          
-          console.log('Form submitted:', formObject);
-          alert('Thank you! We will review your requirements and contact you shortly.');
-          formElement.reset();
-        }
-      });
-    }
-  </script>
 </MainLayout>
