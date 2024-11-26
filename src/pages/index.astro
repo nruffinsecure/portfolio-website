@@ -45,7 +45,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       <div class="feature-content">
         <h2>Modern Design</h2>
         <h3>Responsive websites that work everywhere</h3>
-        <a href="/projects" class="learn-more">See my work <span class="arrow">></span></a>
+        <a href="/projects" class="learn-more">See our work <span class="arrow">></span></a>
       </div>
     </section>
 
@@ -63,9 +63,17 @@ import MainLayout from '../layouts/MainLayout.astro';
 </MainLayout>
 
 <style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
   .container {
     width: 100%;
     position: relative;
+    overflow-y: visible;
+    max-width: 100%;
   }
 
   .hero-section {
