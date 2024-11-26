@@ -59,21 +59,46 @@ import MainLayout from '../layouts/MainLayout.astro';
         <img src="/images/mountain_four.jpg" alt="Performance showcase" width="1920" height="1080">
       </div>
     </section>
+
+    <section class="feature-section light">
+      <div class="feature-image">
+        <img src="/images/mountain_two.jpg" alt="Scenic view" width="1920" height="1080">
+      </div>
+      <div class="feature-content">
+        <h2>Basic Website Package</h2>
+        <span class="price">From $1,800</span>
+        <div class="features">
+          <span class="feature-item">5 Pages</span>
+          <span class="feature-item">Responsive Design</span>
+          <span class="feature-item">Contact Form</span>
+          <span class="feature-item">Basic SEO</span>
+        </div>
+        <a href="/quote-form" class="cta-button">Get Started <span class="arrow">></span></a>
+      </div>
+    </section>
+
+    <section class="feature-section dark">
+      <div class="feature-content">
+        <h2>Standard Website Package</h2>
+        <span class="price">From $3,500</span>
+        <div class="features">
+          <span class="feature-item">Up to 10 Pages</span>
+          <span class="feature-item">Custom Design</span>
+          <span class="feature-item">Advanced Features</span>
+          <span class="feature-item">SEO Optimization</span>
+        </div>
+        <a href="/quote-form" class="cta-button">Get Started <span class="arrow">></span></a>
+      </div>
+      <div class="feature-image">
+        <img src="/images/mountain_five.jpg" alt="Premium services" width="1920" height="1080">
+      </div>
+    </section>
   </div>
 </MainLayout>
-
 <style>
-  :global(body) {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-
   .container {
     width: 100%;
     position: relative;
-    overflow-y: visible;
-    max-width: 100%;
   }
 
   .hero-section {
@@ -177,6 +202,35 @@ import MainLayout from '../layouts/MainLayout.astro';
     opacity: 0.8;
   }
 
+  .price {
+    display: block;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--primary-color);
+    margin: 1.5rem 0;
+    font-weight: 600;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+    align-items: center;
+  }
+
+  .feature-item {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    padding: 0.5rem 1rem;
+    background: rgba(41, 151, 255, 0.1);
+    border-radius: 25px;
+    min-width: 200px;
+  }
+
+  .dark .feature-item {
+    background: rgba(41, 151, 255, 0.2);
+  }
+
   .cta-wrapper,
   .learn-more {
     color: #2997ff;
@@ -200,6 +254,24 @@ import MainLayout from '../layouts/MainLayout.astro';
   .cta-wrapper a:hover,
   .learn-more:hover {
     opacity: 0.7;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+
+  .cta-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(41, 151, 255, 0.3);
   }
 
   .arrow {
@@ -228,6 +300,21 @@ import MainLayout from '../layouts/MainLayout.astro';
     .cta-wrapper {
       flex-direction: column;
       gap: 1rem;
+    }
+
+    .price {
+      font-size: 2rem;
+    }
+
+    .feature-item {
+      font-size: 1.1rem;
+      min-width: 180px;
+    }
+
+    .cta-button {
+      width: 100%;
+      text-align: center;
+      padding: 1.2rem 2rem;
     }
   }
 </style>
