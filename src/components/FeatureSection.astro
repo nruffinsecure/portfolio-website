@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  variant: 'dark' | 'light';
+  title: string;
+  subtitle: string;
+  imageSrc: string;
+  imageAlt: string;
+  reversed?: boolean;
+}
+
+const { variant, title, subtitle, imageSrc, imageAlt, reversed = false } = Astro.props;
+---
+
+<section class={`feature-section ${variant}`}>
+  {!reversed && (
+    <div class="feature-content">
+      <h2>{title}</h2>
+      <h3>{subtitle}</h3>
+      <a href="/services" class="learn-more">Learn more <span class="arrow">></span></a>
+    </div>
+  )}
+  
+  <div class="feature-image">
+    <Image 
+      src={imageSrc}
+      alt={imageAlt}
+      width={1920}
+      height={1080}
+      format="avif"
+      quality={80}
+      loading="lazy"
+    />
+  </div>
+
+  {reversed && (
+    <div class="feature-content">
+      <h2>{title}</h2>
+      <h3>{subtitle}</h3>
+      <a href="/services" class="learn-more">Learn more <span class="arrow">></span></a>
+    </div>
+  )}
+</section>
+
+<style>
+  .feature-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Rest of feature section styles */
+</style>
