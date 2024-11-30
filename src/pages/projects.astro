@@ -10,70 +10,97 @@ import MainLayout from '../layouts/MainLayout.astro';
       <p>Explore some of my latest work</p>
     </div>
 
-    <section class="project-section">
-      <div class="project-content">
-        <h2>E-commerce Website</h2>
-        <p class="project-description">Modern online store with a full product catalog and secure checkout process.</p>
-        <div class="tech-stack">
-          <span>React</span>
-          <span>Node.js</span>
-          <span>MongoDB</span>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-content">
+          <h2>E-commerce Website</h2>
+          <p class="project-description">Modern JAMstack e-commerce template focused on performance and type safety. Features include shopping cart management, checkout process, and comprehensive product catalog.</p>
+          <div class="tech-stack">
+            <span>Astro.js</span>
+            <span>TypeScript</span>
+            <span>Tailwind CSS</span>
+            <span>Static SSG</span>
+          </div>
+          <div class="project-image">
+            <img src="/images/ecommerce.jpg" alt="E-commerce Website" />
+          </div>
+          <div class="cta-links">
+            <a href="#" class="cta-button" onclick="openDemo('https://ecommerce-template-29l.pages.dev')">
+              View Demo <span class="arrow">></span>
+            </a>
+            <a href="/quote-form?type=ecommerce" class="cta-button">
+              Want something similar? <span class="arrow">></span>
+            </a>
+          </div>
         </div>
-        <a href="/quote-form?type=ecommerce" class="cta-link">Want something similar? <span class="arrow">></span></a>
       </div>
-      <div class="project-image">
-        <img src="/images/ecommerce.jpg" alt="E-commerce Website" width="1920" height="1080" />
-      </div>
-    </section>
 
-    <section class="project-section reverse">
-      <div class="project-image">
-        <img src="/images/portfolio.jpg" alt="Portfolio Website" width="1920" height="1080" />
-      </div>
-      <div class="project-content">
-        <h2>Portfolio Website</h2>
-        <p class="project-description">Creative showcase for professionals with a clean and minimalist design.</p>
-        <div class="tech-stack">
-          <span>Astro</span>
-          <span>JavaScript</span>
-          <span>CSS</span>
+      <div class="project-card">
+        <div class="project-content">
+          <h2>Portfolio Website</h2>
+          <p class="project-description">Creative showcase for professionals with a clean and minimalist design.</p>
+          <div class="tech-stack">
+            <span>Astro</span>
+            <span>JavaScript</span>
+            <span>CSS</span>
+          </div>
+          <div class="project-image">
+            <img src="/images/portfolio.jpg" alt="Portfolio Website" />
+          </div>
+          <div class="cta-links">
+            <a href="/quote-form?type=portfolio" class="cta-button">
+              Looking for yours? <span class="arrow">></span>
+            </a>
+          </div>
         </div>
-        <a href="/quote-form?type=portfolio" class="cta-link">Looking for yours? <span class="arrow">></span></a>
       </div>
-    </section>
 
-    <section class="project-section">
-      <div class="project-content">
-        <h2>Business Landing Page</h2>
-        <p class="project-description">Conversion-focused landing page built for lead generation.</p>
-        <div class="tech-stack">
-          <span>Next.js</span>
-          <span>Tailwind</span>
-          <span>Analytics</span>
+      <div class="project-card">
+        <div class="project-content">
+          <h2>Business Landing Page</h2>
+          <p class="project-description">Conversion-focused landing page built for lead generation.</p>
+          <div class="tech-stack">
+            <span>Next.js</span>
+            <span>Tailwind</span>
+            <span>Analytics</span>
+          </div>
+          <div class="project-image">
+            <img src="/images/business.jpg" alt="Business Landing Page" />
+          </div>
+          <div class="cta-links">
+            <a href="/quote-form?type=landing" class="cta-button">
+              Should we get started? <span class="arrow">></span>
+            </a>
+          </div>
         </div>
-        <a href="/quote-form?type=landing" class="cta-link">Should we get started? <span class="arrow">></span></a>
       </div>
-      <div class="project-image">
-        <img src="/images/business.jpg" alt="Business Landing Page" width="1920" height="1080" />
+    </div>
+
+    <div id="demo-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <iframe src="" id="demo-frame"></iframe>
       </div>
-    </section>
+    </div>
   </div>
 
   <style>
     .projects-container {
-      width: 100%;
+      min-height: 100vh;
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                   url('/images/mountain_two.jpg') no-repeat center center;
       background-size: cover;
       color: #f5f5f7;
-      padding: 120px 0;
+      padding: 120px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-
 
     .projects-header {
       text-align: center;
-      margin-bottom: 80px;
-      padding: 0 20px;
+      margin-bottom: 60px;
+      max-width: 600px;
     }
 
     .projects-tag {
@@ -96,35 +123,36 @@ import MainLayout from '../layouts/MainLayout.astro';
       color: #86868b;
     }
 
-    .project-section {
+    .projects-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      width: 100%;
       max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 20px;
     }
 
-    .project-section.reverse {
-      direction: rtl;
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 18px;
+      backdrop-filter: blur(20px);
+      padding: 32px;
+      transition: transform 0.3s ease;
     }
 
-    .project-section.reverse .project-content {
-      direction: ltr;
+    .project-card:hover {
+      transform: translateY(-8px);
     }
 
     .project-content {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 0 40px;
+      height: 100%;
     }
 
     h2 {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 600;
       margin-bottom: 16px;
-      letter-spacing: -0.002em;
     }
 
     .project-description {
@@ -136,8 +164,8 @@ import MainLayout from '../layouts/MainLayout.astro';
 
     .tech-stack {
       display: flex;
-      gap: 12px;
-      margin-bottom: 32px;
+      gap: 8px;
+      margin-bottom: 24px;
       flex-wrap: wrap;
     }
 
@@ -150,23 +178,33 @@ import MainLayout from '../layouts/MainLayout.astro';
     }
 
     .project-image {
-      overflow: hidden;
-      border-radius: 12px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  aspect-ratio: 16/9;
+  height: 200px; /* Fixed height for all images */
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease-out;
+}
+
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
     }
 
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.1);
-      transition: transform 0.6s ease-out;
+    .cta-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
     }
 
-    .project-section:hover .project-image img {
-      transform: scale(1);
-    }
-
-    .cta-link {
+    .cta-button {
       color: #2997ff;
       text-decoration: none;
       font-size: 17px;
@@ -176,40 +214,98 @@ import MainLayout from '../layouts/MainLayout.astro';
       transition: opacity 0.3s;
     }
 
-    .cta-link:hover {
+    .cta-button:hover {
       opacity: 0.7;
+    }
+
+    .arrow {
+      font-size: 14px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      height: 90%;
+      margin: 2% auto;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      color: #f5f5f7;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    #demo-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     @media (max-width: 768px) {
       .projects-container {
-        padding: 60px 0;
-      }
-
-      .projects-header {
-        margin-bottom: 40px;
+        padding: 80px 20px;
       }
 
       h1 {
         font-size: 32px;
       }
 
-      .project-section {
+      .projects-header p {
+        font-size: 17px;
+      }
+
+      .projects-grid {
         grid-template-columns: 1fr;
-        padding: 40px 20px;
-        gap: 24px;
-      }
-
-      .project-content {
-        padding: 0;
-      }
-
-      .project-section.reverse {
-        direction: ltr;
-      }
-
-      .project-image {
-        order: -1;
       }
     }
   </style>
+
+  <script is:inline>
+    function openDemo(url) {
+      const modal = document.getElementById('demo-modal');
+      const frame = document.getElementById('demo-frame');
+      if (modal && frame) {
+        frame.src = url;
+        modal.style.display = 'block';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('demo-modal');
+      const frame = document.getElementById('demo-frame');
+      const closeBtn = document.querySelector('.close-btn');
+
+      closeBtn?.addEventListener('click', () => {
+        if (modal && frame) {
+          modal.style.display = 'none';
+          frame.src = '';
+        }
+      });
+
+      window.addEventListener('click', (event) => {
+        if (event.target === modal && modal && frame) {
+          modal.style.display = 'none';
+          frame.src = '';
+        }
+      });
+    });
+  </script>
 </MainLayout>
