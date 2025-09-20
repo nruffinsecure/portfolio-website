@@ -15,7 +15,10 @@ import MainLayout from '../layouts/MainLayout.astro';
       <div class="major-project-card">
         <h2>Comprehensive Solution: De-Identification, Tokenization, & Automated Delivery</h2>
         <div class="stage-block">
-          <div class="stage-label">Stage 1</div>
+          <div class="stage-title">
+            <span>Stage 1</span>
+            <hr />
+          </div>
           <strong>Snowflake Data Transformation & De-ID</strong>
           <p>
             Advanced Snowflake stored procedures and ETL pipelines enabled high-volume claims processing, cleansing, and de-identification—meeting the strictest privacy and compliance needs.
@@ -23,7 +26,10 @@ import MainLayout from '../layouts/MainLayout.astro';
           <a href="/projects/snowflake-transformation" class="phase-link">See Stage 1 Details &rarr;</a>
         </div>
         <div class="stage-block">
-          <div class="stage-label">Stage 2</div>
+          <div class="stage-title">
+            <span>Stage 2</span>
+            <hr />
+          </div>
           <strong>Datavant Tokenization & Vendor Collaboration</strong>
           <p>
             Led Datavant application registration, direct vendor collaboration, and end-to-end tokenization setup—ensuring full mapping, testing, and privacy-preserving data linkage for analytics, partner exchange, and audit.
@@ -31,7 +37,10 @@ import MainLayout from '../layouts/MainLayout.astro';
           <a href="/projects/datavant-tokenization" class="phase-link">See Stage 2 Details &rarr;</a>
         </div>
         <div class="stage-block">
-          <div class="stage-label">Stage 3</div>
+          <div class="stage-title">
+            <span>Stage 3</span>
+            <hr />
+          </div>
           <strong>Automated Orchestration & Secure Client Delivery</strong>
           <p>
             Built robust Airflow (MWAA) pipelines using Python, AWS Lambda, IAM, S3, EventBridge scheduler, and YAML config—automating daily/historical data delivery for analytics and client teams with strong access controls.
@@ -117,22 +126,30 @@ import MainLayout from '../layouts/MainLayout.astro';
     }
     .stage-block {
       margin-bottom: 34px;
+      padding-left: 0;
       position: relative;
-      padding-left: 17px;
+      display: flex;
+      flex-direction: column;
     }
-    .stage-label {
-      position: absolute;
-      left: 0;
-      top: 7px;
-      background: #2997ff;
-      color: #fff;
-      font-size: 0.98rem;
+    .stage-title {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .stage-title span {
+      font-size: 1.1rem;
       font-weight: 700;
-      padding: 2px 16px;
-      border-radius: 13px;
-      box-shadow: 0 2px 9px rgba(41,151,255,0.08);
-      letter-spacing: 0.06em;
-      z-index: 2;
+      color: #2997ff;
+      background: transparent;
+      padding: 0;
+    }
+    .stage-title hr {
+      border: none;
+      border-top: 2px solid #2997ff;
+      flex: 1;
+      margin: 0;
+      opacity: 0.25;
     }
     .stage-block strong {
       display: block;
