@@ -2,76 +2,54 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Projects | Web Developer">
+<MainLayout title="Projects | Data Engineering Consultant">
   <div class="projects-container">
     <div class="projects-header">
-      <span class="projects-tag">FEATURED WORK</span>
-      <h1>Recent Projects</h1>
-      <p>Explore some of my latest work</p>
+      <span class="projects-tag">FLAGSHIP END-TO-END ENGAGEMENT</span>
+      <h1>Pharma Data Integration, Privacy, and Delivery Platform</h1>
+      <p>
+        Architected a unified platform for a leading pharmaceutical analytics client—handling secure cloud-based ETL, privacy-first tokenization, and automated daily data delivery. Below, each phase is broken out for clarity.
+      </p>
     </div>
-
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-content">
-          <h2>E-commerce Website</h2>
-          <p class="project-description">Modern JAMstack e-commerce template focused on performance and type safety. Features include shopping cart management, checkout process, and comprehensive product catalog.</p>
-          <div class="tech-stack">
-            <span>Astro.js</span>
-            <span>TypeScript</span>
-            <span>Tailwind CSS</span>
-            <span>Static SSG</span>
-          </div>
-          <div class="project-image">
-            <img src="/images/ecommerce.jpg" alt="E-commerce Website" />
-          </div>
-          <div class="cta-links">
-            <a href="#" class="cta-button" onclick="openDemo('https://ecommerce-template-29l.pages.dev')">
-              View Demo <span class="arrow">></span>
-            </a>
-            <a href="/quote-form?type=ecommerce" class="cta-button">
-              Want something similar? <span class="arrow">></span>
-            </a>
-          </div>
+    <div class="one-card-wrapper">
+      <div class="major-project-card">
+        <h2>Comprehensive Solution: De-Identification, Tokenization, & Automated Delivery</h2>
+        <div class="stage-block">
+          <div class="stage-label">Stage 1</div>
+          <strong>Snowflake Data Transformation & De-ID</strong>
+          <p>
+            Advanced Snowflake stored procedures and ETL pipelines enabled high-volume claims processing, cleansing, and de-identification—meeting the strictest privacy and compliance needs.
+          </p>
+          <a href="/projects/snowflake-transformation" class="phase-link">See Stage 1 Details &rarr;</a>
         </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-content">
-          <h2>Portfolio Website</h2>
-          <p class="project-description">Creative showcase for professionals with a clean and minimalist design.</p>
-          <div class="tech-stack">
-            <span>Astro</span>
-            <span>JavaScript</span>
-            <span>CSS</span>
-          </div>
-          <div class="project-image">
-            <img src="/images/portfolio.jpg" alt="Portfolio Website" />
-          </div>
-          <div class="cta-links">
-            <a href="/quote-form?type=portfolio" class="cta-button">
-              Looking for yours? <span class="arrow">></span>
-            </a>
-          </div>
+        <div class="stage-block">
+          <div class="stage-label">Stage 2</div>
+          <strong>Datavant Tokenization & Vendor Collaboration</strong>
+          <p>
+            Led Datavant application registration, direct vendor collaboration, and end-to-end tokenization setup—ensuring full mapping, testing, and privacy-preserving data linkage for analytics, partner exchange, and audit.
+          </p>
+          <a href="/projects/datavant-tokenization" class="phase-link">See Stage 2 Details &rarr;</a>
         </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-content">
-          <h2>Business Landing Page</h2>
-          <p class="project-description">Conversion-focused landing page built for lead generation.</p>
-          <div class="tech-stack">
-            <span>Next.js</span>
-            <span>Tailwind</span>
-            <span>Analytics</span>
-          </div>
-          <div class="project-image">
-            <img src="/images/business.jpg" alt="Business Landing Page" />
-          </div>
-          <div class="cta-links">
-            <a href="/quote-form?type=landing" class="cta-button">
-              Should we get started? <span class="arrow">></span>
-            </a>
-          </div>
+        <div class="stage-block">
+          <div class="stage-label">Stage 3</div>
+          <strong>Automated Orchestration & Secure Client Delivery</strong>
+          <p>
+            Built robust Airflow (MWAA) pipelines using Python, AWS Lambda, IAM, S3, EventBridge scheduler, and YAML config—automating daily/historical data delivery for analytics and client teams with strong access controls.
+          </p>
+          <a href="/projects/airflow-pipeline" class="phase-link">See Stage 3 Details &rarr;</a>
+        </div>
+        <div class="tech-stack-detail">
+          <strong>Tech Stack:</strong>
+          <span>Snowflake</span>
+          <span>SQL</span>
+          <span>AWS</span>
+          <span>S3</span>
+          <span>IAM</span>
+          <span>EventBridge</span>
+          <span>Lambda</span>
+          <span>Airflow</span>
+          <span>Python</span>
+          <span>YAML</span>
         </div>
       </div>
     </div>
@@ -80,175 +58,128 @@ import MainLayout from '../layouts/MainLayout.astro';
   <style>
     .projects-container {
       min-height: 100vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
                   url('/images/mountain_two.jpg') no-repeat center center;
       background-size: cover;
       color: #f5f5f7;
-      padding: 120px 20px;
+      padding: 110px 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
     .projects-header {
       text-align: center;
-      margin-bottom: 60px;
-      max-width: 600px;
+      margin-bottom: 48px;
+      max-width: 800px;
     }
-
     .projects-tag {
-      font-size: 12px;
-      letter-spacing: 0.1em;
+      font-size: 13px;
+      letter-spacing: 0.13em;
       color: #2997ff;
-      margin-bottom: 16px;
+      margin-bottom: 22px;
       display: block;
     }
-
     h1 {
-      font-size: 48px;
+      font-size: 45px;
       font-weight: 600;
-      margin-bottom: 16px;
-      letter-spacing: -0.003em;
+      margin-bottom: 14px;
     }
-
     .projects-header p {
       font-size: 21px;
-      color: #86868b;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 24px;
-      width: 100%;
-      max-width: 1200px;
-    }
-
-    .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 18px;
-      backdrop-filter: blur(20px);
-      padding: 32px;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .project-content {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    h2 {
-      font-size: 28px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .project-description {
-      font-size: 17px;
-      color: #86868b;
-      margin-bottom: 24px;
+      color: #b3b6c5;
+      margin-bottom: 0;
       line-height: 1.5;
     }
-
-    .tech-stack {
+    .one-card-wrapper {
       display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .tech-stack span {
-      font-size: 12px;
-      padding: 4px 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      color: #f5f5f7;
-    }
-
-    .project-image {
-      overflow: hidden;
-      border-radius: 12px;
-      margin-bottom: 24px;
-      aspect-ratio: 16/9;
-      height: 200px;
-    }
-
-    .project-image img {
+      justify-content: center;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease-out;
     }
-
-    .project-card:hover .project-image img {
-      transform: scale(1.05);
-    }
-
-    .cta-links {
+    .major-project-card {
+      background: rgba(255,255,255,0.075);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+      backdrop-filter: blur(13px) saturate(115%);
+      max-width: 640px;
+      padding: 54px 40px 44px 40px;
+      color: #f5f5f7;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-top: auto;
+      margin: 0 auto;
     }
-
-    .cta-button {
+    .major-project-card h2 {
+      font-size: 1.3rem;
+      color: #2997ff;
+      font-weight: 700;
+      margin-bottom: 1.3rem;
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+    .stage-block {
+      margin-bottom: 34px;
+      position: relative;
+      padding-left: 17px;
+    }
+    .stage-label {
+      position: absolute;
+      left: 0;
+      top: 7px;
+      background: #2997ff;
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 700;
+      padding: 2px 16px;
+      border-radius: 13px;
+      box-shadow: 0 2px 9px rgba(41,151,255,0.08);
+      letter-spacing: 0.06em;
+      z-index: 2;
+    }
+    .stage-block strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #8ecfff;
+      font-size: 1.01rem;
+    }
+    .stage-block p {
+      margin-bottom: 9px;
+      line-height: 1.64;
+      color: #e0e5fc;
+    }
+    .phase-link {
       color: #2997ff;
       text-decoration: none;
-      font-size: 17px;
-      display: inline-flex;
+      font-weight: 600;
+      font-size: 0.97rem;
+      margin-bottom: 0.2em;
+    }
+    .phase-link:hover {
+      color: #147bcd;
+      text-decoration: underline;
+    }
+    .tech-stack-detail {
+      margin-top: 1.2rem;
+      padding: 0.7rem 0.9rem;
+      background: rgba(41, 151, 255, 0.095);
+      border-radius: 13px;
+      font-size: 1.02rem;
+      color: #2997ff;
+      font-weight: 500;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
       align-items: center;
-      gap: 8px;
-      transition: opacity 0.3s;
+      justify-content: center;
     }
-
-    .cta-button:hover {
-      opacity: 0.7;
+    .tech-stack-detail strong {
+      font-weight: 700;
+      margin-right: 10px;
+      color: #147bcd;
     }
-
-    .arrow {
-      font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      .projects-container {
-        padding: 80px 20px;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      .projects-header p {
-        font-size: 17px;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .project-card {
-        padding: 24px;
-      }
-
-      .project-image {
-        height: 180px;
+    @media(max-width:940px){
+      .major-project-card {
+        max-width: 99vw;
+        padding: 18px 6vw 22px 6vw;
       }
     }
   </style>
-
-  <script is:inline>
-    function openDemo(url) {
-      if (window.innerWidth <= 768) {
-        window.open(url, '_blank');
-      } else {
-        window.open(url, '_blank');
-      }
-    }
-  </script>
 </MainLayout>

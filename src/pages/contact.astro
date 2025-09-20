@@ -2,18 +2,18 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Contact | Web Developer">
+<MainLayout title="Contact | Data Engineering Consultant">
   <div class="contact-container">
     <div class="contact-header">
       <span class="contact-tag">GET IN TOUCH</span>
-      <h1>Let's discuss your project</h1>
-      <p>Transform your digital presence with a custom website</p>
+      <h1>Start a Consulting Conversation</h1>
+      <p>Partner with a data engineering expert for secure pipelines, analytics, and privacy. Fill out the form below for a prompt response.</p>
     </div>
 
     <div class="form-section">
       <form action="https://formspree.io/f/mjkvovpw" method="POST" class="contact-form">
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name">Full Name</label>
           <input type="text" id="name" name="name" required>
         </div>
         
@@ -21,39 +21,51 @@ import MainLayout from '../layouts/MainLayout.astro';
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required>
         </div>
+
+        <div class="form-group">
+          <label for="company">Company/Organization <span style="color:#86868b; font-weight:400;">(optional)</span></label>
+          <input type="text" id="company" name="company">
+        </div>
         
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me about your data challenge, desired outcomes, or timeline..." required></textarea>
         </div>
         
-        <button type="submit">Send Message <span class="arrow">></span></button>
+        <button type="submit">Request Consultation <span class="arrow">></span></button>
       </form>
+      <div class="contact-alt">
+        <div class="contact-extra">
+          <span>Prefer email?</span>
+          <a href="mailto:nruffinsecure@gmail.com" class="email-link">nruffinsecure@gmail.com</a>
+        </div>
+        <div class="contact-extra">
+          <span>LinkedIn:</span>
+          <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" rel="noopener" class="linkedin-link">Connect Here</a>
+        </div>
+      </div>
     </div>
   </div>
 
   <style>
-.contact-container {
-  width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-              url('/images/mountain_three.jpg') no-repeat center center;
-  background-size: cover;
-  color: #f5f5f7;
-  padding: 120px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
+    .contact-container {
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                  url('/images/mountain_three.jpg') no-repeat center center;
+      background-size: cover;
+      color: #f5f5f7;
+      padding: 120px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .contact-header {
       text-align: center;
       margin-bottom: 60px;
       max-width: 600px;
       margin: 0 auto 60px;
     }
-
     .contact-tag {
       font-size: 12px;
       letter-spacing: 0.1em;
@@ -61,67 +73,61 @@ import MainLayout from '../layouts/MainLayout.astro';
       margin-bottom: 16px;
       display: block;
     }
-
     h1 {
-      font-size: 48px;
+      font-size: 44px;
       font-weight: 600;
       margin-bottom: 16px;
       letter-spacing: -0.003em;
     }
-
     .contact-header p {
       font-size: 21px;
       color: #86868b;
     }
-
     .form-section {
-      max-width: 580px;
+      max-width: 520px;
       margin: 0 auto;
-      padding: 40px;
-      background: rgba(255, 255, 255, 0.05);
+      padding: 40px 30px;
+      background: rgba(255, 255, 255, 0.06);
       border-radius: 18px;
-      backdrop-filter: blur(20px);
+      backdrop-filter: blur(22px);
     }
-
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 22px;
     }
-
     .form-group {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-
     label {
       font-size: 14px;
       color: #f5f5f7;
       font-weight: 500;
     }
-
-    input, textarea {
+    input, textarea, select {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.13);
       border-radius: 9px;
       padding: 12px 16px;
       color: #f5f5f7;
       font-size: 16px;
       transition: all 0.3s ease;
     }
-
-    input:focus, textarea:focus {
+    select option {
+      color: #111;
+      background: #fff;
+    }
+    input:focus, textarea:focus, select:focus {
       outline: none;
       border-color: #2997ff;
       background: rgba(255, 255, 255, 0.1);
     }
-
     textarea {
       resize: vertical;
       min-height: 120px;
     }
-
     button {
       background: #2997ff;
       color: #fff;
@@ -138,30 +144,50 @@ import MainLayout from '../layouts/MainLayout.astro';
       gap: 8px;
       margin-top: 16px;
     }
-
     button:hover {
       opacity: 0.8;
     }
-
     .arrow {
       font-size: 14px;
     }
-
+    .contact-alt {
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-extra {
+      color: #b1c4e0;
+      font-size: 14px;
+    }
+    .email-link,
+    .linkedin-link {
+      margin-left: 7px;
+      color: #2997ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .email-link:hover,
+    .linkedin-link:hover {
+      color: #147bcd;
+      text-decoration: underline;
+    }
     @media (max-width: 768px) {
       .contact-container {
         padding: 80px 20px;
       }
-
       h1 {
-        font-size: 32px;
+        font-size: 28px;
       }
-
       .contact-header p {
-        font-size: 17px;
+        font-size: 16px;
       }
-
       .form-section {
-        padding: 24px;
+        padding: 20px;
       }
     }
   </style>

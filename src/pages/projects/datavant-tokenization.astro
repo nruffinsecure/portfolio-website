@@ -1,0 +1,134 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Datavant Tokenization Integration | Project Detail">
+  <div class="project-detail-bg">
+    <div class="project-detail-card">
+      <a href="/projects" class="back-button">&larr; Back to Projects</a>
+      <div class="project-detail-content">
+        <h1>Healthcare Data Tokenization: Native App Integration with Datavant</h1>
+        <p class="summary">
+          Engineered an end-to-end Datavant tokenization pipeline for de-identified healthcare claims, delivering privacy-first, scalable data integration and analytics capabilities for pharma partners.
+        </p>
+        <h2>Project Overview</h2>
+        <ul>
+          <li>Registered and configured the organization’s application within the Datavant portal, mapping PII-required columns and defining output schemas for core token creation.</li>
+          <li>Worked directly with Datavant engineers and support throughout the vendor’s platform configuration, troubleshooting integration issues and aligning setup to client use cases.</li>
+          <li>Developed secure SQL and Snowflake pipelines for partitioned (daily/monthly) tokenization runs, maximizing reliability and auditability.</li>
+          <li>Ran comprehensive validation: ensuring each token mapped to the correct claim event, while PII was accurately nulled to maintain HIPAA compliance.</li>
+          <li>Set up master token tables in Datavant, supporting centralized distribution to clients and partner platforms.</li>
+        </ul>
+        <h2>Data Integrity & Privacy</h2>
+        <ul>
+          <li>Maintained strict compliance—unique identifiers and relevant date columns preserved for research, all required PII excluded.</li>
+          <li>Performed systematic QA of all outputs, protecting patient privacy while supporting high-value research for pharma analytics.</li>
+        </ul>
+        <h2>Results & Value Delivered</h2>
+        <ul>
+          <li>Delivered proven, validated, privacy-compliant tokenization for high-volume pharma and healthcare data pipelines.</li>
+          <li>Reduced onboarding and implementation friction through collaborative vendor engagement and rapid troubleshooting.</li>
+          <li>Accelerated secure data flows and enabled partner overlap analytics across organizational boundaries.</li>
+        </ul>
+        <div class="tech-stack-detail">
+          <strong>Tech Stack:</strong>
+          <span>Datavant Native App</span>
+          <span>SQL</span>
+          <span>Snowflake</span>
+          <span>Data Portal Integration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .project-detail-bg {
+      min-height: 100vh;
+      width: 100vw;
+      background: linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.70)),
+                  url('/images/mountain_two.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 72px;
+    }
+    .project-detail-card {
+      max-width: 830px;
+      margin: 40px auto;
+      width: 100%;
+      background: rgba(25, 30, 55, 0.68);
+      border-radius: 22px;
+      padding: 48px 40px 52px 40px;
+      box-shadow: 0 16px 44px rgba(0,0,0,0.13);
+      backdrop-filter: blur(14px) saturate(130%);
+    }
+    .back-button {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: #2997ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .back-button:hover {
+      color: #147bcd;
+      text-decoration: underline;
+    }
+    .project-detail-content {
+      color: #f5f5f7;
+    }
+    h1 {
+      color: #2997ff;
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+    .summary {
+      font-size: 1.13rem;
+      color: #f5f5f7;
+      margin-bottom: 1.4rem;
+    }
+    h2 {
+      font-size: 1.18rem;
+      color: #79bbff;
+      margin-top: 2rem;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    ul {
+      margin: 0;
+      margin-bottom: 1.1rem;
+      padding-left: 1.2em;
+    }
+    ul li {
+      font-size: 1.07rem;
+      margin-bottom: 0.24em;
+      line-height: 1.6;
+    }
+    .tech-stack-detail {
+      margin-top: 2.2rem;
+      padding: 0.7rem 0.9rem;
+      background: rgba(41, 151, 255, 0.09);
+      border-radius: 13px;
+      font-size: 1.02rem;
+      color: #2997ff;
+      font-weight: 500;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+    .tech-stack-detail strong {
+      font-weight: 700;
+      margin-right: 10px;
+      color: #147bcd;
+    }
+    @media (max-width: 800px){
+      .project-detail-card {
+        padding: 20px 8px 22px 8px;
+      }
+    }
+  </style>
+</MainLayout>

@@ -1,0 +1,137 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Snowflake Transformation & De-ID | Project Detail">
+  <div class="project-detail-bg">
+    <div class="project-detail-card">
+      <a href="/projects" class="back-button">&larr; Back to Projects</a>
+      <div class="project-detail-content">
+        <h1>Stage 1: Snowflake Data Transformation & De-Identification</h1>
+        <p class="summary">
+          Developed a Snowflake stored procedure and orchestrated daily automation to process upstream claims transactions for a major pharma analytics client. Worked cross-functionally to integrate data science-derived views, enforce NCPDP standards, and ensure accurate, rights-based record selection.
+        </p>
+
+        <h2>Project Overview</h2>
+        <ul>
+          <li>Collaborated with data science and business stakeholders to identify, validate, and select the upstream datasets essential for claims processing.</li>
+          <li>Worked alongside the data science team as they built the B1, B2, and B3 data views; integrated these into the downstream transformation pipeline for nightly and ad hoc processing.</li>
+          <li>Created, maintained, and parameterized a secure Snowflake stored procedure that de-identified and transformed claims according to NCPDP standards and project privacy requirements.</li>
+          <li>Set up a Snowflake task to automate daily processing for claims with external sharing rights, loading qualifying records into a project master table for analytics and delivery.</li>
+          <li>Supported manual, on-demand historical runs as needed for multi-year data backfills to meet client requirements.</li>
+        </ul>
+
+        <h2>Quality, Auditability & Compliance</h2>
+        <ul>
+          <li>Tracked all runs and transformations with comprehensive metadata and logging for transparency, audit support, and troubleshooting.</li>
+          <li>Ensured consistent, documented, and compliant application of de-identification rules with clear separation of creation, validation, and execution responsibilities.</li>
+        </ul>
+
+        <h2>Results & Value Delivered</h2>
+        <ul>
+          <li>Provided secure, NCPDP-compliant de-identified data sets, ready for onward tokenization and client analytics integration.</li>
+          <li>Enabled automated and on-demand delivery of claims for external usage, all with full compliance and documented lineage.</li>
+        </ul>
+
+        <div class="tech-stack-detail">
+          <strong>Tech Stack:</strong>
+          <span>Snowflake</span>
+          <span>SQL</span>
+          <span>AWS</span>
+          <span>ETL Orchestration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .project-detail-bg {
+      min-height: 100vh;
+      width: 100vw;
+      background: linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.70)),
+                  url('/images/mountain_two.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 72px;
+    }
+    .project-detail-card {
+      max-width: 830px;
+      margin: 40px auto;
+      width: 100%;
+      background: rgba(25, 30, 55, 0.68);
+      border-radius: 22px;
+      padding: 48px 40px 52px 40px;
+      box-shadow: 0 16px 44px rgba(0,0,0,0.13);
+      backdrop-filter: blur(14px) saturate(130%);
+    }
+    .back-button {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: #2997ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .back-button:hover {
+      color: #147bcd;
+      text-decoration: underline;
+    }
+    .project-detail-content {
+      color: #f5f5f7;
+    }
+    h1 {
+      color: #2997ff;
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+    .summary {
+      font-size: 1.13rem;
+      color: #f5f5f7;
+      margin-bottom: 1.4rem;
+    }
+    h2 {
+      font-size: 1.18rem;
+      color: #79bbff;
+      margin-top: 2rem;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    ul {
+      margin: 0;
+      margin-bottom: 1.1rem;
+      padding-left: 1.2em;
+    }
+    ul li {
+      font-size: 1.07rem;
+      margin-bottom: 0.22em;
+      line-height: 1.6;
+    }
+    .tech-stack-detail {
+      margin-top: 2.2rem;
+      padding: 0.7rem 0.9rem;
+      background: rgba(41, 151, 255, 0.09);
+      border-radius: 13px;
+      font-size: 1.02rem;
+      color: #2997ff;
+      font-weight: 500;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+    .tech-stack-detail strong {
+      font-weight: 700;
+      margin-right: 10px;
+      color: #147bcd;
+    }
+    @media (max-width: 800px){
+      .project-detail-card {
+        padding: 20px 8px 22px 8px;
+      }
+    }
+  </style>
+</MainLayout>

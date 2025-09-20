@@ -3,9 +3,25 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
 ---
 
-<MainLayout title="Home | Web Developer">
+<MainLayout title="Home | Data Engineering Consultant">
   <div class="container">
     <Hero />
+    <section class="intro-section">
+      <div class="intro-content">
+        <h3>Transforming Pharma and Healthcare Data</h3>
+        <p>
+          Unlock secure, scalable, and compliant data solutions with leadership proven in highly regulated industries.
+          Specializing in cloud data architecture, advanced pipeline automation (Airflow, AWS, Snowflake), de-identification, and tokenization for privacy, each engagement delivers clarity, velocity, and measurable business results.
+        </p>
+        <ul class="intro-highlights">
+          <li>HIPAA-compliant data pipelines</li>
+          <li>Data tokenization & privacy frameworks</li>
+          <li>Workflow automation & orchestration</li>
+          <li>Cloud integrations: Snowflake, AWS</li>
+          <li>Consulting for life sciences & pharma</li>
+        </ul>
+      </div>
+    </section>
   </div>
 </MainLayout>
 
@@ -16,5 +32,69 @@ import Hero from '../components/Hero.astro';
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+  }
+  .intro-section {
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    padding: 56px 24px;
+    color: #f5f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .intro-content h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2997ff;
+  }
+  .intro-content p {
+    font-size: 1.18rem;
+    color: #f5f5f7;
+    margin-bottom: 2.2rem;
+    letter-spacing: -0.01em;
+  }
+  .intro-highlights {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  .intro-highlights li {
+    background: rgba(41,151,255,0.11);
+    border-radius: 18px;
+    padding: 11px 17px;
+    min-width: 160px;
+    font-size: 1.03rem;
+    color: #2997ff;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+  @media (max-width: 768px) {
+    .intro-section {
+      padding: 32px 12px;
+    }
+    .intro-content h3 {
+      font-size: 1.3rem;
+    }
+    .intro-content p {
+      font-size: 1rem;
+    }
+    .intro-highlights {
+      gap: 10px;
+    }
+    .intro-highlights li {
+      padding: 8px 9px;
+      font-size: 0.98rem;
+      min-width: unset;
+    }
   }
 </style>

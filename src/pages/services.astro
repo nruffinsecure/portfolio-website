@@ -2,68 +2,40 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Services | Web Developer">
+<MainLayout title="Services | Data Engineering Consultant">
   <div class="services-container">
     <div class="services-header">
       <span class="service-tag">SERVICES</span>
-      <h1>Choose a website package</h1>
-      <p>Professional web development tailored to your needs</p>
+      <h1>Data Engineering Consultant</h1>
+      <p>Premium consulting for scalable, secure, and high-impact data infrastructure.</p>
     </div>
-
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card featured" style="max-width:540px;">
         <div class="service-content">
-          <h2>Basic Website</h2>
-          <p class="price">From $1,800</p>
+          <h2>Nicholas Ruffin, Data Engineering Specialist</h2>
+          <p class="bio">
+            With 10+ years designing and implementing modern data solutions, I have enabled organizations in pharma, healthcare, and life sciences to convert raw data into business value. I specialize in the Snowflake data platform, Python automation, and robust pipeline orchestration using Airflow. My previous roles include leading cloud migrations, architecting data platforms, and driving secure analytics initiatives for enterprise clients, startups, and research groups.
+          </p>
+          <p class="bio">
+            I bring hands-on expertise in data architecture, privacy-first engineering, workflow automation, and regulatory compliance. My approach blends technical depth with clear communication so teams—from engineers to executives—can turn data challenges into strategic advantages.
+          </p>
           <div class="divider"></div>
           <ul class="features">
-            <li>5 Pages</li>
-            <li>Responsive Design</li>
-            <li>Contact Form</li>
-            <li>Basic SEO</li>
+            <li>End-to-end data architecture & platform design</li>
+            <li>Cloud migration & infrastructure (AWS, Snowflake)</li>
+            <li>Python and Airflow for pipeline development & orchestration</li>
+            <li>Privacy, security & compliance (HIPAA, GDPR, GxP)</li>
+            <li>Analytics engineering & reporting enablement</li>
           </ul>
-          <a href="/quote-form?type=basic" class="cta-button">
-            Get quote <span class="arrow">></span>
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card featured">
-        <div class="service-content">
-          <h2>Standard Website</h2>
-          <p class="price">From $3,500</p>
           <div class="divider"></div>
-          <ul class="features">
-            <li>Up to 10 Pages</li>
-            <li>Custom Design</li>
-            <li>Advanced Features</li>
-            <li>SEO Optimization</li>
-          </ul>
-          <a href="/quote-form?type=standard" class="cta-button">
-            Get quote <span class="arrow">></span>
-          </a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-content">
-          <h2>Maintenance</h2>
-          <p class="price">$150/month</p>
-          <div class="divider"></div>
-          <ul class="features">
-            <li>Monthly Updates</li>
-            <li>Hosting & Support</li>
-            <li>Security Monitoring</li>
-            <li>Performance Optimization</li>
-          </ul>
-          <a href="/quote-form?type=maintenance" class="cta-button">
-            Get quote <span class="arrow">></span>
+          <p style="color:#b1c4e0; font-size:16px; margin:14px 0 4px;">Open to new data engineering consulting engagements. <br /> <span style="color:#2997ff;">Let’s build what’s next.</span></p>
+          <a href="/contact" class="cta-button" style="margin-top:18px;">
+            Request Discovery Call <span class="arrow">></span>
           </a>
         </div>
       </div>
     </div>
   </div>
-
   <style>
     .services-container {
       min-height: 100vh;
@@ -76,13 +48,11 @@ import MainLayout from '../layouts/MainLayout.astro';
       flex-direction: column;
       align-items: center;
     }
-
     .services-header {
       text-align: center;
       margin-bottom: 60px;
       max-width: 600px;
     }
-
     .service-tag {
       font-size: 12px;
       letter-spacing: 0.1em;
@@ -90,86 +60,73 @@ import MainLayout from '../layouts/MainLayout.astro';
       margin-bottom: 16px;
       display: block;
     }
-
     h1 {
       font-size: 48px;
       font-weight: 600;
       margin-bottom: 16px;
       letter-spacing: -0.003em;
     }
-
     .services-header p {
       font-size: 21px;
       color: #86868b;
     }
-
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
+      min-height: 60vh;
       max-width: 1200px;
     }
-
     .service-card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 18px;
       backdrop-filter: blur(20px);
       padding: 32px;
       transition: transform 0.3s ease;
+      box-shadow: 0 2px 14px 0 rgba(44, 62, 80, 0.14);
+      margin: 0 auto;
     }
-
     .service-card.featured {
       background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.02);
+      transform: scale(1.01);
     }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-    }
-
     .service-content {
       display: flex;
       flex-direction: column;
       height: 100%;
     }
-
     h2 {
       font-size: 28px;
       font-weight: 600;
       margin-bottom: 8px;
     }
-
-    .price {
-      font-size: 24px;
-      color: #2997ff;
-      margin-bottom: 24px;
+    .bio {
+      font-size: 17px;
+      color: #b1c4e0;
+      margin-bottom: 14px;
+      line-height: 1.7;
     }
-
     .divider {
       height: 1px;
       background: rgba(255, 255, 255, 0.1);
-      margin: 24px 0;
+      margin: 22px 0;
     }
-
     .features {
       list-style: none;
       padding: 0;
-      margin: 0 0 32px 0;
+      margin: 0 0 15px 0;
       flex-grow: 1;
     }
-
     .features li {
-      padding: 12px 0;
+      padding: 10px 0;
       color: #86868b;
       font-size: 17px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-
     .features li:last-child {
       border-bottom: none;
     }
-
     .cta-button {
       color: #2997ff;
       text-decoration: none;
@@ -178,36 +135,27 @@ import MainLayout from '../layouts/MainLayout.astro';
       align-items: center;
       gap: 8px;
       transition: opacity 0.3s;
-      margin-top: auto;
+      font-weight: 500;
     }
-
     .cta-button:hover {
       opacity: 0.7;
     }
-
     .arrow {
       font-size: 14px;
     }
-
     @media (max-width: 768px) {
       .services-container {
         padding: 80px 20px;
       }
-
       h1 {
         font-size: 32px;
       }
-
       .services-header p {
         font-size: 17px;
       }
-
       .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-card.featured {
-        transform: none;
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
