@@ -1,0 +1,101 @@
+Nicholas Ruffin
+
+Maryland Heights, MO 63043
+(843) 793-9770
+nruffinsecure@gmail.com
+
+Professional Summary
+
+Experienced Data Engineering Professional with designing and optimizing data pipelines to ensure seamless data flow. Utilizes advanced SQL and Python skills to create and maintain robust data architectures. Track record of implementing scalable solutions that enhance data integrity and support informed decision-making.
+
+Skills
+
+SQL
+Snowflake
+AWS (MWAA(managed airflow) , S3, EC2, and data services )
+Azure (app services, function apps, blob)
+Apache Airflow
+Python
+Pandas
+
+NumPy
+Docker
+Kafka
+PySpark
+Data pipelines (ELT, ETL)
+Azure DevOps / Jira
+Git
+
+Work History
+
+February 2025 - Current
+
+RedSail Technologies - Spartanburg, SC
+Clinical Data Engineer    
+
+Led the design and implementation of a data monetization platform by tokenizing PII data elements using Datavant's Snowflake app, enabling secure generation of core tokens for client distribution and driving over $10M in annual revenue.
+Engineered robust de-identification pipelines for large-scale clinical datasets, leveraging expert guidance from Integral to ensure HIPAA compliance and safe data sharing with pharmaceutical and healthcare clients alongside tokenized identifiers.
+Developed and maintained automated ETL pipelines to ingest pharmaceutical switch data-over 4.8 billion records, with an average of 3 million daily transactions from one Snowflake instance to another, supporting downstream data science and monetization initiatives.
+Utilized Snowflake stored procedures and tasks to orchestrate complex data transformations and automate recurring workflows, minimizing manual intervention and optimizing pipeline reliability.
+Built Python applications leveraging DAGs for orchestrating data extraction from S3 buckets, securely managing credentials and parameters using Airflow secrets and variables, and integrating with Airflow for end-to-end job scheduling and ETL automation(Deployed via Github Actions.
+Designed and managed scalable data warehouse schemas and materialized tables in Snowflake, tailoring data models to meet diverse client requirements and enhance query performance.
+Fine-tuned query performance and optimized database structures for faster, more accurate data retrieval and reporting.
+Enhanced data quality by performing thorough cleaning, validation, and transformation tasks.
+Streamlined complex workflows by breaking them down into manageable components for easier implementation and maintenance.
+
+August 2021 - Current
+
+Nimble Solutions - Chesterfield
+Lead Data Integration Developer    
+
+Lead development on QUARC AR workflow solution utilizing microservices architecture built with .NET, C#, Mudblazor, and GraphQL
+Engineered integration of 50+ data sources into unified AR workflow application, achieving 32+ cases touched per representative
+Implemented code coverage metrics in Azure DevOps build pipeline, achieving over 90% coverage with 100% test pass rate
+Developed and maintained legacy Business Process Management (BPM) systems supporting Revenue Cycle Management operations
+Implemented Test-Driven Development using NUnit for unit testing, Playwright for integration testing, and Veracode for SAST/DAST security testing
+Developed C# Function Apps supporting data ingestion and patient claim status retrieval via Availity and WayStar REST APIs for clearinghouse data usage
+Configured Azure DevOps environment for sprint tracking, repository management, and pipeline integration
+Established standardized development workflows and deployment processes
+Implemented technical monitoring using Microsoft Application Insights for system performance and error tracking
+Managed sprint work and collaborated with PM and AR department product owner on backlog grooming and estimations
+
+June 2017 - August 2021
+
+Core & Main Corporate Office - St Louis
+Full Stack Developer    
+
+Developed enterprise applications using C#, .NET, and SQL
+Implemented authentication systems and data access layers
+Created and maintained stored procedures for efficient data management
+Collaborated with product owners and QA teams to enhance application functionality
+
+February 2017 - June 2017
+
+Enterprise Fleet Management - St Louis
+Support Specialist/Contractor    
+
+Managed SCCM deployments and Active Directory administration
+
+January 2010 - December 2016
+
+Enterprise Fleet Management - St Louis
+Infrastructure & Support Roles    
+
+Provided Tier II support and infrastructure management
+Implemented backup solutions and disaster recovery procedures
+Managed asset lifecycle and system deployments
+
+Education
+
+March 2017
+University of Phoenix Phoenix
+Bachelor of Science Information Technology
+
+March 2015
+University of Phoenix Phoenix, AZ
+Associate of Arts 
+
+Certifications
+
+Advanced Software Development, University of Phoenix
+Database Administration, University of Phoenix

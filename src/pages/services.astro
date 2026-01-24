@@ -1,46 +1,82 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import Experience from "../components/Experience.astro";
 ---
 
 <MainLayout title="Services | Data Engineering Consultant">
   <div class="services-container">
     <div class="services-header">
       <span class="service-tag">SERVICES</span>
-      <h1>Data Engineering Consultant</h1>
-      <p>Premium consulting for scalable, secure, and high-impact data infrastructure.</p>
+      <h1>Senior Clinical Data Engineer</h1>
+      <p>
+        Architecting secure, compliant, and scalable data ecosystems for Pharma
+        & Healthcare.
+      </p>
     </div>
+
+    <!-- Intro / Bio Section -->
     <div class="services-grid">
-      <div class="service-card featured" style="max-width:540px;">
+      <div class="service-card featured" style="max-width:800px;">
         <div class="service-content">
-          <h2>Nicholas Ruffin, Data Engineering Specialist</h2>
+          <h2>Nicholas Ruffin, Senior Clinical Data Engineer</h2>
           <p class="bio">
-            With 10+ years designing and implementing modern data solutions, I have enabled organizations in pharma, healthcare, and life sciences to convert raw data into business value. I specialize in the Snowflake data platform, Python automation, and robust pipeline orchestration using Airflow. My previous roles include leading cloud migrations, architecting data platforms, and driving secure analytics initiatives for enterprise clients, startups, and research groups.
+            I specialize in building high-performance data infrastructure for
+            regulated industries. My recent work includes architecting a data
+            monetization platform that drives <strong
+              >$7M+ in annual revenue</strong
+            > and engineering de-identification pipelines for <strong
+              >4.8 billion clinical records</strong
+            >.
           </p>
           <p class="bio">
-            I bring hands-on expertise in data architecture, privacy-first engineering, workflow automation, and regulatory compliance. My approach blends technical depth with clear communication so teams—from engineers to executives—can turn data challenges into strategic advantages.
+            From raw data ingestion to secure analytics delivery, I leverage the
+            modern data stack—<strong
+              >Snowflake, Airflow, AWS, and Python</strong
+            >—to turn massive datasets into actionable business value, all while
+            ensuring strict HIPAA/GDPR compliance.
           </p>
           <div class="divider"></div>
           <ul class="features">
-            <li>End-to-end data architecture & platform design</li>
-            <li>Cloud migration & infrastructure (AWS, Snowflake)</li>
-            <li>Python and Airflow for pipeline development & orchestration</li>
-            <li>Privacy, security & compliance (HIPAA, GDPR, GxP)</li>
-            <li>Analytics engineering & reporting enablement</li>
+            <li>
+              <strong>Monetization & Strategy</strong>: Tokenization (Datavant),
+              Privacy Engineering, Revenue-Generating Pipelines
+            </li>
+            <li>
+              <strong>Cloud Architecture</strong>: Snowflake Optimization, AWS
+              (S3, Lambda, EventBridge, MWAA)
+            </li>
+            <li>
+              <strong>Orchestration</strong>: Advanced Airflow DAGs, Python
+              Automation, CI/CD (GitHub Actions)
+            </li>
+            <li>
+              <strong>Compliance</strong>: HIPAA-safe handling of PII/PHI,
+              De-identification frameworks
+            </li>
           </ul>
           <div class="divider"></div>
-          <p style="color:#b1c4e0; font-size:16px; margin:14px 0 4px;">Open to new data engineering consulting engagements. <br /> <span style="color:#2997ff;">Let’s build what’s next.</span></p>
+          <p style="color:#b1c4e0; font-size:16px; margin:14px 0 4px;">
+            Interested in my background or architecture? <br />
+            <span style="color:#2997ff;">Let’s connect.</span>
+          </p>
           <a href="/contact" class="cta-button" style="margin-top:18px;">
-            Request Discovery Call <span class="arrow">></span>
+            Reach Out <span class="arrow">></span>
           </a>
         </div>
       </div>
+    </div>
+
+    <!-- Experience Section Insert -->
+    <div style="width: 100%; margin-top: 80px;">
+      <Experience />
     </div>
   </div>
   <style>
     .services-container {
       min-height: 100vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                  url('/images/mountain_four.jpg') no-repeat center center;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/images/services_tech.png") no-repeat center center;
       background-size: cover;
       color: #f5f5f7;
       padding: 120px 20px;

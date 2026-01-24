@@ -1,19 +1,25 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Projects | Data Engineering Consultant">
+<MainLayout title="Case Studies | Data Engineering Consultant">
   <div class="projects-container">
     <div class="projects-header">
       <span class="projects-tag">FLAGSHIP END-TO-END ENGAGEMENT</span>
       <h1>Pharma Data Integration, Privacy, and Delivery Platform</h1>
       <p>
-        Architected a unified platform for a leading pharmaceutical analytics client—handling secure cloud-based ETL, privacy-first tokenization, and automated daily data delivery. Below, each phase is broken out for clarity.
+        Architected a unified platform for a leading pharmaceutical analytics
+        client—handling secure cloud-based ETL, privacy-first tokenization, and
+        automated daily data delivery. Below, each phase is broken out for
+        clarity.
       </p>
     </div>
     <div class="one-card-wrapper">
       <div class="major-project-card">
-        <h2>Comprehensive Solution: De-Identification, Tokenization, & Automated Delivery</h2>
+        <h2>
+          Comprehensive Solution: De-Identification, Tokenization, & Automated
+          Delivery
+        </h2>
         <div class="stage-block">
           <div class="stage-title">
             <span>Stage 1</span>
@@ -21,9 +27,14 @@ import MainLayout from '../layouts/MainLayout.astro';
           </div>
           <strong>Snowflake Data Transformation & De-ID</strong>
           <p>
-            Advanced Snowflake stored procedures and ETL pipelines enabled high-volume claims processing, cleansing, and de-identification—meeting the strictest privacy and compliance needs.
+            Advanced Snowflake stored procedures and ETL pipelines enabled
+            high-volume claims processing, cleansing, and
+            de-identification—meeting the strictest privacy and compliance
+            needs.
           </p>
-          <a href="/projects/snowflake-transformation" class="phase-link">See Stage 1 Details &rarr;</a>
+          <a href="/case-studies/snowflake-transformation" class="phase-link"
+            >See Stage 1 Details &rarr;</a
+          >
         </div>
         <div class="stage-block">
           <div class="stage-title">
@@ -32,9 +43,14 @@ import MainLayout from '../layouts/MainLayout.astro';
           </div>
           <strong>Datavant Tokenization & Vendor Collaboration</strong>
           <p>
-            Led Datavant application registration, direct vendor collaboration, and end-to-end tokenization setup—ensuring full mapping, testing, and privacy-preserving data linkage for analytics, partner exchange, and audit.
+            Led Datavant application registration, direct vendor collaboration,
+            and end-to-end tokenization setup—ensuring full mapping, testing,
+            and privacy-preserving data linkage for analytics, partner exchange,
+            and audit.
           </p>
-          <a href="/projects/datavant-tokenization" class="phase-link">See Stage 2 Details &rarr;</a>
+          <a href="/case-studies/datavant-tokenization" class="phase-link"
+            >See Stage 2 Details &rarr;</a
+          >
         </div>
         <div class="stage-block">
           <div class="stage-title">
@@ -43,9 +59,14 @@ import MainLayout from '../layouts/MainLayout.astro';
           </div>
           <strong>Automated Orchestration & Secure Client Delivery</strong>
           <p>
-            Built robust Airflow (MWAA) pipelines using Python, AWS Lambda, IAM, S3, EventBridge scheduler, and YAML config—automating daily/historical data delivery for analytics and client teams with strong access controls.
+            Built robust Airflow (MWAA) pipelines using Python, AWS Lambda, IAM,
+            S3, EventBridge scheduler, and YAML config—automating
+            daily/historical data delivery for analytics and client teams with
+            strong access controls.
           </p>
-          <a href="/projects/airflow-pipeline" class="phase-link">See Stage 3 Details &rarr;</a>
+          <a href="/case-studies/airflow-pipeline" class="phase-link"
+            >See Stage 3 Details &rarr;</a
+          >
         </div>
         <div class="tech-stack-detail">
           <strong>Tech Stack:</strong>
@@ -67,8 +88,9 @@ import MainLayout from '../layouts/MainLayout.astro';
   <style>
     .projects-container {
       min-height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-                  url('/images/mountain_two.jpg') no-repeat center center;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/images/case_studies_tech.png") no-repeat center center;
       background-size: cover;
       color: #f5f5f7;
       padding: 110px 24px;
@@ -105,9 +127,9 @@ import MainLayout from '../layouts/MainLayout.astro';
       width: 100%;
     }
     .major-project-card {
-      background: rgba(255,255,255,0.075);
+      background: rgba(255, 255, 255, 0.075);
       border-radius: 22px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
       backdrop-filter: blur(13px) saturate(115%);
       max-width: 640px;
       padding: 54px 40px 44px 40px;
@@ -192,7 +214,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       margin-right: 10px;
       color: #147bcd;
     }
-    @media(max-width:940px){
+    @media (max-width: 940px) {
       .major-project-card {
         max-width: 99vw;
         padding: 18px 6vw 22px 6vw;

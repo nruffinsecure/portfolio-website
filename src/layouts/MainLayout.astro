@@ -2,14 +2,21 @@
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
   <body>
@@ -21,7 +28,7 @@ const { title } = Astro.props;
         <div class="nav-links">
           <a href="/" class="nav-item">Home</a>
           <a href="/services" class="nav-item">Services</a>
-          <a href="/projects" class="nav-item">Projects</a>
+          <a href="/case-studies" class="nav-item">Case Studies</a>
           <a href="/contact" class="nav-item">Contact</a>
         </div>
         <button class="mobile-menu" aria-label="Menu" aria-expanded="false">
@@ -44,14 +51,15 @@ const { title } = Astro.props;
         --hover-color: #0077ed;
         --nav-height: 44px;
       }
-      
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
-      html, body {
+      html,
+      body {
         margin: 0;
         padding: 0;
         overflow-x: hidden;
@@ -60,7 +68,7 @@ const { title } = Astro.props;
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: var(--text-color);
@@ -183,23 +191,23 @@ const { title } = Astro.props;
 
     <script>
       function initializeMenu() {
-        const hamburger = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector(".mobile-menu");
+        const navLinks = document.querySelector(".nav-links");
 
         if (!hamburger || !navLinks) return;
 
         function toggleMenu() {
-          hamburger.classList.toggle('active');
-          navLinks.classList.toggle('active');
-          const isExpanded = navLinks.classList.contains('active');
-          hamburger.setAttribute('aria-expanded', isExpanded.toString());
+          hamburger.classList.toggle("active");
+          navLinks.classList.toggle("active");
+          const isExpanded = navLinks.classList.contains("active");
+          hamburger.setAttribute("aria-expanded", isExpanded.toString());
         }
 
-        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener("click", toggleMenu);
       }
 
       initializeMenu();
-      document.addEventListener('astro:after-swap', initializeMenu);
+      document.addEventListener("astro:after-swap", initializeMenu);
     </script>
   </body>
 </html>

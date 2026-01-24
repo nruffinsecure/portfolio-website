@@ -1,0 +1,246 @@
+---
+
+---
+
+<section class="experience-section">
+    <div class="content-wrapper">
+        <div class="header">
+            <span class="tag">CAREER HISTORY</span>
+            <h2>Experience & Background</h2>
+            <p>
+                Proven track record in high-stakes clinical and enterprise data
+                environments.
+            </p>
+        </div>
+
+        <div class="timeline">
+            <!-- Current Role -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="role-header">
+                        <h3>Senior Clinical Data Engineer</h3>
+                        <span class="company">RedSail Technologies</span>
+                        <span class="period">Feb 2025 - Present</span>
+                    </div>
+                    <p class="role-summary">
+                        Leading data monetization and privacy engineering for
+                        pharmaceutical datasets.
+                    </p>
+                    <ul class="achievements">
+                        <li>
+                            Designed a data monetization platform driving <strong
+                                >$7M+ in annual revenue</strong
+                            > through secure PII tokenization (Datavant).
+                        </li>
+                        <li>
+                            Engineered de-identification pipelines ensuring full <strong
+                                >HIPAA compliance</strong
+                            > for large-scale clinical data sharing.
+                        </li>
+                        <li>
+                            Automated ETL for <strong
+                                >4.8 billion records</strong
+                            > (3M daily transactions) using Snowflake stored procedures
+                            and Airflow.
+                        </li>
+                        <li>
+                            Built end-to-end Python orchestration for S3
+                            extraction and Snowflake ingestion, deployed via
+                            GitHub Actions.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Previous Role 1 -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="role-header">
+                        <h3>Lead Data Integration Developer</h3>
+                        <span class="company">Nimble Solutions</span>
+                        <span class="period">Aug 2021 - Feb 2025</span>
+                    </div>
+                    <ul class="achievements">
+                        <li>
+                            Led microservices architecture development for AR
+                            workflow solutions using .NET/C#.
+                        </li>
+                        <li>
+                            Integrated <strong>50+ data sources</strong>,
+                            improving case processing efficiency by 32+ cases
+                            per rep.
+                        </li>
+                        <li>
+                            Implemented CI/CD pipelines in Azure DevOps with
+                            90%+ code coverage.
+                        </li>
+                        <li>
+                            Architected Azure Function Apps for high-volume
+                            claim status retrieval via REST APIs.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Previous Role 2 -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="role-header">
+                        <h3>Full Stack Developer</h3>
+                        <span class="company">Core & Main</span>
+                        <span class="period">Jun 2017 - Aug 2021</span>
+                    </div>
+                    <ul class="achievements">
+                        <li>
+                            Developed enterprise .NET/SQL applications and
+                            authentication systems.
+                        </li>
+                        <li>
+                            Optimized stored procedures for efficient
+                            large-scale data management.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .experience-section {
+            background: #000;
+            padding: 100px 20px;
+            color: #f5f5f7;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .tag {
+            color: #2997ff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .header p {
+            color: #a1a1a6;
+            font-size: 19px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 0;
+            width: 2px;
+            background: rgba(41, 151, 255, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -35px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2997ff;
+            border: 2px solid #000;
+            box-shadow: 0 0 0 4px rgba(41, 151, 255, 0.2);
+        }
+
+        .role-header {
+            margin-bottom: 12px;
+        }
+
+        .role-header h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .company {
+            font-size: 18px;
+            color: #2997ff;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .period {
+            font-size: 14px;
+            color: #86868b;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .role-summary {
+            color: #d2d2d7;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .achievements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #a1a1a6;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .achievements li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2997ff;
+        }
+
+        strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</section>
