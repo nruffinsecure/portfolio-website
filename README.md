@@ -1,47 +1,39 @@
-# Astro Starter Kit: Minimal
+# Portfolio: Senior Clinical Data Engineer
 
-```sh
-npm create astro@latest -- --template minimal
+This repository houses the personal portfolio and digital presence for a Senior Clinical Data Engineer. The platform is designed to signal architectural authority, handle high-traffic interactions (via direct contact methods), and showcase complex case studies in a privacy-compliant manner.
+
+## Tech Stack
+
+*   **Framework**: [Astro](https://astro.build) (v5.0+) - Chosen for zero-JS default and high-performance static generation.
+*   **Styling**: Vanilla CSS with modern Flexbox/Grid architectures. No heavy CSS frameworks were used to ensure granular control over the "Premium Dark Mode" aesthetic.
+*   **Deployment**: Cloudflare Pages (Edge-optimized delivery).
+*   **Assets**: Abstract data-centric imagery generated via AI to match the specific "Healthcare Architecture" user persona.
+
+## Core Architecture
+
+The project follows a component-based architecture optimized for static site generation (SSG):
+
+*   `src/components/`: Reusable UI elements (Hero, Experience, Footer).
+*   `src/layouts/`: Global layout wrappers ensuring consistent SEO, meta tags, and sticky footer behavior.
+*   `src/pages/`: Route definitions.
+    *   `/resume`: A hidden print-optimized route for generating the official PDF resume from HTML.
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start local dev server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Design Philosophy
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The UI is intentionally minimalist yet dense with technical signals.
+1.  **Direct Connectivity**: Removed friction-heavy forms in favor of direct actionable links (Email, LinkedIn).
+2.  **Visual Consistency**: "Dark Mode" by default to align with developer/engineer preferences.
+3.  **Performance First**: High Google Lighthouse scores ensured by Astro's island architecture (though currently unused as the site is purely static).
