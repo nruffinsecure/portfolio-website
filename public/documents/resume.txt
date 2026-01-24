@@ -1,0 +1,66 @@
+Nicholas Ruffin
+
+Maryland Heights, MO 63043
+(843) 793-9770
+nruffinsecure@gmail.com
+
+Professional Summary
+
+Senior Clinical Data Engineer with 12+ years of technology experience, including 5+ years leading high-scale data architecture and infrastructure initiatives. Proven expertise designing enterprise data platforms processing 4.8B+ daily records and generating 7M+ annual revenue. Specialized in HIPAA-compliant data tokenization, clinical data pipelines, and cloud-native Snowflake/AWS solutions. Track record of optimizing complex ETL/ELT workflows, implementing data governance frameworks, and leading technical teams.
+
+Skills
+
+SQL
+Python
+Snowflake (Stored Procedures, Tasks, Streams, Schema Design, Performance Tuning)
+AWS (MWAA, S3, Lambda, EC2, IAM, CloudWatch)
+Apache Airflow (DAG orchestration, scheduling, monitoring)
+ETL/ELT Pipeline Design & Optimization
+Data Warehousing Architecture
+HIPAA-Compliant Data Governance
+Data Tokenization & Secure Data Handling (Datavant)
+Kafka (Event streaming)
+AWS Glue (Data catalog and ETL)
+Docker & containerization
+Git, GitHub Actions (CI/CD)
+Terraform (Infrastructure as Code)
+Claude Code & AI-Enabled Development
+
+Work History
+
+February 2025 - Current
+
+RedSail Technologies - Spartanburg, SC
+Senior Clinical Data Engineer
+
+Architected data monetization platform generating 7M+ annual recurring revenue by designing secure PII tokenization workflows using Snowflake and Datavant integration, enabling pharmaceutical clients to access de-identified datasets for clinical research.
+Engineered de-identification pipelines processing 4.8B records daily (3M+ transactions/hour) from multiple Snowflake instances, maintaining HIPAA compliance while supporting downstream monetization and data science initiatives.
+Designed and optimized Snowflake architecture including stored procedures, materialized views, and task orchestration for complex data transformations reducing query latency by 40% and eliminating manual bottlenecks.
+Built Python DAG-based orchestration framework deployed via GitHub Actions, managing S3 data extraction, Airflow secrets/variables management, and end-to-end job scheduling for ETL automation across 50+ daily workflows.
+Implemented automated monitoring and alerting for pipeline health using Snowflake tasks and Airflow metrics, achieving 99.5% pipeline uptime SLA.
+Established data validation framework performing cleaning, transformation, and integrity checks on pharmaceutical switch data (3M daily records), ensuring accuracy for revenue-critical downstream applications.
+Designed scalable warehouse schemas tailoring data models across 15+ client specifications, balancing query performance with flexibility for evolving requirements.
+
+August 2021 - January 2025
+
+Nimble Solutions - Chesterfield, MO
+Lead Data Integration Developer
+
+Managed 5+ engineers on data integration and microservices architecture projects, establishing technical standards and mentoring on cloud infrastructure best practices.
+Led development on QUARC AR workflow solution utilizing microservices architecture built with .NET, C#, Mudblazor, and GraphQL, increasing case throughput by 32+ cases per representative.
+Engineered integration of 50+ data sources into unified AR workflow application, designing API orchestration patterns for reliable enterprise data flow.
+Implemented CI/CD pipeline improvements reducing deployment time by 60% through Azure DevOps optimization, GitHub Actions integration, and automated testing (90%+ code coverage).
+Implemented Test-Driven Development using NUnit for unit testing, Playwright for integration testing, and Veracode for SAST/DAST security testing.
+Developed C# Function Apps supporting data ingestion and patient claim status retrieval via Availity and WayStar REST APIs for clearinghouse data usage.
+
+June 2017 - August 2021
+
+Core & Main Corporate Office - St. Louis, MO
+Senior Full Stack Developer
+
+Developed enterprise data applications using C#/.NET and SQL, supporting 200+ concurrent users.
+
+Education
+
+University of Phoenix
+Bachelor of Science, Information Technology
