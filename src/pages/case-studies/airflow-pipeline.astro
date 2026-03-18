@@ -2,90 +2,90 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Airflow & MWAA Orchestration | Project Detail">
+<MainLayout title="Automating Pipeline Delivery | Case Study">
   <div class="project-detail-bg">
     <div class="project-detail-card">
-      <a href="/case-studies" class="back-button">&larr; Back to Case Studies</a
-      >
+      <a href="/case-studies" class="back-button">&larr; Back to Case Studies</a>
       <div class="project-detail-content">
-        <h1>Pharma Pipeline Orchestration with Airflow & MWAA</h1>
+        <h1>How We Automated Pipeline Orchestration to Save 40+ Hours/Month</h1>
         <p class="summary">
-          Developed and maintained scalable, automated pipelines for a
-          pharmaceutical analytics platform, utilizing Apache Airflow (MWAA) to
-          orchestrate secure daily and historical data deliveries from
-          de-identified master tables—enabling reliable, privacy-compliant
-          analytics for client overlap studies.
+          Manual data delivery was eating up engineering time and creating
+          reliability problems. We built an automated orchestration system that
+          handles daily delivery to multiple clients — hands-free.
         </p>
-        <h2>Project Overview</h2>
+
+        <h2>The Challenge</h2>
+        <p>
+          The client was manually preparing and delivering data files to
+          multiple pharma partners on a daily basis. Each partner had different
+          security requirements, file formats, and delivery schedules. The
+          process was error-prone and consumed 40+ hours of engineering time
+          per month.
+        </p>
+
+        <h2>What We Built</h2>
         <ul>
           <li>
-            Developed modular Python DAGs (Directed Acyclic Graphs) to
-            standardize ETL tasks for all clients.
+            Modular Python DAGs (Directed Acyclic Graphs) to standardize ETL
+            tasks across all clients.
           </li>
           <li>
-            Used YAML-based pipeline configuration for easy modification,
-            scaling, and onboarding new clients and datasets.
+            YAML-based pipeline configuration for easy modification, scaling,
+            and onboarding new clients without code changes.
           </li>
           <li>
-            Built scheduled jobs (daily/historical) that joined de-identified
-            claims and tokenized tables to produce analytic datasets for
-            downstream customer research.
+            Scheduled jobs (daily/historical) that join de-identified claims
+            and tokenized tables to produce client-ready analytic datasets.
           </li>
         </ul>
-        <h2>Infrastructure & Security</h2>
+
+        <h2>Security & Infrastructure</h2>
         <ul>
           <li>
-            <strong>Secure Cross-Account Delivery</strong>: Implemented flexible
-            authentication patterns to meet diverse client security
-            requirements:
+            <strong>Secure Cross-Account Delivery</strong>: Flexible
+            authentication patterns to meet diverse client security needs:
             <ul>
               <li>
-                <em>AssumeRole Pattern</em>: Leveraged AWS STS for clients
-                providing specific ARNs, ensuring temporary, least-privilege
-                access.
+                AWS STS AssumeRole for temporary, least-privilege access
               </li>
               <li>
-                <em>Secrets Manager Integration</em>: Securely stored and
-                rotated client-provided access keys/secrets, accessed
-                dynamically via Airflow connections.
+                Secrets Manager integration for secure key rotation
               </li>
               <li>
-                <em>Scoped IAM Policies</em>: Created dedicated IAM users for
-                specific clients, restricted strictly to sub-folder paths within
-                isolated S3 buckets to prevent data leakage.
+                Scoped IAM policies restricting access to specific S3 paths
               </li>
             </ul>
           </li>
           <li>
-            <strong>Automated Event Scheduling</strong>: Leveraged AWS
-            EventBridge to trigger Lambda functions for reliable, unattended
-            data shipments, removing manual intervention.
+            <strong>Automated Event Scheduling</strong>: AWS EventBridge
+            triggers Lambda functions for reliable, unattended data shipments.
           </li>
         </ul>
-        <h2>Results & Value Delivered</h2>
+
+        <h2>Results</h2>
         <ul>
           <li>
-            Enabled daily, automated, and secure data transfer for multiple
-            pharma clients.
+            <strong>40+ hours/month saved</strong> — daily automated, secure
+            data transfer for multiple clients.
           </li>
           <li>
-            Simplified onboarding for new engagement—no-code needed for new
-            schedules or data splits.
+            New client onboarding reduced from days to hours — no code changes
+            needed for new schedules or data splits.
           </li>
           <li>
-            Reduced manual labor and improved compliance and auditability for
-            both teams.
+            Improved compliance and auditability across all data deliveries.
           </li>
         </ul>
+
         <div class="tech-stack-detail">
-          <strong>Tech Stack:</strong>
+          <strong>Tech:</strong>
           <span>Apache Airflow (MWAA)</span>
           <span>Python</span>
           <span>YAML</span>
           <span>AWS Lambda</span>
-          <span>AWS S3</span>
+          <span>S3</span>
           <span>EventBridge</span>
-          <span>IAM Policies</span>
+          <span>IAM</span>
         </div>
       </div>
     </div>
@@ -140,6 +140,13 @@ import MainLayout from "../../layouts/MainLayout.astro";
       font-size: 1.13rem;
       color: #f5f5f7;
       margin-bottom: 1.4rem;
+      line-height: 1.6;
+    }
+    p {
+      font-size: 1.05rem;
+      color: #d2d2d7;
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
     h2 {
       font-size: 1.18rem;

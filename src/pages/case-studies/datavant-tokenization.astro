@@ -2,76 +2,81 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Datavant Tokenization Integration | Project Detail">
+<MainLayout title="Privacy-First Data Linking at Scale | Case Study">
   <div class="project-detail-bg">
     <div class="project-detail-card">
-      <a href="/case-studies" class="back-button">&larr; Back to Case Studies</a
-      >
+      <a href="/case-studies" class="back-button">&larr; Back to Case Studies</a>
       <div class="project-detail-content">
-        <h1>
-          Healthcare Data Tokenization: Native App Integration with Datavant
-        </h1>
+        <h1>How We Linked 4.8 Billion Records Without Exposing a Single Patient</h1>
         <p class="summary">
-          Engineered an end-to-end Datavant tokenization pipeline for
-          de-identified healthcare claims, delivering privacy-first, scalable
-          data integration and analytics capabilities for pharma partners.
+          Our client needed to enable cross-organization analytics on clinical
+          data — but couldn't share any personally identifiable information.
+          We built a privacy-first tokenization pipeline that made it possible.
         </p>
-        <h2>Project Overview</h2>
+
+        <h2>The Challenge</h2>
+        <p>
+          Pharma analytics requires linking data across organizations to get
+          meaningful insights. But with HIPAA requirements, sharing patient
+          identifiers is a non-starter. The client needed a way to link records
+          across boundaries without ever exposing PII.
+        </p>
+
+        <h2>What We Built</h2>
         <ul>
           <li>
-            Registered and configured the organization’s application within the
-            Datavant portal, mapping PII-required columns and defining output
-            schemas for core token creation.
+            Registered and configured the tokenization application, mapping
+            PII columns and defining output schemas for secure token creation.
           </li>
           <li>
-            Worked directly with Datavant engineers and support throughout the
-            vendor’s platform configuration, troubleshooting integration issues
-            and aligning setup to client use cases.
+            Worked directly with the tokenization vendor (Datavant) throughout
+            platform configuration and troubleshooting.
           </li>
           <li>
             Developed secure SQL and Snowflake pipelines for partitioned
-            (daily/monthly) tokenization runs, maximizing reliability and
-            auditability.
+            (daily/monthly) tokenization runs with full auditability.
           </li>
           <li>
-            Ran comprehensive validation: ensuring each token mapped to the
-            correct claim event, while PII was accurately nulled to maintain
-            HIPAA compliance.
+            Ran comprehensive validation to ensure each token mapped correctly
+            while all PII was properly excluded.
           </li>
           <li>
-            Set up master token tables in Datavant, supporting centralized
-            distribution to clients and partner platforms.
+            Set up centralized token distribution tables for clients and
+            partner platforms.
           </li>
         </ul>
+
         <h2>Data Integrity & Privacy</h2>
         <ul>
           <li>
-            Maintained strict compliance—unique identifiers and relevant date
-            columns preserved for research, all required PII excluded.
+            Maintained strict compliance — unique identifiers preserved for
+            research, all required PII excluded.
           </li>
           <li>
-            Performed systematic QA of all outputs, protecting patient privacy
-            while supporting high-value research for pharma analytics.
+            Systematic QA of all outputs, protecting patient privacy while
+            enabling high-value pharma analytics.
           </li>
         </ul>
-        <h2>Results & Value Delivered</h2>
+
+        <h2>Results</h2>
         <ul>
           <li>
-            Delivered proven, validated, privacy-compliant tokenization for
-            high-volume pharma and healthcare data pipelines.
+            <strong>4.8 billion records</strong> tokenized with full privacy
+            compliance.
           </li>
           <li>
-            Reduced onboarding and implementation friction through collaborative
-            vendor engagement and rapid troubleshooting.
+            Reduced implementation friction through collaborative vendor
+            engagement and rapid troubleshooting.
           </li>
           <li>
-            Accelerated secure data flows and enabled partner overlap analytics
-            across organizational boundaries.
+            Enabled partner overlap analytics across organizational boundaries
+            — unlocking new revenue streams for the client.
           </li>
         </ul>
+
         <div class="tech-stack-detail">
-          <strong>Tech Stack:</strong>
-          <span>Datavant Native App</span>
+          <strong>Tech:</strong>
+          <span>Datavant</span>
           <span>SQL</span>
           <span>Snowflake</span>
           <span>Data Portal Integration</span>
@@ -129,6 +134,13 @@ import MainLayout from "../../layouts/MainLayout.astro";
       font-size: 1.13rem;
       color: #f5f5f7;
       margin-bottom: 1.4rem;
+      line-height: 1.6;
+    }
+    p {
+      font-size: 1.05rem;
+      color: #d2d2d7;
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
     h2 {
       font-size: 1.18rem;

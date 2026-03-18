@@ -2,38 +2,39 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Case Studies | Nicholas Ruffin">
+<MainLayout title="Case Studies | Clearflow Data">
   <div class="projects-container">
     <div class="projects-header">
-      <span class="projects-tag">FLAGSHIP END-TO-END ENGAGEMENT</span>
-      <h1>Pharma Data Integration, Privacy, and Delivery Platform</h1>
+      <span class="projects-tag">CASE STUDIES</span>
+      <h1>Real results for real businesses</h1>
       <p>
-        Architected a unified platform for a leading pharmaceutical analytics
-        client—handling secure cloud-based ETL, privacy-first tokenization, and
-        automated daily data delivery. Below, each phase is broken out for
-        clarity.
+        See how we've helped organizations turn messy data into revenue,
+        automate manual processes, and build infrastructure that scales.
       </p>
     </div>
     <div class="one-card-wrapper">
       <div class="major-project-card">
         <h2>
-          Comprehensive Solution: De-Identification, Tokenization, & Automated
-          Delivery
+          How We Built a $7M Data Platform from the Ground Up
         </h2>
+        <p class="project-intro">
+          A pharmaceutical analytics company needed to monetize billions of clinical records
+          while maintaining strict privacy compliance. We designed and built the entire
+          pipeline — from data transformation to automated client delivery.
+        </p>
         <div class="stage-block">
           <div class="stage-title">
             <span>Stage 1</span>
             <hr />
           </div>
-          <strong>Snowflake Data Transformation & De-ID</strong>
+          <strong>Turning Raw Data into Revenue-Ready Assets</strong>
           <p>
-            Advanced Snowflake stored procedures and ETL pipelines enabled
-            high-volume claims processing, cleansing, and
-            de-identification—meeting the strictest privacy and compliance
-            needs.
+            Processed and de-identified billions of clinical claims records,
+            transforming raw upstream data into clean, compliant datasets
+            ready for monetization.
           </p>
           <a href="/case-studies/snowflake-transformation" class="phase-link"
-            >See Stage 1 Details &rarr;</a
+            >Read the full story &rarr;</a
           >
         </div>
         <div class="stage-block">
@@ -41,15 +42,14 @@ import MainLayout from "../layouts/MainLayout.astro";
             <span>Stage 2</span>
             <hr />
           </div>
-          <strong>Datavant Tokenization & Vendor Collaboration</strong>
+          <strong>Privacy-First Data Linking at Scale</strong>
           <p>
-            Led Datavant application registration, direct vendor collaboration,
-            and end-to-end tokenization setup—ensuring full mapping, testing,
-            and privacy-preserving data linkage for analytics, partner exchange,
-            and audit.
+            Implemented secure tokenization across 4.8 billion records,
+            enabling cross-organization analytics while maintaining
+            full HIPAA compliance and patient privacy.
           </p>
           <a href="/case-studies/datavant-tokenization" class="phase-link"
-            >See Stage 2 Details &rarr;</a
+            >Read the full story &rarr;</a
           >
         </div>
         <div class="stage-block">
@@ -57,31 +57,37 @@ import MainLayout from "../layouts/MainLayout.astro";
             <span>Stage 3</span>
             <hr />
           </div>
-          <strong>Automated Orchestration & Secure Client Delivery</strong>
+          <strong>Automating Delivery to Save 40+ Hours/Month</strong>
           <p>
-            Built robust Airflow (MWAA) pipelines using Python, AWS Lambda, IAM,
-            S3, EventBridge scheduler, and YAML config—automating
-            daily/historical data delivery for analytics and client teams with
-            strong access controls.
+            Built automated pipelines that replaced manual data delivery
+            processes, enabling daily secure transfers to multiple clients
+            with zero manual intervention.
           </p>
           <a href="/case-studies/airflow-pipeline" class="phase-link"
-            >See Stage 3 Details &rarr;</a
+            >Read the full story &rarr;</a
           >
         </div>
-        <div class="tech-stack-detail">
-          <strong>Tech Stack:</strong>
-          <span>Snowflake</span>
-          <span>SQL</span>
-          <span>AWS</span>
-          <span>S3</span>
-          <span>IAM</span>
-          <span>EventBridge</span>
-          <span>Lambda</span>
-          <span>Airflow</span>
-          <span>Python</span>
-          <span>YAML</span>
+        <div class="results-bar">
+          <div class="result-stat">
+            <span class="stat-number">$7M+</span>
+            <span class="stat-label">Annual Revenue</span>
+          </div>
+          <div class="result-stat">
+            <span class="stat-number">4.8B</span>
+            <span class="stat-label">Records Processed</span>
+          </div>
+          <div class="result-stat">
+            <span class="stat-number">40+</span>
+            <span class="stat-label">Hours Saved/Month</span>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="case-cta">
+      <p>Want results like these for your business?</p>
+      <a href="/contact" class="cta-button">Book a Free Consultation</a>
     </div>
   </div>
 
@@ -93,7 +99,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         url("/images/case_studies_tech.png") no-repeat center center;
       background-size: cover;
       color: #f5f5f7;
-      padding: 110px 24px;
+      padding: 110px 24px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -101,7 +107,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     .projects-header {
       text-align: center;
       margin-bottom: 48px;
-      max-width: 800px;
+      max-width: 700px;
     }
     .projects-tag {
       font-size: 13px;
@@ -109,14 +115,15 @@ import MainLayout from "../layouts/MainLayout.astro";
       color: #2997ff;
       margin-bottom: 22px;
       display: block;
+      font-weight: 600;
     }
-    h1 {
+    .projects-header h1 {
       font-size: 45px;
       font-weight: 600;
       margin-bottom: 14px;
     }
     .projects-header p {
-      font-size: 21px;
+      font-size: 19px;
       color: #b3b6c5;
       margin-bottom: 0;
       line-height: 1.5;
@@ -131,25 +138,29 @@ import MainLayout from "../layouts/MainLayout.astro";
       border-radius: 22px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
       backdrop-filter: blur(13px) saturate(115%);
-      max-width: 640px;
+      max-width: 700px;
       padding: 54px 40px 44px 40px;
       color: #f5f5f7;
       display: flex;
       flex-direction: column;
       margin: 0 auto;
     }
-    .major-project-card h2 {
-      font-size: 1.3rem;
+    .major-project-card > h2 {
+      font-size: 1.5rem;
       color: #2997ff;
       font-weight: 700;
-      margin-bottom: 1.3rem;
-      letter-spacing: 0.01em;
+      margin-bottom: 0.5rem;
       text-align: center;
+    }
+    .project-intro {
+      font-size: 1rem;
+      color: #a1a1a6;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 2rem;
     }
     .stage-block {
       margin-bottom: 34px;
-      padding-left: 0;
-      position: relative;
       display: flex;
       flex-direction: column;
     }
@@ -163,8 +174,6 @@ import MainLayout from "../layouts/MainLayout.astro";
       font-size: 1.1rem;
       font-weight: 700;
       color: #2997ff;
-      background: transparent;
-      padding: 0;
     }
     .stage-title hr {
       border: none;
@@ -176,48 +185,87 @@ import MainLayout from "../layouts/MainLayout.astro";
     .stage-block strong {
       display: block;
       margin-bottom: 7px;
-      color: #8ecfff;
-      font-size: 1.01rem;
+      color: #f5f5f7;
+      font-size: 1.05rem;
     }
     .stage-block p {
       margin-bottom: 9px;
       line-height: 1.64;
-      color: #e0e5fc;
+      color: #a1a1a6;
     }
     .phase-link {
       color: #2997ff;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.97rem;
-      margin-bottom: 0.2em;
     }
     .phase-link:hover {
       color: #147bcd;
       text-decoration: underline;
     }
-    .tech-stack-detail {
-      margin-top: 1.2rem;
-      padding: 0.7rem 0.9rem;
-      background: rgba(41, 151, 255, 0.095);
-      border-radius: 13px;
-      font-size: 1.02rem;
-      color: #2997ff;
-      font-weight: 500;
+
+    /* Results Bar */
+    .results-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 1.5rem;
+      padding: 24px;
+      background: rgba(41, 151, 255, 0.07);
+      border-radius: 14px;
+      text-align: center;
+    }
+    .result-stat {
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
     }
-    .tech-stack-detail strong {
+    .stat-number {
+      font-size: 1.8rem;
       font-weight: 700;
-      margin-right: 10px;
-      color: #147bcd;
+      color: #2997ff;
     }
+    .stat-label {
+      font-size: 0.85rem;
+      color: #a1a1a6;
+    }
+
+    /* CTA */
+    .case-cta {
+      margin-top: 60px;
+      text-align: center;
+    }
+    .case-cta p {
+      font-size: 1.2rem;
+      color: #a1a1a6;
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #2997ff;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    .cta-button:hover {
+      opacity: 0.8;
+    }
+
     @media (max-width: 940px) {
       .major-project-card {
         max-width: 99vw;
-        padding: 18px 6vw 22px 6vw;
+        padding: 24px 6vw;
+      }
+      .projects-header h1 {
+        font-size: 32px;
+      }
+      .results-bar {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
     }
   </style>

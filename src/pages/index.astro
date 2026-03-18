@@ -3,28 +3,77 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/Hero.astro";
 ---
 
-<MainLayout title="Nicholas Ruffin | Senior Clinical Data Engineer">
+<MainLayout title="Clearflow Data | Data Engineering for Your Business">
   <div class="container">
     <Hero />
-    <section class="intro-section">
-      <div class="intro-content">
-        <h3>Senior Clinical Data Engineering for Enterprise</h3>
-        <p>
-          <strong>Senior Clinical Data Engineer</strong> specializing in <strong
-            >secure, large-scale data monetization platforms</strong
-          >. I design and build end-to-end architectures using <strong
-            >Snowflake, AWS (Lambda, EventBridge, MWAA), and AI/LLM integration
-            (Claude)</strong
-          >. Proven success in transforming billions of clinical records into
-          revenue-generating assets while ensuring strict HIPAA compliance.
-        </p>
-        <ul class="intro-highlights">
-          <li>Clinical Data Monetization ($7M+ ARR)</li>
-          <li>Generative AI & LLM Integration</li>
-          <li>Advanced Airflow & Event Orchestration</li>
-          <li>Snowflake Data Mesh Architecture</li>
-          <li>HIPAA/PII De-identification Pipeline</li>
-        </ul>
+
+    <!-- Services Overview -->
+    <section class="services-section">
+      <div class="services-content">
+        <span class="section-tag">WHAT WE DO</span>
+        <h3>Data solutions that drive real results</h3>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2997ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+            </div>
+            <h4>Data Audit</h4>
+            <p>We analyze your current data setup, identify bottlenecks, and deliver a clear roadmap for improvement.</p>
+            <a href="/services" class="card-link">Learn more ></a>
+          </div>
+          <div class="service-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2997ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><rect x="4" y="14" width="16" height="6" rx="2"/></svg>
+            </div>
+            <h4>Pipeline Build</h4>
+            <p>We build your automated reporting and data pipeline — from raw data to clean, actionable insights.</p>
+            <a href="/services" class="card-link">Learn more ></a>
+          </div>
+          <div class="service-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2997ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h4>Ongoing Management</h4>
+            <p>We maintain, optimize, and expand your data infrastructure so you can focus on running your business.</p>
+            <a href="/services" class="card-link">Learn more ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results / Social Proof -->
+    <section class="results-section">
+      <div class="results-content">
+        <span class="section-tag">PROVEN RESULTS</span>
+        <h3>Numbers that speak for themselves</h3>
+        <div class="results-grid">
+          <div class="result-item">
+            <span class="result-number">$7M+</span>
+            <span class="result-label">Revenue generated from data platforms</span>
+          </div>
+          <div class="result-item">
+            <span class="result-number">4.8B</span>
+            <span class="result-label">Records processed and delivered</span>
+          </div>
+          <div class="result-item">
+            <span class="result-number">40+</span>
+            <span class="result-label">Hours saved per month through automation</span>
+          </div>
+          <div class="result-item">
+            <span class="result-number">50+</span>
+            <span class="result-label">Data sources integrated</span>
+          </div>
+        </div>
+        <a href="/case-studies" class="results-cta">See how we did it ></a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h3>Ready to put your data to work?</h3>
+        <p>Book a free 30-minute consultation. We'll review your current setup and show you what's possible.</p>
+        <a href="/contact" class="cta-button">Book a Free Consultation</a>
       </div>
     </section>
   </div>
@@ -38,68 +87,189 @@ import Hero from "../components/Hero.astro";
     margin: 0;
     padding: 0;
   }
-  .intro-section {
+
+  .section-tag {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #2997ff;
+    margin-bottom: 16px;
+    display: block;
+    font-weight: 600;
+  }
+
+  /* Services Section */
+  .services-section {
     width: 100%;
     background: rgba(0, 0, 0, 0.85);
-    padding: 56px 24px;
+    padding: 80px 24px;
     color: #f5f5f7;
     display: flex;
     justify-content: center;
-    align-items: center;
   }
-  .intro-content {
-    max-width: 800px;
+  .services-content {
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
   }
-  .intro-content h3 {
+  .services-content h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: #f5f5f7;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    padding: 32px 24px;
+    text-align: left;
+    transition: transform 0.3s, background 0.3s;
+    backdrop-filter: blur(10px);
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .card-icon {
+    margin-bottom: 16px;
+  }
+  .service-card h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #f5f5f7;
+  }
+  .service-card p {
+    font-size: 1rem;
+    color: #a1a1a6;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .card-link {
+    color: #2997ff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: opacity 0.3s;
+  }
+  .card-link:hover {
+    opacity: 0.7;
+  }
+
+  /* Results Section */
+  .results-section {
+    width: 100%;
+    background: #000;
+    padding: 80px 24px;
+    color: #f5f5f7;
+    display: flex;
+    justify-content: center;
+  }
+  .results-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .results-content h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 2.5rem;
+  }
+  .result-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .result-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2997ff;
+  }
+  .result-label {
+    font-size: 0.95rem;
+    color: #a1a1a6;
+    line-height: 1.4;
+  }
+  .results-cta {
+    color: #2997ff;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: opacity 0.3s;
+  }
+  .results-cta:hover {
+    opacity: 0.7;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    width: 100%;
+    background: rgba(41, 151, 255, 0.06);
+    padding: 80px 24px;
+    display: flex;
+    justify-content: center;
+  }
+  .cta-content {
+    max-width: 600px;
+    text-align: center;
+  }
+  .cta-content h3 {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #2997ff;
-  }
-  .intro-content p {
-    font-size: 1.18rem;
     color: #f5f5f7;
-    margin-bottom: 2.2rem;
-    letter-spacing: -0.01em;
   }
-  .intro-highlights {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
+  .cta-content p {
+    font-size: 1.1rem;
+    color: #a1a1a6;
+    margin-bottom: 2rem;
+    line-height: 1.6;
   }
-  .intro-highlights li {
-    background: rgba(41, 151, 255, 0.11);
-    border-radius: 18px;
-    padding: 11px 17px;
-    min-width: 160px;
-    font-size: 1.03rem;
-    color: #2997ff;
-    font-weight: 500;
-    transition: background 0.3s;
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #2997ff;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: opacity 0.3s;
   }
+  .cta-button:hover {
+    opacity: 0.8;
+  }
+
   @media (max-width: 768px) {
-    .intro-section {
-      padding: 32px 12px;
+    .services-grid {
+      grid-template-columns: 1fr;
     }
-    .intro-content h3 {
-      font-size: 1.3rem;
+    .results-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
-    .intro-content p {
-      font-size: 1rem;
+    .services-content h3,
+    .results-content h3,
+    .cta-content h3 {
+      font-size: 1.5rem;
     }
-    .intro-highlights {
-      gap: 10px;
+    .result-number {
+      font-size: 2rem;
     }
-    .intro-highlights li {
-      padding: 8px 9px;
-      font-size: 0.98rem;
-      min-width: unset;
+    .services-section,
+    .results-section,
+    .cta-section {
+      padding: 56px 16px;
     }
   }
 </style>

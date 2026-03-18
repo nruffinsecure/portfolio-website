@@ -2,15 +2,15 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Thank You | Web Developer">
+<MainLayout title="Thank You | Clearflow Data">
   <div class="thank-you-container">
     <div class="content">
-      <span class="success-tag">SUCCESS</span>
+      <span class="success-tag">MESSAGE SENT</span>
       <h1>Thank You</h1>
-      <p>Your request has been submitted successfully.</p>
+      <p>We've received your message and will follow up within 24 hours to schedule your free consultation.</p>
       <div class="cta-links">
         <a href="/" class="home-link">Return home <span class="arrow">></span></a>
-        <a href="/projects" class="projects-link">View our work <span class="arrow">></span></a>
+        <a href="/case-studies" class="projects-link">See our work <span class="arrow">></span></a>
       </div>
     </div>
   </div>
@@ -26,12 +26,10 @@ import MainLayout from '../layouts/MainLayout.astro';
       justify-content: center;
       padding: 20px;
     }
-
     .content {
       text-align: center;
       max-width: 600px;
     }
-
     .success-tag {
       display: inline-block;
       padding: 0.5rem 1.5rem;
@@ -43,26 +41,23 @@ import MainLayout from '../layouts/MainLayout.astro';
       letter-spacing: 0.1em;
       color: #2997ff;
     }
-
     h1 {
       font-size: 48px;
       font-weight: 600;
       margin-bottom: 16px;
       letter-spacing: -0.003em;
     }
-
     p {
       font-size: 21px;
       color: #86868b;
       margin-bottom: 40px;
+      line-height: 1.5;
     }
-
     .cta-links {
       display: flex;
       gap: 32px;
       justify-content: center;
     }
-
     .home-link, .projects-link {
       color: #2997ff;
       text-decoration: none;
@@ -72,24 +67,19 @@ import MainLayout from '../layouts/MainLayout.astro';
       gap: 8px;
       transition: opacity 0.3s;
     }
-
     .home-link:hover, .projects-link:hover {
       opacity: 0.7;
     }
-
     .arrow {
       font-size: 14px;
     }
-
     @media (max-width: 768px) {
       h1 {
         font-size: 32px;
       }
-
       p {
         font-size: 17px;
       }
-
       .cta-links {
         flex-direction: column;
         gap: 16px;

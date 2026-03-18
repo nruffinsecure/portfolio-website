@@ -1,76 +1,114 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Experience from "../components/Experience.astro";
 ---
 
-<MainLayout title="Services | Nicholas Ruffin">
+<MainLayout title="Services | Clearflow Data">
   <div class="services-container">
     <div class="services-header">
       <span class="service-tag">SERVICES</span>
-      <h1>Senior Clinical Data Engineer</h1>
+      <h1>Data solutions built for your business</h1>
       <p>
-        Architecting secure, compliant, and scalable data ecosystems for Pharma
-        & Healthcare.
+        From a quick audit to a fully managed data infrastructure — we meet you
+        where you are and build what you need.
       </p>
     </div>
 
-    <!-- Intro / Bio Section -->
-    <div class="services-grid">
-      <div class="service-card featured" style="max-width:800px;">
-        <div class="service-content">
-          <h2>Nicholas Ruffin, Senior Clinical Data Engineer</h2>
-          <p class="bio">
-            I specialize in building high-performance data infrastructure for
-            regulated industries. My recent work includes architecting a data
-            monetization platform that drives <strong
-              >$7M+ in annual revenue</strong
-            > and engineering de-identification pipelines for <strong
-              >4.8 billion clinical records</strong
-            >.
-          </p>
-          <p class="bio">
-            From raw data ingestion to secure analytics delivery, I leverage the
-            modern data stack—<strong
-              >Snowflake, Airflow, AWS, and Python</strong
-            >—to turn massive datasets into actionable business value, all while
-            ensuring strict HIPAA/GDPR compliance.
-          </p>
-          <div class="divider"></div>
-          <ul class="features">
-            <li>
-              <strong>Monetization & Strategy</strong>: Tokenization (Datavant),
-              Privacy Engineering, Revenue-Generating Pipelines
-            </li>
-            <li>
-              <strong>Cloud Architecture</strong>: Snowflake Optimization, AWS
-              (S3, Lambda, EventBridge, MWAA)
-            </li>
-            <li>
-              <strong>Orchestration</strong>: Advanced Airflow DAGs, Python
-              Automation, CI/CD (GitHub Actions)
-            </li>
-            <li>
-              <strong>Compliance</strong>: HIPAA-safe handling of PII/PHI,
-              De-identification frameworks
-            </li>
-          </ul>
-          <div class="divider"></div>
-          <p style="color:#b1c4e0; font-size:16px; margin:14px 0 4px;">
-            Interested in my background or architecture? <br />
-            <span style="color:#2997ff;">Let’s connect.</span>
-          </p>
-          <a href="/contact" class="cta-button" style="margin-top:18px;">
-            Reach Out <span class="arrow">></span>
-          </a>
-        </div>
+    <div class="tiers-grid">
+      <!-- Tier 1: Data Audit -->
+      <div class="tier-card">
+        <div class="tier-badge">Starting Point</div>
+        <h2>Data Audit</h2>
+        <div class="tier-price">$500 - $1,000</div>
+        <p class="tier-problem">
+          Not sure where your data problems are? We'll find them for you.
+        </p>
+        <div class="divider"></div>
+        <h3>What's Included</h3>
+        <ul class="tier-features">
+          <li>Full review of your current data setup</li>
+          <li>Identify bottlenecks, inefficiencies, and risks</li>
+          <li>Clear written roadmap with prioritized recommendations</li>
+          <li>30-minute walkthrough call to review findings</li>
+        </ul>
+        <div class="divider"></div>
+        <p class="tier-ideal"><strong>Ideal for:</strong> Businesses that know their data is messy but don't know where to start.</p>
+        <a href="/contact" class="cta-button">Get Started</a>
+      </div>
+
+      <!-- Tier 2: Pipeline Build -->
+      <div class="tier-card featured">
+        <div class="tier-badge popular">Most Popular</div>
+        <h2>Pipeline Build</h2>
+        <div class="tier-price">$2,000 - $5,000</div>
+        <p class="tier-problem">
+          Spending hours on manual reporting? Let us automate it.
+        </p>
+        <div class="divider"></div>
+        <h3>What's Included</h3>
+        <ul class="tier-features">
+          <li>Custom automated data pipeline (ETL/ELT)</li>
+          <li>Connect your data sources into one clean view</li>
+          <li>Automated reporting or dashboard setup</li>
+          <li>Documentation and handoff training</li>
+          <li>30 days of post-launch support</li>
+        </ul>
+        <div class="divider"></div>
+        <p class="tier-ideal"><strong>Ideal for:</strong> Businesses ready to stop doing things manually and start scaling with data.</p>
+        <a href="/contact" class="cta-button">Get Started</a>
+      </div>
+
+      <!-- Tier 3: Ongoing Management -->
+      <div class="tier-card">
+        <div class="tier-badge">Long-Term</div>
+        <h2>Ongoing Management</h2>
+        <div class="tier-price">$1,500 - $3,000/mo</div>
+        <p class="tier-problem">
+          Need a data team without the overhead of hiring one? That's us.
+        </p>
+        <div class="divider"></div>
+        <h3>What's Included</h3>
+        <ul class="tier-features">
+          <li>Monitoring and maintenance of your data infrastructure</li>
+          <li>Performance optimization and cost reduction</li>
+          <li>New pipeline builds and integrations as needed</li>
+          <li>Monthly reporting and strategy calls</li>
+          <li>Priority support</li>
+        </ul>
+        <div class="divider"></div>
+        <p class="tier-ideal"><strong>Ideal for:</strong> Businesses that want reliable data infrastructure without the cost of a full-time hire.</p>
+        <a href="/contact" class="cta-button">Get Started</a>
       </div>
     </div>
 
-    <!-- Experience Section Insert -->
-    <div style="width: 100%; margin-top: 80px;">
-      <Experience />
+    <!-- Process Section -->
+    <div class="process-section">
+      <span class="service-tag">HOW IT WORKS</span>
+      <h2>Simple, straightforward process</h2>
+      <div class="process-steps">
+        <div class="step">
+          <span class="step-number">01</span>
+          <h4>Discovery Call</h4>
+          <p>Free 30-minute call to understand your data challenges and goals.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <h4>Proposal</h4>
+          <p>We send a clear scope, timeline, and fixed price — no surprises.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <h4>Build & Deliver</h4>
+          <p>We build, test, and deploy. You get regular updates throughout.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">04</span>
+          <h4>Handoff & Support</h4>
+          <p>Full documentation, training, and ongoing support as needed.</p>
+        </div>
+      </div>
     </div>
   </div>
+
   <style>
     .services-container {
       min-height: 100vh;
@@ -79,7 +117,7 @@ import Experience from "../components/Experience.astro";
         url("/images/services_tech.png") no-repeat center center;
       background-size: cover;
       color: #f5f5f7;
-      padding: 120px 20px;
+      padding: 120px 20px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -95,8 +133,9 @@ import Experience from "../components/Experience.astro";
       color: #2997ff;
       margin-bottom: 16px;
       display: block;
+      font-weight: 600;
     }
-    h1 {
+    .services-header h1 {
       font-size: 48px;
       font-weight: 600;
       margin-bottom: 16px;
@@ -106,92 +145,183 @@ import Experience from "../components/Experience.astro";
       font-size: 21px;
       color: #86868b;
     }
-    .services-grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
+    /* Tiers Grid */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
       width: 100%;
-      min-height: 60vh;
-      max-width: 1200px;
     }
-    .service-card {
+    .tier-card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 18px;
       backdrop-filter: blur(20px);
-      padding: 32px;
-      transition: transform 0.3s ease;
-      box-shadow: 0 2px 14px 0 rgba(44, 62, 80, 0.14);
-      margin: 0 auto;
-    }
-    .service-card.featured {
-      background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.01);
-    }
-    .service-content {
+      padding: 36px 28px;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      box-shadow: 0 2px 14px 0 rgba(44, 62, 80, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
-    h2 {
+    .tier-card.featured {
+      background: rgba(41, 151, 255, 0.08);
+      border: 1px solid rgba(41, 151, 255, 0.2);
+      transform: scale(1.02);
+    }
+    .tier-badge {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #86868b;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .tier-badge.popular {
+      color: #2997ff;
+    }
+    .tier-card h2 {
       font-size: 28px;
       font-weight: 600;
       margin-bottom: 8px;
     }
-    .bio {
-      font-size: 17px;
-      color: #b1c4e0;
-      margin-bottom: 14px;
-      line-height: 1.7;
+    .tier-price {
+      font-size: 22px;
+      color: #2997ff;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .tier-problem {
+      font-size: 16px;
+      color: #a1a1a6;
+      line-height: 1.5;
+      margin-bottom: 0;
     }
     .divider {
       height: 1px;
       background: rgba(255, 255, 255, 0.1);
-      margin: 22px 0;
+      margin: 20px 0;
     }
-    .features {
+    .tier-card h3 {
+      font-size: 14px;
+      color: #86868b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .tier-features {
       list-style: none;
       padding: 0;
-      margin: 0 0 15px 0;
+      margin: 0;
       flex-grow: 1;
     }
-    .features li {
-      padding: 10px 0;
-      color: #86868b;
-      font-size: 17px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .tier-features li {
+      padding: 8px 0;
+      color: #d2d2d7;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-left: 16px;
+      position: relative;
     }
-    .features li:last-child {
+    .tier-features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: #2997ff;
+      border-radius: 50%;
+    }
+    .tier-features li:last-child {
       border-bottom: none;
     }
+    .tier-ideal {
+      font-size: 14px;
+      color: #a1a1a6;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .tier-ideal strong {
+      color: #d2d2d7;
+    }
     .cta-button {
-      color: #2997ff;
+      display: inline-block;
+      text-align: center;
+      padding: 14px 24px;
+      background: #2997ff;
+      color: white;
+      border-radius: 12px;
       text-decoration: none;
-      font-size: 17px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 16px;
+      font-weight: 600;
       transition: opacity 0.3s;
-      font-weight: 500;
     }
     .cta-button:hover {
-      opacity: 0.7;
+      opacity: 0.8;
     }
-    .arrow {
+
+    /* Process Section */
+    .process-section {
+      max-width: 900px;
+      width: 100%;
+      margin-top: 100px;
+      text-align: center;
+    }
+    .process-section h2 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 48px;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .step {
+      text-align: center;
+    }
+    .step-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2997ff;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .step h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .step p {
       font-size: 14px;
+      color: #a1a1a6;
+      line-height: 1.5;
     }
+
     @media (max-width: 768px) {
       .services-container {
-        padding: 80px 20px;
+        padding: 80px 16px 60px;
       }
-      h1 {
+      .services-header h1 {
         font-size: 32px;
       }
       .services-header p {
         font-size: 17px;
       }
-      .services-grid {
-        flex-direction: column;
-        align-items: center;
+      .tiers-grid {
+        grid-template-columns: 1fr;
+      }
+      .tier-card.featured {
+        transform: none;
+      }
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+      .process-section h2 {
+        font-size: 28px;
       }
     }
   </style>
