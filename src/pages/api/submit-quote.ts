@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 
-export const POST: APIRoute = async ({ request, redirect }) => {
+export const POST: APIRoute = async ({ request, redirect, locals }) => {
   try {
     const formData = await request.formData();
 
@@ -11,7 +11,9 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     const tools = formData.get("tools")?.toString() || "Not specified";
     const painPoint = formData.get("pain_point")?.toString() || "";
 
-    const resend = new Resend(import.meta.env.RESEND_API_KEY);
+    const runtime = (locals as any).runtime;
+    const apiKey = runtime?.env?.RESEND_API_KEY || import.meta.env.RESEND_API_KEY;
+    const resend = new Resend(apiKey);
 
     await resend.emails.send({
       from: "Clearflow Data <onboarding@resend.dev>",
