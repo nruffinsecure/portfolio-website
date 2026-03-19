@@ -8,10 +8,9 @@ const hasError = Astro.url.searchParams.get("error") === "true";
     <div class="contact-card">
       <div class="contact-header">
         <span class="tag">LET'S TALK</span>
-        <h1>Book a Free Consultation</h1>
+        <h1>Start a Conversation</h1>
         <p>
-          Pick a time that works for you, or send us a message and we'll
-          follow up within 24 hours.
+          Tell me about your data challenges. I'll follow up within 24 hours with an honest take on how I can help.
         </p>
       </div>
 
@@ -48,12 +47,12 @@ const hasError = Astro.url.searchParams.get("error") === "true";
           <input type="email" id="email" name="email" required placeholder="john@acmecorp.com" />
         </div>
         <div class="form-group">
-          <label for="tools">What tools do you currently use for data?</label>
-          <input type="text" id="tools" name="tools" placeholder="Excel, Google Sheets, Salesforce, etc." />
+          <label for="tools">What's your current data stack?</label>
+          <input type="text" id="tools" name="tools" placeholder="Snowflake, AWS, Redshift, manual processes, etc." />
         </div>
         <div class="form-group">
-          <label for="pain_point">What's your biggest data pain point?</label>
-          <textarea id="pain_point" name="pain_point" rows="4" required placeholder="e.g., We spend hours every week manually building reports from spreadsheets..."></textarea>
+          <label for="pain_point">What are you trying to solve?</label>
+          <textarea id="pain_point" name="pain_point" rows="4" required placeholder="e.g., We need to de-identify and deliver claims data to external partners but don't have the pipeline infrastructure..."></textarea>
         </div>
         <button type="submit" class="submit-btn">Send Message</button>
       </form>
