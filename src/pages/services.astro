@@ -31,7 +31,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="tier-card">
         <div class="tier-badge">Engagement Start</div>
         <h2>Assessment & Strategy</h2>
-        <div class="tier-price">$5,000 - $10,000</div>
+        <div class="tier-tagline">2-3 week engagement</div>
         <p class="tier-problem">
           Not sure what your data infrastructure needs? I'll evaluate what you have and architect what you need.
         </p>
@@ -53,7 +53,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="tier-card featured">
         <div class="tier-badge popular">Core Engagement</div>
         <h2>Pipeline Build</h2>
-        <div class="tier-price">$20,000 - $50,000</div>
+        <div class="tier-tagline">Scoped to your pipeline</div>
         <p class="tier-problem">
           You need a production pipeline that ingests, de-identifies, and delivers data to your clients — automatically.
         </p>
@@ -75,7 +75,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="tier-card">
         <div class="tier-badge">Ongoing</div>
         <h2>Retained Engineering</h2>
-        <div class="tier-price">$10,000 - $15,000/mo</div>
+        <div class="tier-tagline">Monthly retainer</div>
         <p class="tier-problem">
           Your pipelines are running. Now you need someone to manage them, onboard new deliveries, and keep everything optimized.
         </p>
@@ -237,11 +237,12 @@ import MainLayout from "../layouts/MainLayout.astro";
       font-weight: 600;
       margin-bottom: 8px;
     }
-    .tier-price {
-      font-size: 22px;
-      color: #2997ff;
-      font-weight: 700;
+    .tier-tagline {
+      font-size: 15px;
+      color: #86868b;
+      font-weight: 600;
       margin-bottom: 12px;
+      letter-spacing: 0.02em;
     }
     .tier-problem {
       font-size: 16px;
