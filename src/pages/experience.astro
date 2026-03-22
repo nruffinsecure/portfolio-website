@@ -1,0 +1,392 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Experience | Nick Ruffin">
+  <div class="projects-container">
+    <div class="projects-header">
+      <span class="projects-tag">EXPERIENCE</span>
+      <h1>Enterprise-scale results</h1>
+      <p>
+        As Director of Engineering, I designed and led the build of a data
+        monetization platform from inception to $7M+ annual revenue — managing
+        cross-functional teams across the US and India.
+      </p>
+    </div>
+
+    <!-- Leadership Scope -->
+    <div class="scope-banner">
+      <span class="scope-label">LEADERSHIP SCOPE</span>
+      <div class="scope-items">
+        <div class="scope-item">
+          <span class="scope-number">16+</span>
+          <span class="scope-desc">Engineers Managed</span>
+        </div>
+        <div class="scope-item">
+          <span class="scope-number">3</span>
+          <span class="scope-desc">Functional Teams</span>
+        </div>
+        <div class="scope-item">
+          <span class="scope-number">2</span>
+          <span class="scope-desc">Countries</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="one-card-wrapper">
+      <div class="major-project-card">
+        <h2>
+          Building a $7M Data Monetization Platform
+        </h2>
+        <p class="project-intro">
+          I led a team of software engineers, data developers, and offshore RPA
+          specialists to build the entire data monetization infrastructure —
+          from raw data transformation through automated client delivery.
+        </p>
+        <div class="stage-block">
+          <div class="stage-title">
+            <span>Stage 1</span>
+            <hr />
+          </div>
+          <strong>Turning Raw Data into Revenue-Ready Assets</strong>
+          <p>
+            Led the design and build of data transformation pipelines that
+            processed billions of clinical claims records, turning raw upstream
+            data into clean, compliant datasets ready for monetization.
+          </p>
+          <a href="/case-studies/snowflake-transformation" class="phase-link"
+            >Read the full story &rarr;</a
+          >
+        </div>
+        <div class="stage-block">
+          <div class="stage-title">
+            <span>Stage 2</span>
+            <hr />
+          </div>
+          <strong>Privacy-First Data Linking at Scale</strong>
+          <p>
+            Directed the implementation of secure tokenization across 4.8 billion
+            records, enabling cross-organization analytics while maintaining
+            full HIPAA compliance and patient privacy.
+          </p>
+          <a href="/case-studies/datavant-tokenization" class="phase-link"
+            >Read the full story &rarr;</a
+          >
+        </div>
+        <div class="stage-block">
+          <div class="stage-title">
+            <span>Stage 3</span>
+            <hr />
+          </div>
+          <strong>Automating Delivery to Save 40+ Hours/Month</strong>
+          <p>
+            Led the engineering effort that replaced manual data delivery
+            processes with fully automated pipelines, enabling daily secure
+            transfers to multiple clients with zero manual intervention.
+          </p>
+          <a href="/case-studies/airflow-pipeline" class="phase-link"
+            >Read the full story &rarr;</a
+          >
+        </div>
+        <div class="results-bar">
+          <div class="result-stat">
+            <span class="stat-number">$7M+</span>
+            <span class="stat-label">Annual Revenue</span>
+          </div>
+          <div class="result-stat">
+            <span class="stat-number">4.8B</span>
+            <span class="stat-label">Records Processed</span>
+          </div>
+          <div class="result-stat">
+            <span class="stat-number">40+</span>
+            <span class="stat-label">Hours Saved/Month</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="stack-banner">
+      <span class="stack-label">TECHNICAL EXPERTISE</span>
+      <div class="stack-items">
+        <span class="stack-item">Snowflake</span>
+        <span class="stack-dot"></span>
+        <span class="stack-item">AWS (S3, Lambda, MWAA)</span>
+        <span class="stack-dot"></span>
+        <span class="stack-item">Airflow</span>
+        <span class="stack-dot"></span>
+        <span class="stack-item">Python</span>
+        <span class="stack-dot"></span>
+        <span class="stack-item">Terraform</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="case-cta">
+      <p>These results came from the right combination of technical depth and team leadership.</p>
+      <a href="/contact" class="cta-button">Get in Touch</a>
+    </div>
+  </div>
+
+  <style>
+    .projects-container {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/images/case_studies_tech.png") no-repeat center center;
+      background-size: cover;
+      color: #f5f5f7;
+      padding: 110px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .projects-header {
+      text-align: center;
+      margin-bottom: 48px;
+      max-width: 700px;
+    }
+    .projects-tag {
+      font-size: 13px;
+      letter-spacing: 0.13em;
+      color: #2997ff;
+      margin-bottom: 22px;
+      display: block;
+      font-weight: 600;
+    }
+    .projects-header h1 {
+      font-size: 45px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .projects-header p {
+      font-size: 19px;
+      color: #b3b6c5;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* Scope Banner */
+    .scope-banner {
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 48px;
+      padding: 24px;
+      background: rgba(41, 151, 255, 0.06);
+      border: 1px solid rgba(41, 151, 255, 0.12);
+      border-radius: 14px;
+    }
+    .scope-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: #86868b;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .scope-items {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+    }
+    .scope-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .scope-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2997ff;
+    }
+    .scope-desc {
+      font-size: 0.85rem;
+      color: #a1a1a6;
+    }
+
+    /* Card */
+    .one-card-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .major-project-card {
+      background: rgba(255, 255, 255, 0.075);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+      backdrop-filter: blur(13px) saturate(115%);
+      max-width: 700px;
+      padding: 54px 40px 44px 40px;
+      color: #f5f5f7;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+    .major-project-card > h2 {
+      font-size: 1.5rem;
+      color: #2997ff;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .project-intro {
+      font-size: 1rem;
+      color: #a1a1a6;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .stage-block {
+      margin-bottom: 34px;
+      display: flex;
+      flex-direction: column;
+    }
+    .stage-title {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .stage-title span {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2997ff;
+    }
+    .stage-title hr {
+      border: none;
+      border-top: 2px solid #2997ff;
+      flex: 1;
+      margin: 0;
+      opacity: 0.25;
+    }
+    .stage-block strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #f5f5f7;
+      font-size: 1.05rem;
+    }
+    .stage-block p {
+      margin-bottom: 9px;
+      line-height: 1.64;
+      color: #a1a1a6;
+    }
+    .phase-link {
+      color: #2997ff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.97rem;
+    }
+    .phase-link:hover {
+      color: #147bcd;
+      text-decoration: underline;
+    }
+
+    /* Results Bar */
+    .results-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 1.5rem;
+      padding: 24px;
+      background: rgba(41, 151, 255, 0.07);
+      border-radius: 14px;
+      text-align: center;
+    }
+    .result-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2997ff;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: #a1a1a6;
+    }
+
+    /* Stack Banner */
+    .stack-banner {
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      margin-top: 48px;
+      padding: 20px 24px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+    }
+    .stack-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: #86868b;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .stack-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .stack-item {
+      color: #f5f5f7;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .stack-dot {
+      width: 4px;
+      height: 4px;
+      background: #2997ff;
+      border-radius: 50%;
+    }
+
+    /* CTA */
+    .case-cta {
+      margin-top: 60px;
+      text-align: center;
+    }
+    .case-cta p {
+      font-size: 1.2rem;
+      color: #a1a1a6;
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #2997ff;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    .cta-button:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 940px) {
+      .major-project-card {
+        max-width: 99vw;
+        padding: 24px 6vw;
+      }
+      .projects-header h1 {
+        font-size: 32px;
+      }
+      .results-bar {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .scope-items {
+        gap: 24px;
+      }
+    }
+  </style>
+</MainLayout>

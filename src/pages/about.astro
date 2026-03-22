@@ -1,0 +1,235 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="About | Nick Ruffin">
+  <div class="about-container">
+    <div class="about-content">
+      <span class="about-tag">ABOUT</span>
+      <h1>Nick Ruffin</h1>
+      <p class="about-subtitle">Director of Engineering | Data Platforms & Team Leadership</p>
+
+      <div class="about-sections">
+        <div class="about-section">
+          <h2>Background</h2>
+          <p>
+            I'm a data engineering leader with a track record of building teams and
+            systems that deliver measurable business results. As Director of Engineering
+            at Nimble Solutions, I was hand-picked by the CIO to transition from lead
+            software engineer to director — building and managing a department of 16+
+            engineers across three functional teams.
+          </p>
+          <p>
+            My team included 5 software engineers in the US, 6 SQL/data developers,
+            5 offshore RPA developers in Hyderabad, and a project manager. I traveled
+            to India personally to integrate the offshore team into our US operations,
+            and worked closely with the C-suite on technical strategy and budget decisions.
+          </p>
+        </div>
+
+        <div class="about-section">
+          <h2>What I've Built</h2>
+          <ul class="about-list">
+            <li>Data monetization platform generating <strong>$7M+ annually</strong></li>
+            <li>De-identification pipelines processing <strong>4.8 billion records</strong></li>
+            <li>Automated delivery infrastructure serving <strong>50+ external clients</strong></li>
+            <li>Pipeline automation saving <strong>40+ hours/month</strong> of manual work</li>
+            <li>Cross-border engineering teams across the <strong>US and India</strong></li>
+          </ul>
+        </div>
+
+        <div class="about-section">
+          <h2>Technical Expertise</h2>
+          <div class="tech-grid">
+            <div class="tech-category">
+              <h3>Data Platforms</h3>
+              <p>Snowflake, AWS (S3, Lambda, MWAA), Airflow, Terraform</p>
+            </div>
+            <div class="tech-category">
+              <h3>Engineering</h3>
+              <p>Python, SQL, ETL/ELT pipelines, de-identification, HIPAA compliance</p>
+            </div>
+            <div class="tech-category">
+              <h3>Leadership</h3>
+              <p>Team building, TCO analysis, vendor evaluation, offshore management, budget ownership</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2>Leadership Philosophy</h2>
+          <p>
+            I believe the best engineering leaders stay technically sharp while focusing
+            on what multiplies impact: building the right team, removing blockers, and
+            making sound technical bets. I've seen firsthand that great systems come from
+            great teams — and great teams come from leaders who invest in people, create
+            clarity, and hold a high bar.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-cta">
+        <a href="/contact" class="cta-button">Get in Touch</a>
+        <a href="/experience" class="secondary-link">See my track record ></a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .about-container {
+      min-height: 100vh;
+      background: #000;
+      color: #f5f5f7;
+      padding: 110px 24px 80px;
+      display: flex;
+      justify-content: center;
+    }
+    .about-content {
+      max-width: 680px;
+      width: 100%;
+    }
+    .about-tag {
+      font-size: 13px;
+      letter-spacing: 0.13em;
+      color: #2997ff;
+      margin-bottom: 22px;
+      display: block;
+      font-weight: 600;
+    }
+    .about-content h1 {
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .about-subtitle {
+      font-size: 21px;
+      color: #86868b;
+      margin-bottom: 48px;
+    }
+
+    .about-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .about-section h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #f5f5f7;
+    }
+    .about-section p {
+      font-size: 17px;
+      color: #a1a1a6;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .about-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+    }
+    .about-list li {
+      padding: 10px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 17px;
+      color: #a1a1a6;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .about-list li:last-child {
+      border-bottom: none;
+    }
+    .about-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: #2997ff;
+      border-radius: 50%;
+    }
+    .about-list li strong {
+      color: #f5f5f7;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .tech-category {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .tech-category h3 {
+      font-size: 14px;
+      color: #2997ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .tech-category p {
+      font-size: 15px;
+      color: #a1a1a6;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    .about-cta {
+      margin-top: 60px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #2997ff;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    .cta-button:hover {
+      opacity: 0.8;
+    }
+    .secondary-link {
+      color: #2997ff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+    .secondary-link:hover {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .about-content h1 {
+        font-size: 36px;
+      }
+      .about-subtitle {
+        font-size: 18px;
+      }
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</MainLayout>
