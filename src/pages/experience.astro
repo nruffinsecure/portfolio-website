@@ -8,40 +8,89 @@ import MainLayout from "../layouts/MainLayout.astro";
       <span class="projects-tag">EXPERIENCE</span>
       <h1>Enterprise-scale results</h1>
       <p>
-        As Director of Engineering, I designed and led the build of a data
-        monetization platform from inception to $7M+ annual revenue — managing
-        cross-functional teams across the US and India.
+        From leading a 16+ person engineering department through 4 acquisitions,
+        to architecting a $7M+ data monetization platform — I build teams and
+        systems that deliver measurable business impact.
       </p>
     </div>
 
-    <!-- Leadership Scope -->
-    <div class="scope-banner">
-      <span class="scope-label">LEADERSHIP SCOPE</span>
-      <div class="scope-items">
-        <div class="scope-item">
-          <span class="scope-number">16+</span>
-          <span class="scope-desc">Engineers Managed</span>
+    <!-- Leadership at Nimble -->
+    <div class="one-card-wrapper" style="margin-bottom: 48px;">
+      <div class="major-project-card">
+        <h2>Director of Engineering — Nimble Solutions</h2>
+        <p class="project-intro">
+          Promoted from Lead Software Engineer to Director of Engineering.
+          Built and managed a department of 16+ engineers across the US and India,
+          led technology due diligence for 4 acquisitions, and delivered systems
+          that transformed business operations.
+        </p>
+        <div class="scope-banner-inline">
+          <div class="scope-items">
+            <div class="scope-item">
+              <span class="scope-number">16+</span>
+              <span class="scope-desc">Engineers Managed</span>
+            </div>
+            <div class="scope-item">
+              <span class="scope-number">4</span>
+              <span class="scope-desc">Acquisitions</span>
+            </div>
+            <div class="scope-item">
+              <span class="scope-number">2</span>
+              <span class="scope-desc">Countries</span>
+            </div>
+          </div>
         </div>
-        <div class="scope-item">
-          <span class="scope-number">3</span>
-          <span class="scope-desc">Functional Teams</span>
+        <div class="stage-block">
+          <div class="stage-title">
+            <span>Team</span>
+            <hr />
+          </div>
+          <strong>Cross-Functional Engineering Department</strong>
+          <p>
+            5 US software engineers, 6 SQL/data developers, 5 offshore RPA
+            developers in Hyderabad, and a project manager — spanning three
+            functional teams across two countries.
+          </p>
         </div>
-        <div class="scope-item">
-          <span class="scope-number">2</span>
-          <span class="scope-desc">Countries</span>
+        <div class="stage-block">
+          <div class="stage-title">
+            <span>Product</span>
+            <hr />
+          </div>
+          <strong>AR Claims Processing Tool</strong>
+          <p>
+            Designed and led the build of a queue-based claims reimbursement
+            system ordered by revenue, increasing daily touches to 30+ claims
+            per AR rep with historical AR aging data embedded directly into
+            the queues.
+          </p>
+        </div>
+        <div class="stage-block">
+          <div class="stage-title">
+            <span>M&A</span>
+            <hr />
+          </div>
+          <strong>Acquisition Due Diligence</strong>
+          <p>
+            Led technology due diligence across 4 acquisitions — a coding
+            company, 2 transcription businesses (Hyderabad and California),
+            and an anesthesia company. Traveled to Hyderabad personally to
+            integrate the acquired development team into US operations.
+          </p>
         </div>
       </div>
     </div>
 
+    <!-- Data Monetization Platform -->
     <div class="one-card-wrapper">
       <div class="major-project-card">
         <h2>
-          Building a $7M Data Monetization Platform
+          $7M+ Data Monetization Platform
         </h2>
         <p class="project-intro">
-          I led a team of software engineers, data developers, and offshore RPA
-          specialists to build the entire data monetization infrastructure —
-          from raw data transformation through automated client delivery.
+          Architected and built the entire data monetization infrastructure —
+          from raw data transformation through de-identification to automated
+          client delivery — generating $7M+ in annual recurring revenue.
         </p>
         <div class="stage-block">
           <div class="stage-title">
@@ -50,13 +99,10 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
           <strong>Turning Raw Data into Revenue-Ready Assets</strong>
           <p>
-            Led the design and build of data transformation pipelines that
-            processed billions of clinical claims records, turning raw upstream
+            Designed and built data transformation pipelines that process
+            billions of clinical claims records, turning raw upstream
             data into clean, compliant datasets ready for monetization.
           </p>
-          <a href="/case-studies/snowflake-transformation" class="phase-link"
-            >Read the full story &rarr;</a
-          >
         </div>
         <div class="stage-block">
           <div class="stage-title">
@@ -65,13 +111,10 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
           <strong>Privacy-First Data Linking at Scale</strong>
           <p>
-            Directed the implementation of secure tokenization across 4.8 billion
-            records, enabling cross-organization analytics while maintaining
+            Implemented secure tokenization across 4.8 billion records,
+            enabling cross-organization analytics while maintaining
             full HIPAA compliance and patient privacy.
           </p>
-          <a href="/case-studies/datavant-tokenization" class="phase-link"
-            >Read the full story &rarr;</a
-          >
         </div>
         <div class="stage-block">
           <div class="stage-title">
@@ -80,13 +123,10 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
           <strong>Automating Delivery to Save 40+ Hours/Month</strong>
           <p>
-            Led the engineering effort that replaced manual data delivery
-            processes with fully automated pipelines, enabling daily secure
-            transfers to multiple clients with zero manual intervention.
+            Built automated pipelines that replaced manual data delivery
+            processes, enabling daily secure transfers to multiple clients
+            with zero manual intervention.
           </p>
-          <a href="/case-studies/airflow-pipeline" class="phase-link"
-            >Read the full story &rarr;</a
-          >
         </div>
         <div class="results-bar">
           <div class="result-stat">
@@ -167,23 +207,12 @@ import MainLayout from "../layouts/MainLayout.astro";
     }
 
     /* Scope Banner */
-    .scope-banner {
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-      margin-bottom: 48px;
-      padding: 24px;
+    .scope-banner-inline {
+      padding: 20px;
       background: rgba(41, 151, 255, 0.06);
       border: 1px solid rgba(41, 151, 255, 0.12);
       border-radius: 14px;
-    }
-    .scope-label {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      color: #86868b;
-      font-weight: 600;
-      display: block;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
     .scope-items {
       display: flex;
