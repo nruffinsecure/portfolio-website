@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicholas Ruffin - Resume</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 40px 50px;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+  }
+  .subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  .contact {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 24px;
+  }
+  .contact span { margin-right: 16px; }
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c5282;
+    text-transform: uppercase;
+    border-bottom: 2px solid #2c5282;
+    padding-bottom: 4px;
+    margin-top: 22px;
+    margin-bottom: 12px;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 6px 16px;
+    margin-bottom: 8px;
+  }
+  .skill-label {
+    font-weight: 600;
+    color: #444;
+  }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .job-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .job-date {
+    font-size: 13px;
+    color: #666;
+    white-space: nowrap;
+  }
+  .job-subtitle {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+  }
+  ul {
+    margin-left: 20px;
+    margin-bottom: 16px;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+  .education-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  @media print {
+    body { padding: 20px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>NICHOLAS RUFFIN</h1>
+<div class="subtitle">Staff Data Engineer | Enterprise Data Platforms</div>
+<div class="contact">
+  <span>Ellisville, MO</span>
+  <span>(843) 793-9770</span>
+  <span>nruffinsecure@gmail.com</span>
+  <span>linkedin.com/in/nicholas-ruffin</span>
+</div>
+
+<h2>Professional Summary</h2>
+<p>Data platform engineer with 12+ years of experience designing scalable data architectures, building production ETL/ELT pipelines, and driving enterprise data strategy across cross-functional teams. Currently architecting a data monetization platform generating $7M+ ARR, processing 4.8B de-identified records through Snowflake and AWS. Deep expertise in Python, SQL, AWS, and Airflow with a proven ability to own end-to-end data warehouse design, implement data governance practices, and influence technical direction across Engineering, Product, and Analytics. Brings director-level experience managing 16+ engineers, providing unique cross-team leadership perspective at the Staff level.</p>
+
+<h2>Technical Skills</h2>
+<div class="skills-grid">
+  <div class="skill-label">Data Engineering</div>
+  <div>Python, SQL, ETL/ELT Pipeline Design, Dimensional Modeling, Data Warehousing, Data Governance, RBAC</div>
+  <div class="skill-label">Data Platforms</div>
+  <div>Snowflake (Procs, Streams, Tasks), AWS (MWAA, S3, Lambda, IAM, Redshift-familiar), Kafka, AWS Glue</div>
+  <div class="skill-label">DevOps</div>
+  <div>Apache Airflow, Terraform, GitHub Actions (CI/CD), Docker, Git</div>
+  <div class="skill-label">Leadership</div>
+  <div>Cross-team technical influence, enterprise data modeling, vendor evaluation, TCO analysis, mentoring</div>
+</div>
+
+<h2>Experience</h2>
+
+<div class="job-header">
+  <div class="job-title">Senior Clinical Data Engineer | RedSail Technologies</div>
+  <div class="job-date">Feb 2025 - Present</div>
+</div>
+<ul>
+  <li>Architected enterprise data monetization platform generating <strong>$7M+ ARR</strong> by designing secure PII tokenization workflows (Snowflake + Datavant), enabling pharmaceutical clients to access privacy-compliant clinical datasets.</li>
+  <li>Engineered de-identification pipelines processing <strong>4.8 billion records</strong> daily (3M+ transactions/hour), designing scalable data warehouse schemas with dimensional modeling strategies.</li>
+  <li>Built Python/Airflow orchestration framework deployed via GitHub Actions, automating <strong>50+ daily workflows</strong> for S3 extraction and ETL processing.</li>
+  <li>Implemented data governance practices including role-based access control, HIPAA-compliant data handling, and automated data quality validation across the platform.</li>
+  <li>Optimized Snowflake architecture reducing query latency by <strong>40%</strong> and eliminating critical manual bottlenecks, achieving <strong>99.5% pipeline uptime</strong> SLA.</li>
+</ul>
+
+<div class="job-header">
+  <div class="job-title">Director of Full Stack Development | Nimble Solutions</div>
+  <div class="job-date">Aug 2021 - Jan 2025</div>
+</div>
+<div class="job-subtitle">Promoted from Lead Software Engineer to Director by the CIO. Built and managed an engineering department of 16+ people across three functional teams: 5 US software engineers, 6 SQL/data developers, 5 offshore RPA developers in Hyderabad, and a project manager.</div>
+<ul>
+  <li>Led technology due diligence for <strong>4 acquisitions</strong> — a coding company, 2 transcription businesses (Hyderabad and California), and an anesthesia company. Traveled to Hyderabad to integrate the acquired development team into US operations.</li>
+  <li>Designed and led the build of <strong>QUARC</strong>, a queue-based AR claims reimbursement system ordered by revenue with historical AR aging data, increasing throughput to <strong>30+ claims/day per rep</strong>.</li>
+  <li>Partnered with CIO, VP of Infrastructure, and CISO on <strong>technical strategy, vendor evaluations, and TCO analysis</strong>. Traveled with C-suite for due diligence and integration planning.</li>
+  <li>Engineered integration of <strong>50+ data sources</strong> into a unified enterprise data model, designing API orchestration patterns for high reliability.</li>
+  <li>Established technical standards, implemented CI/CD pipelines reducing deployment time by <strong>60%</strong>, and achieved <strong>90%+ test code coverage</strong>.</li>
+  <li>Mentored engineers across all three teams, building a culture of code quality, test-driven development, and cross-functional collaboration.</li>
+</ul>
+
+<div class="job-header">
+  <div class="job-title">Senior Full Stack Developer | Core & Main</div>
+  <div class="job-date">Jun 2017 - Aug 2021</div>
+</div>
+<ul>
+  <li>Developed enterprise data applications using C#/.NET and SQL, supporting <strong>200+ concurrent</strong> corporate users.</li>
+</ul>
+
+<h2>Education</h2>
+<div class="education-row">
+  <div><strong>Bachelor of Science, Information Technology</strong></div>
+  <div>University of Phoenix</div>
+</div>
+
+</body>
+</html>
