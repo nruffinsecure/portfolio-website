@@ -5,80 +5,13 @@ import MainLayout from "../layouts/MainLayout.astro";
 <MainLayout title="Experience | Nick Ruffin">
   <div class="projects-container">
     <div class="projects-header">
-      <span class="projects-tag">EXPERIENCE</span>
-      <h1>Enterprise-scale results</h1>
+      <span class="projects-tag">TRACK RECORD</span>
+      <h1>Built it. Scaled it. Now I help you do the same.</h1>
       <p>
-        From leading a 16+ person engineering department through 4 acquisitions,
-        to architecting a $7M+ data monetization platform — I build teams and
-        systems that deliver measurable business impact.
+        The data monetization platform I built generates $7M+ in annual revenue,
+        processes 4.8 billion de-identified records, and delivers to 50+ clients
+        automatically. Here's how it came together.
       </p>
-    </div>
-
-    <!-- Leadership at Nimble -->
-    <div class="one-card-wrapper" style="margin-bottom: 48px;">
-      <div class="major-project-card">
-        <h2>Director of Engineering — Nimble Solutions</h2>
-        <p class="project-intro">
-          Promoted from Lead Software Engineer to Director of Engineering.
-          Built and managed a department of 16+ engineers across the US and India,
-          led technology due diligence for 4 acquisitions, and delivered systems
-          that transformed business operations.
-        </p>
-        <div class="scope-banner-inline">
-          <div class="scope-items">
-            <div class="scope-item">
-              <span class="scope-number">16+</span>
-              <span class="scope-desc">Engineers Managed</span>
-            </div>
-            <div class="scope-item">
-              <span class="scope-number">4</span>
-              <span class="scope-desc">Acquisitions</span>
-            </div>
-            <div class="scope-item">
-              <span class="scope-number">2</span>
-              <span class="scope-desc">Countries</span>
-            </div>
-          </div>
-        </div>
-        <div class="stage-block">
-          <div class="stage-title">
-            <span>Team</span>
-            <hr />
-          </div>
-          <strong>Cross-Functional Engineering Department</strong>
-          <p>
-            5 US software engineers, 6 SQL/data developers, 5 offshore RPA
-            developers in Hyderabad, and a project manager — spanning three
-            functional teams across two countries.
-          </p>
-        </div>
-        <div class="stage-block">
-          <div class="stage-title">
-            <span>Product</span>
-            <hr />
-          </div>
-          <strong>AR Claims Processing Tool</strong>
-          <p>
-            Designed and led the build of a queue-based claims reimbursement
-            system ordered by revenue, increasing daily touches to 30+ claims
-            per AR rep with historical AR aging data embedded directly into
-            the queues.
-          </p>
-        </div>
-        <div class="stage-block">
-          <div class="stage-title">
-            <span>M&A</span>
-            <hr />
-          </div>
-          <strong>Acquisition Due Diligence</strong>
-          <p>
-            Led technology due diligence across 4 acquisitions — a coding
-            company, 2 transcription businesses (Hyderabad and California),
-            and an anesthesia company. Traveled to Hyderabad personally to
-            integrate the acquired development team into US operations.
-          </p>
-        </div>
-      </div>
     </div>
 
     <!-- Data Monetization Platform -->
@@ -89,8 +22,8 @@ import MainLayout from "../layouts/MainLayout.astro";
         </h2>
         <p class="project-intro">
           Architected and built the entire data monetization infrastructure —
-          from raw data transformation through de-identification to automated
-          client delivery — generating $7M+ in annual recurring revenue.
+          from raw data transformation through expert determination and Datavant
+          tokenization to automated client delivery on Snowflake and AWS.
         </p>
         <div class="stage-block">
           <div class="stage-title">
@@ -111,9 +44,9 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
           <strong>Privacy-First Data Linking at Scale</strong>
           <p>
-            Implemented secure tokenization across 4.8 billion records,
+            Implemented secure Datavant tokenization across 4.8 billion records,
             enabling cross-organization analytics while maintaining
-            full HIPAA compliance and patient privacy.
+            full HIPAA compliance through expert determination.
           </p>
         </div>
         <div class="stage-block">
@@ -123,9 +56,9 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
           <strong>Automating Delivery to Save 40+ Hours/Month</strong>
           <p>
-            Built automated pipelines that replaced manual data delivery
-            processes, enabling daily secure transfers to multiple clients
-            with zero manual intervention.
+            Built Airflow-orchestrated pipelines on AWS that replaced manual
+            data delivery processes, enabling daily secure transfers to
+            50+ clients with zero manual intervention.
           </p>
         </div>
         <div class="results-bar">
@@ -136,6 +69,10 @@ import MainLayout from "../layouts/MainLayout.astro";
           <div class="result-stat">
             <span class="stat-number">4.8B</span>
             <span class="stat-label">Records Processed</span>
+          </div>
+          <div class="result-stat">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Client Deliveries</span>
           </div>
           <div class="result-stat">
             <span class="stat-number">40+</span>
@@ -158,13 +95,32 @@ import MainLayout from "../layouts/MainLayout.astro";
         <span class="stack-item">Python</span>
         <span class="stack-dot"></span>
         <span class="stack-item">Terraform</span>
+        <span class="stack-dot"></span>
+        <span class="stack-item">Datavant</span>
+      </div>
+    </div>
+
+    <!-- Prior Leadership -->
+    <div class="prior-section">
+      <span class="prior-tag">PRIOR LEADERSHIP</span>
+      <div class="prior-card">
+        <h3>Director of Engineering — Nimble Solutions</h3>
+        <p>
+          Before building the data monetization platform, I led a 16-person
+          engineering department across the US and India. I was hand-picked by
+          the CIO, led technology due diligence for 4 acquisitions, traveled to
+          Hyderabad to integrate an acquired dev team, and built enterprise
+          systems that transformed business operations. That experience is why
+          I build things that work at scale — not prototypes, not proofs of concept,
+          but production systems that run reliably.
+        </p>
       </div>
     </div>
 
     <!-- CTA -->
     <div class="case-cta">
-      <p>These results came from the right combination of technical depth and team leadership.</p>
-      <a href="/contact" class="cta-button">Get in Touch</a>
+      <p>This is the process I've built and can help you replicate.</p>
+      <a href="/contact" class="cta-button">Start a Conversation</a>
     </div>
   </div>
 
@@ -204,35 +160,6 @@ import MainLayout from "../layouts/MainLayout.astro";
       color: #b3b6c5;
       margin-bottom: 0;
       line-height: 1.5;
-    }
-
-    /* Scope Banner */
-    .scope-banner-inline {
-      padding: 20px;
-      background: rgba(41, 151, 255, 0.06);
-      border: 1px solid rgba(41, 151, 255, 0.12);
-      border-radius: 14px;
-      margin-bottom: 24px;
-    }
-    .scope-items {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-    }
-    .scope-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-    }
-    .scope-number {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #2997ff;
-    }
-    .scope-desc {
-      font-size: 0.85rem;
-      color: #a1a1a6;
     }
 
     /* Card */
@@ -338,6 +265,45 @@ import MainLayout from "../layouts/MainLayout.astro";
       color: #a1a1a6;
     }
 
+    /* Results Bar - 4 columns */
+    .results-bar {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Prior Leadership */
+    .prior-section {
+      max-width: 700px;
+      width: 100%;
+      margin-top: 48px;
+      text-align: center;
+    }
+    .prior-tag {
+      font-size: 13px;
+      letter-spacing: 0.13em;
+      color: #2997ff;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 22px;
+    }
+    .prior-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 36px 32px;
+      text-align: left;
+    }
+    .prior-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f5f5f7;
+      margin-bottom: 12px;
+    }
+    .prior-card p {
+      font-size: 1rem;
+      color: #a1a1a6;
+      line-height: 1.7;
+    }
+
     /* Stack Banner */
     .stack-banner {
       max-width: 700px;
@@ -410,11 +376,11 @@ import MainLayout from "../layouts/MainLayout.astro";
         font-size: 32px;
       }
       .results-bar {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
       }
-      .scope-items {
-        gap: 24px;
+      .prior-card {
+        padding: 24px 20px;
       }
     }
   </style>
