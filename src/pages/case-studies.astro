@@ -4,269 +4,166 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="Case Studies | Nick Ruffin">
   <div class="projects-container">
-    <div class="projects-header">
-      <span class="projects-tag">CASE STUDIES</span>
-      <h1>Real results at enterprise scale</h1>
-      <p>
-        How I've built de-identification pipelines, automated data delivery,
-        and turned raw healthcare data into revenue-generating assets.
-      </p>
-    </div>
-    <div class="one-card-wrapper">
-      <div class="major-project-card">
-        <h2>
-          How We Built a $7M Data Platform from the Ground Up
-        </h2>
-        <p class="project-intro">
-          A pharmaceutical analytics company needed to monetize billions of clinical records
-          while maintaining strict privacy compliance. I designed and built the entire
-          pipeline — from data transformation to automated client delivery.
-        </p>
-        <div class="stage-block">
-          <div class="stage-title">
-            <span>Stage 1</span>
-            <hr />
+    <canvas id="dataflow-canvas"></canvas>
+    <div class="projects-inner">
+      <div class="projects-header">
+        <span class="projects-tag reveal">CASE STUDIES</span>
+        <h1 class="reveal reveal-delay-1">Real results at enterprise scale</h1>
+        <p class="reveal reveal-delay-2">How I've built de-identification pipelines, automated data delivery, and turned raw healthcare data into revenue-generating assets.</p>
+      </div>
+      <div class="one-card-wrapper reveal">
+        <div class="major-project-card">
+          <h2>How We Built a $7M Data Platform from the Ground Up</h2>
+          <p class="project-intro">A pharmaceutical analytics company needed to monetize billions of clinical records while maintaining strict privacy compliance. I designed and built the entire pipeline — from data transformation to automated client delivery.</p>
+          <div class="stage-block">
+            <div class="stage-title"><span>Stage 1</span><hr /></div>
+            <strong>Turning Raw Data into Revenue-Ready Assets</strong>
+            <p>Processed and de-identified billions of clinical claims records, transforming raw upstream data into clean, compliant datasets ready for monetization.</p>
+            <a href="/case-studies/snowflake-transformation" class="phase-link">Read the full story &rarr;</a>
           </div>
-          <strong>Turning Raw Data into Revenue-Ready Assets</strong>
-          <p>
-            Processed and de-identified billions of clinical claims records,
-            transforming raw upstream data into clean, compliant datasets
-            ready for monetization.
-          </p>
-          <a href="/case-studies/snowflake-transformation" class="phase-link"
-            >Read the full story &rarr;</a
-          >
-        </div>
-        <div class="stage-block">
-          <div class="stage-title">
-            <span>Stage 2</span>
-            <hr />
+          <div class="stage-block">
+            <div class="stage-title"><span>Stage 2</span><hr /></div>
+            <strong>Privacy-First Data Linking at Scale</strong>
+            <p>Implemented secure tokenization across 4.8 billion records, enabling cross-organization analytics while maintaining full HIPAA compliance and patient privacy.</p>
+            <a href="/case-studies/datavant-tokenization" class="phase-link">Read the full story &rarr;</a>
           </div>
-          <strong>Privacy-First Data Linking at Scale</strong>
-          <p>
-            Implemented secure tokenization across 4.8 billion records,
-            enabling cross-organization analytics while maintaining
-            full HIPAA compliance and patient privacy.
-          </p>
-          <a href="/case-studies/datavant-tokenization" class="phase-link"
-            >Read the full story &rarr;</a
-          >
-        </div>
-        <div class="stage-block">
-          <div class="stage-title">
-            <span>Stage 3</span>
-            <hr />
+          <div class="stage-block">
+            <div class="stage-title"><span>Stage 3</span><hr /></div>
+            <strong>Automating Delivery to Save 40+ Hours/Month</strong>
+            <p>Built automated pipelines that replaced manual data delivery processes, enabling daily secure transfers to multiple clients with zero manual intervention.</p>
+            <a href="/case-studies/airflow-pipeline" class="phase-link">Read the full story &rarr;</a>
           </div>
-          <strong>Automating Delivery to Save 40+ Hours/Month</strong>
-          <p>
-            Built automated pipelines that replaced manual data delivery
-            processes, enabling daily secure transfers to multiple clients
-            with zero manual intervention.
-          </p>
-          <a href="/case-studies/airflow-pipeline" class="phase-link"
-            >Read the full story &rarr;</a
-          >
-        </div>
-        <div class="results-bar">
-          <div class="result-stat">
-            <span class="stat-number">$7M+</span>
-            <span class="stat-label">Annual Revenue</span>
-          </div>
-          <div class="result-stat">
-            <span class="stat-number">4.8B</span>
-            <span class="stat-label">Records Processed</span>
-          </div>
-          <div class="result-stat">
-            <span class="stat-number">40+</span>
-            <span class="stat-label">Hours Saved/Month</span>
+          <div class="results-bar">
+            <div class="result-stat"><span class="stat-number">$7M+</span><span class="stat-label">Annual Revenue</span></div>
+            <div class="result-stat"><span class="stat-number">4.8B</span><span class="stat-label">Records Processed</span></div>
+            <div class="result-stat"><span class="stat-number">40+</span><span class="stat-label">Hours Saved/Month</span></div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- CTA -->
-    <div class="case-cta">
-      <p>This is the kind of work I do.</p>
-      <a href="/contact" class="cta-button">Get in Touch</a>
+      <div class="case-cta reveal">
+        <p>This is the kind of work I do.</p>
+        <a href="/contact" class="cta-button">Get in Touch</a>
+      </div>
     </div>
   </div>
+
+  <script>
+    function initDataflow() {
+      const canvas = document.getElementById('dataflow-canvas') as HTMLCanvasElement;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = canvas.parentElement!.scrollHeight;
+      let animId: number;
+      let time = 0;
+
+      interface Stream { x: number; y: number; speed: number; length: number; hue: number; alpha: number; }
+      const streams: Stream[] = [];
+      for (let i = 0; i < 30; i++) {
+        streams.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          speed: 1 + Math.random() * 2,
+          length: 40 + Math.random() * 100,
+          hue: 265 + Math.random() * 30,
+          alpha: 0.1 + Math.random() * 0.2,
+        });
+      }
+
+      function draw() {
+        ctx!.clearRect(0, 0, w, h);
+        time += 0.016;
+
+        for (const s of streams) {
+          s.y += s.speed;
+          if (s.y - s.length > h) { s.y = -s.length; s.x = Math.random() * w; }
+
+          const grad = ctx!.createLinearGradient(s.x, s.y - s.length, s.x, s.y);
+          grad.addColorStop(0, `hsla(${s.hue}, 80%, 65%, 0)`);
+          grad.addColorStop(0.5, `hsla(${s.hue}, 80%, 65%, ${s.alpha})`);
+          grad.addColorStop(1, `hsla(${s.hue}, 80%, 65%, ${s.alpha * 0.5})`);
+
+          ctx!.beginPath();
+          ctx!.moveTo(s.x, s.y - s.length);
+          ctx!.lineTo(s.x, s.y);
+          ctx!.strokeStyle = grad;
+          ctx!.lineWidth = 1.5;
+          ctx!.stroke();
+
+          // Head glow
+          const glow = ctx!.createRadialGradient(s.x, s.y, 0, s.x, s.y, 6);
+          glow.addColorStop(0, `hsla(${s.hue}, 90%, 75%, ${s.alpha * 2})`);
+          glow.addColorStop(1, `hsla(${s.hue}, 80%, 60%, 0)`);
+          ctx!.fillStyle = glow;
+          ctx!.beginPath();
+          ctx!.arc(s.x, s.y, 6, 0, Math.PI * 2);
+          ctx!.fill();
+        }
+
+        animId = requestAnimationFrame(draw);
+      }
+      draw();
+      window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = canvas.parentElement!.scrollHeight; });
+      document.addEventListener('astro:before-swap', () => cancelAnimationFrame(animId));
+    }
+    initDataflow();
+    document.addEventListener('astro:after-swap', initDataflow);
+  </script>
 
   <style>
     .projects-container {
       min-height: 100vh;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url("/images/case_studies_tech.png") no-repeat center center;
-      background-size: cover;
-      color: #f5f5f7;
+      background: var(--background-color);
+      color: var(--text-color);
       padding: 110px 24px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
     }
-    .projects-header {
-      text-align: center;
-      margin-bottom: 48px;
-      max-width: 700px;
-    }
-    .projects-tag {
-      font-size: 13px;
-      letter-spacing: 0.13em;
-      color: #2997ff;
-      margin-bottom: 22px;
-      display: block;
-      font-weight: 600;
-    }
-    .projects-header h1 {
-      font-size: 45px;
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
-    .projects-header p {
-      font-size: 19px;
-      color: #b3b6c5;
-      margin-bottom: 0;
-      line-height: 1.5;
-    }
-    .one-card-wrapper {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
+    #dataflow-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .projects-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
+    .projects-header { text-align: center; margin-bottom: 48px; max-width: 700px; }
+    .projects-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--primary-color); margin-bottom: 22px; display: block; }
+    .projects-header h1 { font-size: 42px; font-weight: 700; margin-bottom: 14px; }
+    .projects-header p { font-size: 17px; color: var(--text-muted); line-height: 1.6; }
+
+    .one-card-wrapper { display: flex; justify-content: center; width: 100%; }
     .major-project-card {
-      background: rgba(255, 255, 255, 0.075);
-      border-radius: 22px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
-      backdrop-filter: blur(13px) saturate(115%);
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
       max-width: 700px;
-      padding: 54px 40px 44px 40px;
-      color: #f5f5f7;
+      padding: 48px 36px;
       display: flex;
       flex-direction: column;
-      margin: 0 auto;
+      border: 1px solid var(--card-border);
+      transition: border-color 0.4s, box-shadow 0.4s;
     }
-    .major-project-card > h2 {
-      font-size: 1.5rem;
-      color: #2997ff;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-    .project-intro {
-      font-size: 1rem;
-      color: #a1a1a6;
-      text-align: center;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-    .stage-block {
-      margin-bottom: 34px;
-      display: flex;
-      flex-direction: column;
-    }
-    .stage-title {
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .stage-title span {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #2997ff;
-    }
-    .stage-title hr {
-      border: none;
-      border-top: 2px solid #2997ff;
-      flex: 1;
-      margin: 0;
-      opacity: 0.25;
-    }
-    .stage-block strong {
-      display: block;
-      margin-bottom: 7px;
-      color: #f5f5f7;
-      font-size: 1.05rem;
-    }
-    .stage-block p {
-      margin-bottom: 9px;
-      line-height: 1.64;
-      color: #a1a1a6;
-    }
-    .phase-link {
-      color: #2997ff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.97rem;
-    }
-    .phase-link:hover {
-      color: #147bcd;
-      text-decoration: underline;
-    }
+    .major-project-card:hover { border-color: rgba(168, 85, 247, 0.3); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.1); }
+    .major-project-card > h2 { font-size: 1.4rem; color: var(--primary-color); font-weight: 700; margin-bottom: 0.5rem; text-align: center; }
+    .project-intro { font-size: 0.95rem; color: var(--text-muted); text-align: center; line-height: 1.7; margin-bottom: 2rem; }
+    .stage-block { margin-bottom: 28px; }
+    .stage-title { margin-bottom: 8px; display: flex; align-items: center; gap: 14px; }
+    .stage-title span { font-size: 1rem; font-weight: 700; color: var(--primary-color); font-family: 'JetBrains Mono', monospace; }
+    .stage-title hr { border: none; border-top: 1px solid rgba(168, 85, 247, 0.2); flex: 1; margin: 0; }
+    .stage-block strong { display: block; margin-bottom: 7px; color: var(--text-color); font-size: 1rem; }
+    .stage-block p { line-height: 1.7; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px; }
+    .phase-link { color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: opacity 0.3s; }
+    .phase-link:hover { opacity: 0.7; }
+    .results-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.5rem; padding: 24px; background: var(--primary-subtle); border-radius: 12px; text-align: center; border: 1px solid var(--card-border); }
+    .result-stat { display: flex; flex-direction: column; gap: 4px; }
+    .stat-number { font-size: 1.6rem; font-weight: 700; color: var(--primary-color); }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); }
 
-    /* Results Bar */
-    .results-bar {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 1.5rem;
-      padding: 24px;
-      background: rgba(41, 151, 255, 0.07);
-      border-radius: 14px;
-      text-align: center;
-    }
-    .result-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .stat-number {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #2997ff;
-    }
-    .stat-label {
-      font-size: 0.85rem;
-      color: #a1a1a6;
-    }
+    .case-cta { margin-top: 60px; text-align: center; }
+    .case-cta p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; }
+    .cta-button { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border-radius: 10px; text-decoration: none; font-size: 16px; font-weight: 600; box-shadow: 0 4px 24px var(--primary-glow); transition: all 0.3s; }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
 
-    /* CTA */
-    .case-cta {
-      margin-top: 60px;
-      text-align: center;
-    }
-    .case-cta p {
-      font-size: 1.2rem;
-      color: #a1a1a6;
-      margin-bottom: 20px;
-    }
-    .cta-button {
-      display: inline-block;
-      padding: 14px 32px;
-      background: #2997ff;
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 17px;
-      font-weight: 600;
-      transition: opacity 0.3s;
-    }
-    .cta-button:hover {
-      opacity: 0.8;
-    }
-
-    @media (max-width: 940px) {
-      .major-project-card {
-        max-width: 99vw;
-        padding: 24px 6vw;
-      }
-      .projects-header h1 {
-        font-size: 32px;
-      }
-      .results-bar {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-    }
+    @media (max-width: 768px) { .projects-header h1 { font-size: 30px; } .major-project-card { padding: 24px 20px; } .results-bar { grid-template-columns: 1fr; } }
   </style>
 </MainLayout>

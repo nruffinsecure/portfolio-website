@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 const { title } = Astro.props;
 ---
 
@@ -14,9 +15,10 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
     <title>{title}</title>
   </head>
   <body>
@@ -51,43 +53,11 @@ const { title } = Astro.props;
           </div>
           <div class="footer-right">
             <a href="mailto:nruffinsecure@gmail.com" class="icon-link">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
-                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
               nruffinsecure@gmail.com
             </a>
-            <a
-              href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102"
-              target="_blank"
-              class="icon-link"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path
-                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                ></path><rect width="4" height="12" x="2" y="9"></rect><circle
-                  cx="4"
-                  cy="4"
-                  r="2"></circle></svg
-              >
+            <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" class="icon-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               LinkedIn
             </a>
           </div>
@@ -96,11 +66,15 @@ const { title } = Astro.props;
     </div>
     <style is:global>
       :root {
-        --primary-color: #2997ff;
-        --text-color: #f5f5f7;
-        --background-color: #000;
-        --hover-color: #0077ed;
-        --nav-height: 44px;
+        --primary-color: #a855f7;
+        --primary-glow: rgba(168, 85, 247, 0.3);
+        --primary-subtle: rgba(168, 85, 247, 0.08);
+        --text-color: #f0e8ff;
+        --text-muted: #a09ab0;
+        --background-color: #050008;
+        --card-bg: rgba(168, 85, 247, 0.04);
+        --card-border: rgba(168, 85, 247, 0.12);
+        --nav-height: 48px;
       }
 
       * {
@@ -109,8 +83,7 @@ const { title } = Astro.props;
         box-sizing: border-box;
       }
 
-      html,
-      body {
+      html, body {
         margin: 0;
         padding: 0;
         width: 100%;
@@ -119,13 +92,13 @@ const { title } = Astro.props;
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: var(--text-color);
         background: var(--background-color);
-        line-height: 1.47059;
-        letter-spacing: -0.022em;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -147,20 +120,20 @@ const { title } = Astro.props;
       }
 
       .navbar {
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(5, 0, 8, 0.85);
         backdrop-filter: saturate(180%) blur(20px);
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 9999;
         height: var(--nav-height);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(168, 85, 247, 0.1);
       }
 
       .nav-content {
-        max-width: 980px;
+        max-width: 1000px;
         margin: 0 auto;
-        padding: 0 22px;
+        padding: 0 24px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -168,11 +141,12 @@ const { title } = Astro.props;
       }
 
       .logo-link {
-        color: var(--text-color);
-        font-size: 21px;
-        font-weight: 600;
+        color: var(--primary-color);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 18px;
+        font-weight: 400;
         text-decoration: none;
-        opacity: 0.8;
+        opacity: 0.9;
         transition: opacity 0.3s;
       }
 
@@ -184,14 +158,15 @@ const { title } = Astro.props;
       .nav-item {
         color: var(--text-color);
         text-decoration: none;
-        font-size: 12px;
-        opacity: 0.8;
-        transition: opacity 0.3s;
+        font-size: 13px;
+        font-weight: 400;
+        opacity: 0.7;
+        transition: opacity 0.3s, color 0.3s;
       }
 
-      .nav-item:hover,
-      .logo-link:hover {
+      .nav-item:hover, .logo-link:hover {
         opacity: 1;
+        color: var(--primary-color);
       }
 
       .mobile-menu {
@@ -199,10 +174,7 @@ const { title } = Astro.props;
       }
 
       @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-
+        .nav-links { display: none; }
         .mobile-menu {
           display: block;
           background: none;
@@ -210,7 +182,6 @@ const { title } = Astro.props;
           cursor: pointer;
           padding: 0;
         }
-
         .mobile-menu span {
           display: block;
           width: 18px;
@@ -219,26 +190,16 @@ const { title } = Astro.props;
           margin: 4px 0;
           transition: all 0.3s ease;
         }
-
-        .mobile-menu.active span:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .mobile-menu.active span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .mobile-menu.active span:nth-child(3) {
-          transform: rotate(-45deg) translate(5px, -5px);
-        }
-
+        .mobile-menu.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
         .nav-links.active {
           display: flex;
           position: fixed;
           top: var(--nav-height);
           left: 0;
           right: 0;
-          background: rgba(0, 0, 0, 0.95);
+          background: rgba(5, 0, 8, 0.95);
           padding: 1rem;
           flex-direction: column;
           align-items: center;
@@ -246,13 +207,13 @@ const { title } = Astro.props;
       }
 
       .site-footer {
-        background: #000;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: var(--background-color);
+        border-top: 1px solid rgba(168, 85, 247, 0.1);
         padding: 60px 20px;
       }
 
       .footer-content {
-        max-width: 980px;
+        max-width: 1000px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -262,15 +223,16 @@ const { title } = Astro.props;
       }
 
       .footer-logo {
-        font-weight: 700;
-        font-size: 20px;
-        color: var(--text-color);
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 400;
+        font-size: 18px;
+        color: var(--primary-color);
         margin-bottom: 8px;
         display: block;
       }
 
       .footer-left p {
-        color: #86868b;
+        color: var(--text-muted);
         font-size: 14px;
       }
 
@@ -278,11 +240,11 @@ const { title } = Astro.props;
         display: flex;
         gap: 24px;
         align-items: center;
-        flex-wrap: wrap; /* Prevent overflow */
+        flex-wrap: wrap;
       }
 
       .footer-right a {
-        color: #86868b;
+        color: var(--text-muted);
         text-decoration: none;
         font-size: 14px;
         transition: color 0.2s;
@@ -296,38 +258,87 @@ const { title } = Astro.props;
       }
 
       @media (max-width: 600px) {
-        .footer-content {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          gap: 40px;
-        }
-        .footer-right {
-          flex-direction: column;
-          gap: 16px;
-        }
+        .footer-content { flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+        .footer-right { flex-direction: column; gap: 16px; }
       }
+
+      /* Scroll-triggered animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-delay-1 { transition-delay: 0.1s; }
+      .reveal-delay-2 { transition-delay: 0.2s; }
+      .reveal-delay-3 { transition-delay: 0.3s; }
+      .reveal-delay-4 { transition-delay: 0.4s; }
+
+      /* Page transitions */
+      @keyframes fadeSlideIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      ::view-transition-new(root) { animation: fadeSlideIn 0.3s ease-out; }
+      ::view-transition-old(root) { animation: fadeSlideIn 0.3s ease-out reverse; }
     </style>
 
     <script>
       function initializeMenu() {
         const hamburger = document.querySelector(".mobile-menu");
         const navLinks = document.querySelector(".nav-links");
-
         if (!hamburger || !navLinks) return;
-
         function toggleMenu() {
           hamburger.classList.toggle("active");
           navLinks.classList.toggle("active");
-          const isExpanded = navLinks.classList.contains("active");
-          hamburger.setAttribute("aria-expanded", isExpanded.toString());
+          hamburger.setAttribute("aria-expanded", navLinks.classList.contains("active").toString());
         }
-
         hamburger.addEventListener("click", toggleMenu);
       }
 
+      function initializeScrollReveal() {
+        const observer = new IntersectionObserver(
+          (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } }); },
+          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+        );
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      }
+
+      function initializeCounters() {
+        const counterObserver = new IntersectionObserver(
+          (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { animateCounter(entry.target); counterObserver.unobserve(entry.target); } }); },
+          { threshold: 0.3 }
+        );
+        document.querySelectorAll("[data-counter]").forEach((el) => counterObserver.observe(el));
+      }
+
+      function animateCounter(el: Element) {
+        const target = el.getAttribute("data-counter")!;
+        const prefix = el.getAttribute("data-prefix") || "";
+        const suffix = el.getAttribute("data-suffix") || "";
+        const end = parseFloat(target);
+        const duration = 1800;
+        const startTime = performance.now();
+        function update(currentTime: number) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = eased * end;
+          if (end >= 100) { el.textContent = prefix + Math.round(current).toLocaleString() + suffix; }
+          else { el.textContent = prefix + current.toFixed(end % 1 !== 0 ? 1 : 0) + suffix; }
+          if (progress < 1) { requestAnimationFrame(update); }
+          else { el.textContent = prefix + target + suffix; }
+        }
+        requestAnimationFrame(update);
+      }
+
       initializeMenu();
-      document.addEventListener("astro:after-swap", initializeMenu);
+      initializeScrollReveal();
+      initializeCounters();
+      document.addEventListener("astro:after-swap", () => { initializeMenu(); initializeScrollReveal(); initializeCounters(); });
     </script>
   </body>
 </html>

@@ -17,6 +17,8 @@
     "nodemailer": "^6.9.16",
     "resend": "^6.9.4",
     "stripe": "^17.4.0",
-    "typescript": "^5.9.2"
+    "three": "^0.184.0",
+    "typescript": "^5.9.2",
+    "vanta": "^0.5.24"
   }
 }

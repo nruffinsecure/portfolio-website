@@ -4,30 +4,20 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="About | Nick Ruffin">
   <div class="about-container">
+    <canvas id="molecule-canvas"></canvas>
     <div class="about-content">
-      <span class="about-tag">ABOUT</span>
-      <h1>Nick Ruffin</h1>
-      <p class="about-subtitle">Senior Data Engineer | Healthcare &amp; Pharma</p>
+      <span class="about-tag reveal">ABOUT</span>
+      <h1 class="reveal reveal-delay-1">Nick Ruffin</h1>
+      <p class="about-subtitle reveal reveal-delay-2">Engineering Leader | Healthcare Data Platforms</p>
 
       <div class="about-sections">
-        <div class="about-section">
+        <div class="about-section reveal">
           <h2>What I Do</h2>
-          <p>
-            I build data platforms that turn raw healthcare data into compliant,
-            deliverable products at enterprise scale. My focus is the full lifecycle —
-            ingestion, de-identification, tokenization, and automated delivery.
-          </p>
-          <p>
-            I built the data monetization platform at a national pharmacy services
-            company — from raw claims data through expert determination,
-            Datavant tokenization, to automated Snowflake + AWS delivery. That
-            platform generates $7M+ annually, processes 4.8 billion
-            de-identified records, and delivers to 50+ clients with zero manual
-            intervention.
-          </p>
+          <p>I build data platforms that turn raw healthcare data into compliant, deliverable products at enterprise scale. My focus is the full lifecycle — ingestion, de-identification, tokenization, and automated delivery.</p>
+          <p>I built the data monetization platform at a national pharmacy services company — from raw claims data through expert determination, Datavant tokenization, to automated Snowflake + AWS delivery. That platform generates $7M+ annually, processes 4.8 billion de-identified records, and delivers to 50+ clients with zero manual intervention.</p>
         </div>
 
-        <div class="about-section">
+        <div class="about-section reveal">
           <h2>Core Strengths</h2>
           <ul class="about-list">
             <li><strong>Data platform architecture</strong> — end-to-end design from raw data to client delivery</li>
@@ -38,7 +28,7 @@ import MainLayout from "../layouts/MainLayout.astro";
           </ul>
         </div>
 
-        <div class="about-section">
+        <div class="about-section reveal">
           <h2>Technical Expertise</h2>
           <div class="tech-grid">
             <div class="tech-category">
@@ -56,180 +46,122 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
         </div>
 
-        <div class="about-section">
+        <div class="about-section reveal">
           <h2>Background</h2>
-          <p>
-            Before building the data monetization platform, I served as Director
-            of Engineering at Nimble Solutions — managing 16+ engineers
-            across the US and India, hand-picked by the CIO. Led technology due diligence
-            for 4 acquisitions, traveled to Hyderabad to integrate an acquired dev team,
-            and delivered enterprise systems that transformed business operations.
-          </p>
+          <p>Before building the data monetization platform, I served as Director of Engineering at Nimble Solutions — managing 16+ engineers across the US and India, hand-picked by the CIO. Led technology due diligence for 4 acquisitions, traveled to Hyderabad to integrate an acquired dev team, and delivered enterprise systems that transformed business operations.</p>
         </div>
       </div>
 
-      <div class="about-cta">
+      <div class="about-cta reveal">
         <a href="/contact" class="cta-button">Get in Touch</a>
-        <a href="/case-studies" class="secondary-link">See my work ></a>
+        <a href="/case-studies" class="secondary-link">See my work &rarr;</a>
       </div>
     </div>
   </div>
 
+  <script>
+    function initMolecules() {
+      const canvas = document.getElementById('molecule-canvas') as HTMLCanvasElement;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = canvas.parentElement!.scrollHeight;
+      let animId: number;
+
+      interface Atom { x: number; y: number; vx: number; vy: number; radius: number; hue: number; }
+      const atoms: Atom[] = [];
+      const count = Math.min(35, Math.floor(w * h / 30000));
+
+      for (let i = 0; i < count; i++) {
+        atoms.push({
+          x: Math.random() * w, y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+          radius: 3 + Math.random() * 4,
+          hue: 265 + Math.random() * 35,
+        });
+      }
+
+      function draw() {
+        ctx!.clearRect(0, 0, w, h);
+        // Draw bonds
+        for (let i = 0; i < atoms.length; i++) {
+          for (let j = i + 1; j < atoms.length; j++) {
+            const dx = atoms[i].x - atoms[j].x;
+            const dy = atoms[i].y - atoms[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+              ctx!.beginPath();
+              ctx!.moveTo(atoms[i].x, atoms[i].y);
+              ctx!.lineTo(atoms[j].x, atoms[j].y);
+              ctx!.strokeStyle = `hsla(280, 60%, 60%, ${0.15 * (1 - dist / 150)})`;
+              ctx!.lineWidth = 1;
+              ctx!.stroke();
+            }
+          }
+        }
+        // Draw atoms
+        for (const a of atoms) {
+          a.x += a.vx; a.y += a.vy;
+          if (a.x < 0 || a.x > w) a.vx *= -1;
+          if (a.y < 0 || a.y > h) a.vy *= -1;
+
+          const glow = ctx!.createRadialGradient(a.x, a.y, 0, a.x, a.y, a.radius * 4);
+          glow.addColorStop(0, `hsla(${a.hue}, 80%, 70%, 0.4)`);
+          glow.addColorStop(1, `hsla(${a.hue}, 80%, 60%, 0)`);
+          ctx!.fillStyle = glow;
+          ctx!.beginPath();
+          ctx!.arc(a.x, a.y, a.radius * 4, 0, Math.PI * 2);
+          ctx!.fill();
+
+          ctx!.beginPath();
+          ctx!.arc(a.x, a.y, a.radius, 0, Math.PI * 2);
+          ctx!.fillStyle = `hsla(${a.hue}, 90%, 75%, 0.7)`;
+          ctx!.fill();
+        }
+        animId = requestAnimationFrame(draw);
+      }
+      draw();
+      window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = canvas.parentElement!.scrollHeight; });
+      document.addEventListener('astro:before-swap', () => cancelAnimationFrame(animId));
+    }
+    initMolecules();
+    document.addEventListener('astro:after-swap', initMolecules);
+  </script>
+
   <style>
     .about-container {
       min-height: 100vh;
-      background: #000;
-      color: #f5f5f7;
+      background: var(--background-color);
+      color: var(--text-color);
       padding: 110px 24px 80px;
       display: flex;
       justify-content: center;
-    }
-    .about-content {
-      max-width: 680px;
-      width: 100%;
-    }
-    .about-tag {
-      font-size: 13px;
-      letter-spacing: 0.13em;
-      color: #2997ff;
-      margin-bottom: 22px;
-      display: block;
-      font-weight: 600;
-    }
-    .about-content h1 {
-      font-size: 48px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .about-subtitle {
-      font-size: 21px;
-      color: #86868b;
-      margin-bottom: 48px;
-    }
-
-    .about-sections {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .about-section h2 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: #f5f5f7;
-    }
-    .about-section p {
-      font-size: 17px;
-      color: #a1a1a6;
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
-    .about-section p:last-child {
-      margin-bottom: 0;
-    }
-
-    .about-list {
-      list-style: none;
-      padding: 0;
-    }
-    .about-list li {
-      padding: 10px 0;
-      padding-left: 20px;
       position: relative;
-      font-size: 17px;
-      color: #a1a1a6;
-      line-height: 1.5;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .about-list li:last-child {
-      border-bottom: none;
-    }
-    .about-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
-      background: #2997ff;
-      border-radius: 50%;
-    }
-    .about-list li strong {
-      color: #f5f5f7;
-    }
-
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .tech-category {
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 14px;
-      padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .tech-category h3 {
-      font-size: 14px;
-      color: #2997ff;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-    .tech-category p {
-      font-size: 15px;
-      color: #a1a1a6;
-      line-height: 1.5;
-      margin-bottom: 0;
-    }
-
-    .about-cta {
-      margin-top: 60px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    .cta-button {
-      display: inline-block;
-      padding: 14px 32px;
-      background: #2997ff;
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 17px;
-      font-weight: 600;
-      transition: opacity 0.3s;
-    }
-    .cta-button:hover {
-      opacity: 0.8;
-    }
-    .secondary-link {
-      color: #2997ff;
-      text-decoration: none;
-      font-size: 17px;
-      font-weight: 500;
-      transition: opacity 0.3s;
-    }
-    .secondary-link:hover {
-      opacity: 0.7;
-    }
-
-    @media (max-width: 768px) {
-      .about-content h1 {
-        font-size: 36px;
-      }
-      .about-subtitle {
-        font-size: 18px;
-      }
-      .tech-grid {
-        grid-template-columns: 1fr;
-      }
-      .about-cta {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
+    #molecule-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .about-content { max-width: 680px; width: 100%; position: relative; z-index: 1; }
+    .about-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--primary-color); margin-bottom: 22px; display: block; }
+    .about-content h1 { font-size: 48px; font-weight: 700; margin-bottom: 8px; }
+    .about-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 48px; }
+    .about-sections { display: flex; flex-direction: column; gap: 40px; }
+    .about-section h2 { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: var(--text-color); }
+    .about-section p { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; }
+    .about-list { list-style: none; padding: 0; }
+    .about-list li { padding: 12px 0; padding-left: 20px; position: relative; font-size: 16px; color: var(--text-muted); line-height: 1.5; border-bottom: 1px solid rgba(168, 85, 247, 0.08); }
+    .about-list li:last-child { border-bottom: none; }
+    .about-list li::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; background: var(--primary-color); border-radius: 50%; }
+    .about-list li strong { color: var(--text-color); }
+    .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .tech-category { background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--card-border); transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
+    .tech-category:hover { border-color: rgba(168, 85, 247, 0.3); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1); transform: translateY(-2px); }
+    .tech-category h3 { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .tech-category p { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 0; }
+    .about-cta { margin-top: 60px; display: flex; align-items: center; gap: 24px; }
+    .cta-button { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border-radius: 10px; text-decoration: none; font-size: 16px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 24px var(--primary-glow); }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .secondary-link { color: var(--primary-color); text-decoration: none; font-size: 16px; font-weight: 500; transition: opacity 0.3s; }
+    .secondary-link:hover { opacity: 0.7; }
+    @media (max-width: 768px) { .about-content h1 { font-size: 36px; } .tech-grid { grid-template-columns: 1fr; } .about-cta { flex-direction: column; align-items: flex-start; } }
   </style>
 </MainLayout>

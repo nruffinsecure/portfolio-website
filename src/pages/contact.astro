@@ -5,16 +5,14 @@ const hasError = Astro.url.searchParams.get("error") === "true";
 
 <MainLayout title="Contact | Nick Ruffin">
   <div class="contact-container">
+    <canvas id="signal-canvas"></canvas>
     <div class="contact-card">
       <div class="contact-header">
         <span class="tag">LET'S CONNECT</span>
         <h1>Get in Touch</h1>
-        <p>
-          Have a role, a project, or just want to connect — I'd like to hear from you.
-        </p>
+        <p>Have a role, a project, or just want to connect — I'd like to hear from you.</p>
       </div>
 
-      <!-- Calendly Embed -->
       <div class="calendly-section">
         <a href="https://calendly.com/nickruffin" target="_blank" class="calendly-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
@@ -22,17 +20,12 @@ const hasError = Astro.url.searchParams.get("error") === "true";
         </a>
       </div>
 
-      <div class="or-divider">
-        <span>or send a message</span>
-      </div>
+      <div class="or-divider"><span>or send a message</span></div>
 
       {hasError && (
-        <div class="error-banner">
-          Something went wrong. Please try again or email me directly at nruffinsecure@gmail.com.
-        </div>
+        <div class="error-banner">Something went wrong. Please try again or email me directly at nruffinsecure@gmail.com.</div>
       )}
 
-      <!-- Contact Form -->
       <form class="intake-form" action="/api/submit-quote" method="POST">
         <div class="form-group">
           <label for="name">Your Name</label>
@@ -51,15 +44,10 @@ const hasError = Astro.url.searchParams.get("error") === "true";
 
       <div class="divider"></div>
 
-      <!-- Alternative Contact -->
       <div class="alt-contact">
         <p class="alt-label">Prefer to reach out directly?</p>
         <div class="action-buttons">
-          <a
-            href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102"
-            target="_blank"
-            class="secondary-btn"
-          >
+          <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" class="secondary-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             LinkedIn
           </a>
@@ -72,212 +60,142 @@ const hasError = Astro.url.searchParams.get("error") === "true";
     </div>
   </div>
 
+  <script>
+    function initSignals() {
+      const canvas = document.getElementById('signal-canvas') as HTMLCanvasElement;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+      let animId: number;
+      let time = 0;
+
+      interface Ring { x: number; y: number; radius: number; maxRadius: number; speed: number; alpha: number; }
+      const rings: Ring[] = [];
+
+      function spawnRing() {
+        rings.push({
+          x: w * 0.3 + Math.random() * w * 0.4,
+          y: h * 0.3 + Math.random() * h * 0.4,
+          radius: 0,
+          maxRadius: 100 + Math.random() * 200,
+          speed: 0.4 + Math.random() * 0.4,
+          alpha: 0.3 + Math.random() * 0.2,
+        });
+      }
+
+      for (let i = 0; i < 5; i++) { spawnRing(); rings[i].radius = rings[i].maxRadius * Math.random(); }
+
+      function draw() {
+        ctx!.clearRect(0, 0, w, h);
+        time += 0.016;
+
+        if (Math.random() < 0.02) spawnRing();
+
+        for (let i = rings.length - 1; i >= 0; i--) {
+          const ring = rings[i];
+          ring.radius += ring.speed;
+          const progress = ring.radius / ring.maxRadius;
+          const currentAlpha = ring.alpha * (1 - progress);
+
+          if (progress >= 1) { rings.splice(i, 1); continue; }
+
+          ctx!.beginPath();
+          ctx!.arc(ring.x, ring.y, ring.radius, 0, Math.PI * 2);
+          ctx!.strokeStyle = `hsla(275, 80%, 65%, ${currentAlpha})`;
+          ctx!.lineWidth = 1.5;
+          ctx!.stroke();
+
+          // Inner glow
+          const glow = ctx!.createRadialGradient(ring.x, ring.y, ring.radius - 5, ring.x, ring.y, ring.radius + 5);
+          glow.addColorStop(0, `hsla(275, 80%, 65%, 0)`);
+          glow.addColorStop(0.5, `hsla(275, 80%, 65%, ${currentAlpha * 0.3})`);
+          glow.addColorStop(1, `hsla(275, 80%, 65%, 0)`);
+          ctx!.beginPath();
+          ctx!.arc(ring.x, ring.y, ring.radius, 0, Math.PI * 2);
+          ctx!.strokeStyle = glow.toString ? `hsla(275, 80%, 65%, ${currentAlpha * 0.5})` : 'transparent';
+          ctx!.lineWidth = 6;
+          ctx!.stroke();
+        }
+
+        animId = requestAnimationFrame(draw);
+      }
+      draw();
+      window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
+      document.addEventListener('astro:before-swap', () => cancelAnimationFrame(animId));
+    }
+    initSignals();
+    document.addEventListener('astro:after-swap', initSignals);
+  </script>
+
   <style>
     .contact-container {
-      min-height: 85vh;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
-        url("/images/contact_tech.png") no-repeat center center;
-      background-size: cover;
-      color: #f5f5f7;
+      min-height: 100vh;
+      background: var(--background-color);
+      color: var(--text-color);
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 80px 20px;
+      position: relative;
     }
+    #signal-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
     .contact-card {
-      background: rgba(28, 28, 30, 0.7);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
-      padding: 60px 40px;
-      max-width: 580px;
+      background: rgba(168, 85, 247, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 56px 40px;
+      max-width: 540px;
       width: 100%;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
-    .contact-header {
-      margin-bottom: 32px;
-      text-align: center;
-    }
-    .tag {
-      color: #2997ff;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      display: block;
-      margin-bottom: 16px;
-    }
-    .contact-header h1 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: #fff;
-    }
-    .contact-header p {
-      color: #a1a1a6;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    /* Calendly Section */
-    .calendly-section {
-      text-align: center;
-      margin-bottom: 8px;
-    }
-    .calendly-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 18px;
-      background: #2997ff;
-      color: white;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.3s;
-    }
-    .calendly-btn:hover {
-      opacity: 0.8;
-    }
-    .or-divider {
-      text-align: center;
-      margin: 24px 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       position: relative;
+      z-index: 1;
     }
-    .or-divider::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.1);
-    }
-    .or-divider span {
-      position: relative;
-      background: rgba(28, 28, 30, 0.9);
-      padding: 0 16px;
-      color: #86868b;
-      font-size: 14px;
-    }
+    .contact-header { margin-bottom: 32px; text-align: center; }
+    .tag { font-family: 'JetBrains Mono', monospace; color: var(--primary-color); font-size: 11px; letter-spacing: 0.15em; display: block; margin-bottom: 16px; }
+    .contact-header h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
+    .contact-header p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
 
-    /* Error Banner */
-    .error-banner {
-      background: rgba(255, 59, 48, 0.15);
-      border: 1px solid rgba(255, 59, 48, 0.3);
+    .calendly-section { text-align: center; margin-bottom: 8px; }
+    .calendly-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border-radius: 10px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 24px var(--primary-glow); }
+    .calendly-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+
+    .or-divider { text-align: center; margin: 24px 0; position: relative; }
+    .or-divider::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(168, 85, 247, 0.1); }
+    .or-divider span { position: relative; background: #080010; padding: 0 16px; color: var(--text-muted); font-size: 13px; }
+
+    .error-banner { background: rgba(255, 59, 48, 0.1); border: 1px solid rgba(255, 59, 48, 0.2); border-radius: 10px; padding: 14px 16px; margin-bottom: 24px; color: #ff6b6b; font-size: 14px; text-align: center; }
+
+    .intake-form { display: flex; flex-direction: column; gap: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+    .form-group input, .form-group textarea {
+      background: rgba(168, 85, 247, 0.04);
+      border: 1px solid var(--card-border);
       border-radius: 10px;
       padding: 14px 16px;
-      margin-bottom: 24px;
-      color: #ff6b6b;
+      color: var(--text-color);
       font-size: 15px;
-      text-align: center;
-    }
-
-    /* Form Styles */
-    .intake-form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .form-group label {
-      font-size: 14px;
-      color: #a1a1a6;
-      font-weight: 500;
-    }
-    .form-group input,
-    .form-group textarea {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 10px;
-      padding: 14px 16px;
-      color: #f5f5f7;
-      font-size: 16px;
       font-family: inherit;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
       outline: none;
     }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(255, 255, 255, 0.25);
-    }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #2997ff;
-    }
-    .form-group textarea {
-      resize: vertical;
-    }
-    .submit-btn {
-      padding: 16px;
-      background: #2997ff;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      font-size: 17px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.3s;
-      font-family: inherit;
-    }
-    .submit-btn:hover {
-      opacity: 0.8;
-    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(160, 154, 176, 0.4); }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1); }
+    .form-group textarea { resize: vertical; }
+    .submit-btn { padding: 16px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; box-shadow: 0 4px 24px var(--primary-glow); }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
 
-    .divider {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.1);
-      margin: 32px 0;
-    }
+    .divider { height: 1px; background: rgba(168, 85, 247, 0.1); margin: 32px 0; }
 
-    /* Alt Contact */
-    .alt-contact {
-      text-align: center;
-    }
-    .alt-label {
-      font-size: 14px;
-      color: #86868b;
-      margin-bottom: 16px;
-    }
-    .action-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .secondary-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 500;
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.06);
-      color: #d2d2d7;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: background 0.2s;
-    }
-    .secondary-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
+    .alt-contact { text-align: center; }
+    .alt-label { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+    .action-buttons { display: flex; flex-direction: column; gap: 10px; }
+    .secondary-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 500; text-decoration: none; background: var(--card-bg); color: var(--text-muted); border: 1px solid var(--card-border); transition: all 0.2s; }
+    .secondary-btn:hover { background: rgba(168, 85, 247, 0.08); border-color: rgba(168, 85, 247, 0.25); color: var(--text-color); }
 
-    @media (max-width: 600px) {
-      .contact-card {
-        padding: 40px 20px;
-      }
-      .contact-header h1 {
-        font-size: 28px;
-      }
-    }
+    @media (max-width: 600px) { .contact-card { padding: 36px 20px; } .contact-header h1 { font-size: 26px; } }
   </style>
 </MainLayout>
