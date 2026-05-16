@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Nicholas Ruffin - Resume</title>
+  <style>
+    @page {
+      margin: 0.5in 0.6in;
+      size: letter;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 10.5pt;
+      line-height: 1.4;
+      color: #1a1a1a;
+      max-width: 7.5in;
+      margin: 0 auto;
+      padding: 0.5in 0.6in;
+    }
+
+    h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+    }
+
+    .subtitle {
+      font-size: 11pt;
+      color: #4a4a4a;
+      margin-bottom: 4px;
+    }
+
+    .contact {
+      font-size: 9.5pt;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .contact a {
+      color: #2c5282;
+      text-decoration: none;
+    }
+
+    h2 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #2c5282;
+      border-bottom: 2px solid #2c5282;
+      padding-bottom: 3px;
+      margin-top: 14px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .skills-table {
+      width: 100%;
+      margin-bottom: 4px;
+    }
+
+    .skills-table td {
+      vertical-align: top;
+      padding: 2px 0;
+    }
+
+    .skills-table td:first-child {
+      font-weight: 700;
+      width: 120px;
+      white-space: nowrap;
+      padding-right: 12px;
+    }
+
+    .job {
+      margin-bottom: 12px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-size: 11pt;
+      font-weight: 700;
+    }
+
+    .job-date {
+      font-size: 9.5pt;
+      color: #555;
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-style: italic;
+      color: #444;
+      font-size: 10pt;
+      margin-bottom: 6px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin-bottom: 4px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    b {
+      font-weight: 700;
+    }
+
+    .education-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>NICHOLAS RUFFIN</h1>
+  <div class="subtitle">Engineering Leader | Healthcare Data Platforms</div>
+  <div class="contact">Ellisville, MO &nbsp;|&nbsp; (843) 793-9770 &nbsp;|&nbsp; nruffinsecure@gmail.com &nbsp;|&nbsp;
+    <a href="https://linkedin.com/in/nicholas-ruffin">linkedin.com/in/nicholas-ruffin</a></div>
+
+  <h2>Professional Summary</h2>
+  <p>Engineering leader with 12+ years of technology experience, including director-level management of 16+ engineers
+    across the US and India. Built and scaled an engineering department through 4 acquisitions, led technology due
+    diligence alongside the CIO, and delivered systems that drove measurable business outcomes. Currently leading a data
+    product engineering team responsible for a $7M+ ARR data monetization platform processing 4.8B de-identified
+    pharmacy records across 5+ pharmaceutical buyers. Combines deep technical expertise in Snowflake, AWS, and Python
+    with cross-functional partnership, client relationship management, and regulatory compliance oversight.</p>
+
+  <h2>Technical Skills</h2>
+  <table class="skills-table">
+    <tr>
+      <td>Leadership</td>
+      <td>Team building (16+ across US/India), cross-functional partnership, client management, vendor evaluation,
+        technical strategy, mentoring</td>
+    </tr>
+    <tr>
+      <td>Data Platforms</td>
+      <td>Snowflake (Procs, Streams, Tasks, Multi-instance), AWS (MWAA, S3, Lambda, Fargate, IAM), Kafka</td>
+    </tr>
+    <tr>
+      <td>Engineering</td>
+      <td>Python, SQL, ETL/ELT Pipeline Design, Data Warehousing, HIPAA Compliance, Datavant Tokenization</td>
+    </tr>
+    <tr>
+      <td>DevOps</td>
+      <td>Apache Airflow, Terraform, GitHub Actions (CI/CD), Docker, Git</td>
+    </tr>
+  </table>
+
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Manager, Data Product Engineering | RedSail Technologies</span>
+      <span class="job-date">Feb 2025 &ndash; Present</span>
+    </div>
+    <div class="job-company">Promoted from Senior Clinical Data Engineer. Leading the data monetization engineering
+      team.</div>
+    <ul>
+      <li>Own end-to-end data monetization platform generating <b>$7M+ ARR</b>, architecting secure de-identification
+        and tokenization pipelines (Snowflake + Datavant) processing <b>4.8 billion records</b> for pharmaceutical
+        clients.</li>
+      <li>Manage client delivery relationships across <b>5+ data buyers</b> (Komodo, PurpleLab, Norstella, Forian,
+        Clarivate), owning delivery SLAs, schema specifications, and ongoing technical partnership.</li>
+      <li>Lead cross-functional collaboration with product management, infrastructure engineering, and external vendor
+        partners to drive platform roadmap and delivery timelines.</li>
+      <li>Architected next-generation V2 tokenization pipeline (AWS Fargate + Snowflake), designed multi-instance schema
+        migrations, and built automated orchestration framework spanning <b>50+ daily workflows</b>.</li>
+      <li>Oversee regulatory compliance including HIPAA audit readiness, proof-of-delivery documentation, and Expert
+        Determination coordination with third-party evaluators.</li>
+      <li>Building and onboarding data engineering team, establishing technical standards, code review processes, and
+        deployment workflows via Terraform and GitHub Actions.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Director of Full Stack Development | Nimble Solutions</span>
+      <span class="job-date">Aug 2021 &ndash; Jan 2025</span>
+    </div>
+    <div class="job-company">Promoted from Lead Software Engineer to Director by the CIO. Built and managed an
+      engineering department of 16+ people across three functional teams: 5 US software engineers, 6 SQL/data
+      developers, 5 offshore RPA developers in Hyderabad, and a project manager.</div>
+    <ul>
+      <li>Led technology due diligence for <b>4 acquisitions</b> — a coding company, 2 transcription businesses
+        (Hyderabad and California), and an anesthesia company. Traveled to Hyderabad to integrate the acquired
+        development team into US operations.</li>
+      <li>Designed and led the build of <b>QUARC</b>, a queue-based AR claims reimbursement system ordered by revenue
+        with historical AR aging data, increasing throughput to <b>30+ claims/day per rep</b>.</li>
+      <li>Partnered with CIO, VP of Infrastructure, and CISO on <b>technical strategy, vendor evaluations, and TCO
+          analysis</b>. Traveled with C-suite for due diligence and integration planning.</li>
+      <li>Engineered integration of <b>50+ data sources</b> into a unified enterprise workflow, designing API
+        orchestration patterns for high reliability.</li>
+      <li>Established technical standards, implemented CI/CD pipelines reducing deployment time by <b>60%</b>, and
+        achieved <b>90%+ test code coverage</b>.</li>
+      <li>Mentored engineers across all three teams, building a culture of code quality, test-driven development, and
+        cross-functional collaboration.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Senior Full Stack Developer | Core & Main</span>
+      <span class="job-date">Jun 2017 &ndash; Aug 2021</span>
+    </div>
+    <ul>
+      <li>Developed enterprise data applications using C#/.NET and SQL, supporting <b>200+ concurrent</b> corporate
+        users across operations.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <div class="education-row">
+    <span><b>Bachelor of Science, Information Technology</b></span>
+    <span>University of Phoenix</span>
+  </div>
+
+</body>
+
+</html>
