@@ -1,0 +1,354 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Rebuilding Tokenization on MWAA V3 | Case Study">
+  <div class="case-bg">
+    <div class="case-shell">
+      <a href="/case-studies" class="back-button">&larr; Back to Case Studies</a>
+
+      <header class="case-header">
+        <span class="case-eyebrow">FLAGSHIP CASE STUDY &middot; 2026</span>
+        <h1>Rebuilding Tokenization on MWAA V3</h1>
+        <p class="case-lede">
+          A ground-up rewrite of the tokenization pipeline that powers RedSail's $9M data monetization platform.
+          Migrated from Airflow V1 to MWAA V3 on AWS, reorganized the DAG into parallel client chains,
+          and pre-hashed archive joins to cut a 35-37 minute wall-clock baseline.
+        </p>
+        <div class="case-meta">
+          <div class="meta-block"><span class="meta-key">ROLE</span><span class="meta-val">Lead architect &amp; engineer</span></div>
+          <div class="meta-block"><span class="meta-key">SCALE</span><span class="meta-val">6B records, 8+ enterprise clients</span></div>
+          <div class="meta-block"><span class="meta-key">STACK</span><span class="meta-val">MWAA V3, Snowflake, Datavant, Terraform, Python</span></div>
+        </div>
+      </header>
+
+      <section class="case-section">
+        <h2>The problem</h2>
+        <p>
+          The V1 pipeline ran clients sequentially on aging Airflow infrastructure.
+          Each new client meant longer wall-clock and more contention for the same Snowflake warehouse.
+          The platform had grown to 6 billion records across pharma, life sciences, and real-world evidence buyers
+          &mdash; the orchestration layer was the bottleneck, and Amazon was sunsetting MWAA V1.
+        </p>
+        <ul class="bullets">
+          <li>Sequential client processing capped throughput regardless of warehouse size.</li>
+          <li>Archive joins re-hashed PII on every run &mdash; expensive and wasteful at 6B-record scale.</li>
+          <li>MWAA V1 deprecation forced a migration window with concrete deadlines.</li>
+          <li>Tokenize step had safety gaps that created drift between Snowflake and Datavant outputs.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Architecture</h2>
+        <div class="arch-diagram">
+          <div class="arch-row">
+            <div class="arch-node">
+              <span class="node-label">SOURCE</span>
+              <span class="node-name">transaction_log</span>
+              <span class="node-meta">~6B rows &middot; daily</span>
+            </div>
+            <span class="arch-arrow">&rarr;</span>
+            <div class="arch-node">
+              <span class="node-label">DE-ID</span>
+              <span class="node-name">TRANSACTION_DEID</span>
+              <span class="node-meta">expert determination</span>
+            </div>
+            <span class="arch-arrow">&rarr;</span>
+            <div class="arch-node">
+              <span class="node-label">TOKENIZE</span>
+              <span class="node-name">Datavant V2</span>
+              <span class="node-meta">pre-hashed archive joins</span>
+            </div>
+          </div>
+          <div class="arch-row arch-fanout">
+            <div class="arch-trunk">FAN-OUT: parallel client chains (8+)</div>
+            <div class="arch-clients">
+              <span class="client-pill">pharma analytics</span>
+              <span class="client-pill">life sciences</span>
+              <span class="client-pill">RWE platform</span>
+              <span class="client-pill">claims aggregator</span>
+              <span class="client-pill">market analytics</span>
+              <span class="client-pill">commercial analytics</span>
+              <span class="client-pill">research consortium</span>
+              <span class="client-pill">payer analytics</span>
+            </div>
+          </div>
+          <div class="arch-row">
+            <div class="arch-node arch-node-output">
+              <span class="node-label">DELIVERY</span>
+              <span class="node-name">S3 + Azure</span>
+              <span class="node-meta">per-client SLAs &middot; manifests &middot; audit trail</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>What I built</h2>
+
+        <div class="block-grid">
+          <div class="block">
+            <h3>Parallel client chains</h3>
+            <p>Restructured the DAG so each client runs as an independent chain off the shared tokenize step. Per-client SLAs, schedules, and failure isolation. One client's outage no longer blocks the others.</p>
+          </div>
+          <div class="block">
+            <h3>Pre-hashed archive joins</h3>
+            <p>Moved hashing upstream of Snowflake COPY (which blocks SHA2/MD5 in load transforms). Archive joins now reference cached hashes instead of recomputing &mdash; the single biggest perf win in the rebuild.</p>
+          </div>
+          <div class="block">
+            <h3>MWAA V1 to V3 migration</h3>
+            <p>Reconciled IAM trust policies across V1 and V3 executor ARNs &mdash; clients trusting V1 don't auto-trust V3. Inline DAG definitions over assets/factories, which silently failed on V3.</p>
+          </div>
+          <div class="block">
+            <h3>Tokenize safety fixes</h3>
+            <p>Closed drift gaps between Snowflake state and Datavant outputs. Idempotent retries, manifest validation, and explicit failure modes that page rather than silently complete.</p>
+          </div>
+          <div class="block">
+            <h3>Multi-tenant feed orchestration</h3>
+            <p>Per-client schedules, lag awareness (Veeva and Millenium deliver yesterday's date, CPESN runs Mondays only), and consistent transfer DAG conventions across the fleet.</p>
+          </div>
+          <div class="block">
+            <h3>Terraform-managed infrastructure</h3>
+            <p>Snowflake roles, warehouses, and tables; AWS S3 buckets, IAM, MWAA environments. Column ordering conventions to avoid cascading drift on plan logs.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>Results</h2>
+        <div class="results-grid">
+          <div class="result-cell">
+            <span class="result-number">35-37&rarr;~41 min</span>
+            <span class="result-cap">Daily wall-clock baseline before perf-tuning round; current XL-warehouse run targets sub-45 min total.</span>
+          </div>
+          <div class="result-cell">
+            <span class="result-number">8+ clients</span>
+            <span class="result-cap">Each running as an independent, isolated chain &mdash; one slow client no longer blocks the others.</span>
+          </div>
+          <div class="result-cell">
+            <span class="result-number">Zero drift</span>
+            <span class="result-cap">Tokenize safety fixes eliminated reconciliation gaps between Snowflake state and Datavant outputs.</span>
+          </div>
+          <div class="result-cell">
+            <span class="result-number">V3 in prod</span>
+            <span class="result-cap">Tokenization V2 plus six paused transfer DAGs deployed on MWAA V3, ahead of V1 deprecation.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>What I owned</h2>
+        <ul class="bullets">
+          <li>Architecture decisions: parallelization model, where hashing lives, MWAA V3 patterns.</li>
+          <li>Cross-team coordination: IAM trust policy negotiations with infra; client-side onboarding for migrated feeds.</li>
+          <li>Performance tuning: warehouse-size validation (XL vs L baselines), clustering follow-ups on TRANSACTION_DEID.</li>
+          <li>Roadmap: historical tokenization backfill DAG (next), run_pipeline_log + Sigma BI reporting (in flight with the analytics director).</li>
+        </ul>
+      </section>
+
+      <div class="case-footer">
+        <p>Want to talk about how this kind of platform gets built &mdash; or hire someone who's done it?</p>
+        <div class="footer-buttons">
+          <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" rel="noopener" class="footer-cta">Connect on LinkedIn</a>
+          <a href="/case-studies" class="footer-link">See more case studies &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .case-bg {
+      min-height: 100vh;
+      background: var(--background-color);
+      color: var(--text-color);
+      padding: 100px 20px 80px;
+    }
+    .case-shell {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .back-button {
+      display: inline-block;
+      margin-bottom: 2.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .back-button:hover { opacity: 0.7; }
+
+    .case-header { margin-bottom: 4rem; }
+    .case-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .case-header h1 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(180deg, #ffffff 0%, #c8b8e8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .case-lede {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    .case-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+    }
+    .meta-block { display: flex; flex-direction: column; gap: 6px; }
+    .meta-key { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--primary-color); text-transform: uppercase; }
+    .meta-val { font-size: 0.92rem; color: var(--text-color); font-weight: 500; }
+
+    .case-section { margin-bottom: 3.5rem; }
+    .case-section h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.01em;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .case-section p { font-size: 1rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1rem; }
+    .bullets { list-style: none; padding: 0; margin: 0; }
+    .bullets li {
+      padding: 10px 0 10px 22px;
+      position: relative;
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 6px;
+      height: 6px;
+      background: var(--primary-color);
+      border-radius: 50%;
+    }
+
+    .arch-diagram {
+      background: rgba(168, 85, 247, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      align-items: center;
+    }
+    .arch-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; width: 100%; }
+    .arch-node {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 14px 18px;
+      background: var(--card-bg);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 10px;
+      min-width: 180px;
+      text-align: center;
+    }
+    .arch-node-output { background: rgba(124, 58, 237, 0.12); border-color: rgba(168, 85, 247, 0.4); }
+    .node-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--primary-color); text-transform: uppercase; }
+    .node-name { font-size: 0.95rem; color: var(--text-color); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+    .node-meta { font-size: 0.78rem; color: var(--text-muted); }
+    .arch-arrow { color: var(--primary-color); font-size: 1.3rem; opacity: 0.7; }
+
+    .arch-fanout { flex-direction: column; gap: 14px; padding: 16px; background: rgba(168, 85, 247, 0.04); border-radius: 10px; border: 1px dashed rgba(168, 85, 247, 0.25); width: 100%; }
+    .arch-trunk { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--primary-color); text-transform: uppercase; }
+    .arch-clients { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .client-pill {
+      padding: 5px 12px;
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      color: var(--text-color);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .block-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .block {
+      padding: 22px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .block:hover { border-color: rgba(168, 85, 247, 0.3); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.06); }
+    .block h3 { font-size: 1rem; font-weight: 600; color: var(--text-color); margin-bottom: 8px; }
+    .block p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin: 0; }
+
+    .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .result-cell {
+      padding: 22px;
+      background: rgba(124, 58, 237, 0.06);
+      border: 1px solid rgba(168, 85, 247, 0.18);
+      border-radius: 12px;
+    }
+    .result-number {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .result-cap { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+    .case-footer {
+      margin-top: 4rem;
+      padding: 32px;
+      background: linear-gradient(180deg, rgba(168, 85, 247, 0.04) 0%, rgba(124, 58, 237, 0.08) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.18);
+      border-radius: 14px;
+      text-align: center;
+    }
+    .case-footer p { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.4rem; }
+    .footer-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; align-items: center; }
+    .footer-cta {
+      padding: 0.85rem 2rem;
+      background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 24px var(--primary-glow);
+    }
+    .footer-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .footer-link { color: var(--primary-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    .footer-link:hover { opacity: 0.7; }
+
+    @media (max-width: 720px) {
+      .case-meta { grid-template-columns: 1fr; }
+      .block-grid, .results-grid { grid-template-columns: 1fr; }
+      .arch-row { flex-direction: column; }
+      .arch-arrow { transform: rotate(90deg); }
+      .arch-node { width: 100%; }
+    }
+  </style>
+</MainLayout>

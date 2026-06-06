@@ -6,55 +6,71 @@ import MainLayout from "../layouts/MainLayout.astro";
   <div class="about-container">
     <canvas id="molecule-canvas"></canvas>
     <div class="about-content">
-      <span class="about-tag reveal">ABOUT</span>
-      <h1 class="reveal reveal-delay-1">Nick Ruffin</h1>
-      <p class="about-subtitle reveal reveal-delay-2">Engineering Leader | Healthcare Data Platforms</p>
+      <div class="about-header">
+        <div class="about-header-text">
+          <span class="about-tag reveal">ABOUT</span>
+          <h1 class="reveal reveal-delay-1">Nick Ruffin</h1>
+          <p class="about-subtitle reveal reveal-delay-2">Manager, Data Product Engineering &middot; RedSail Technologies</p>
+          <p class="about-tagline reveal reveal-delay-3">St. Louis, MO &middot; Open to opportunities in healthcare data</p>
+        </div>
+        <div class="about-portrait reveal reveal-delay-2">
+          <div class="portrait-frame">
+            <img src="/images/nick.jpg" alt="Nick Ruffin" loading="eager" />
+          </div>
+        </div>
+      </div>
 
       <div class="about-sections">
         <div class="about-section reveal">
-          <h2>What I Do</h2>
-          <p>I build data platforms that turn raw healthcare data into compliant, deliverable products at enterprise scale. My focus is the full lifecycle — ingestion, de-identification, tokenization, and automated delivery.</p>
-          <p>I built the data monetization platform at a national pharmacy services company — from raw claims data through expert determination, Datavant tokenization, to automated Snowflake + AWS delivery. That platform generates $9M+ annually, processes 6 billion de-identified records, and runs 50+ automated workflows daily with zero manual intervention.</p>
+          <h2>What I do</h2>
+          <p>I lead the team that builds and runs RedSail's clinical data monetization platform &mdash; a $9M ARR product on top of 6 billion de-identified pharmacy claims records, delivering to enterprise clients across pharma, life sciences, and real-world evidence.</p>
+          <p>I architected the platform and now lead the team building on top of it. The work spans Snowflake, AWS (S3, Lambda, MWAA), Airflow, Terraform, and Datavant tokenization &mdash; from raw upstream data through expert determination to automated client delivery. I'm currently leading the V2 tokenization rebuild on MWAA V3.</p>
         </div>
 
         <div class="about-section reveal">
-          <h2>Core Strengths</h2>
+          <h2>How I lead</h2>
           <ul class="about-list">
-            <li><strong>Data platform architecture</strong> — end-to-end design from raw data to client delivery</li>
-            <li><strong>De-identification</strong> — expert determination, HIPAA compliance, privacy infrastructure</li>
-            <li><strong>Tokenization</strong> — Datavant integration for cross-dataset linking at scale</li>
-            <li><strong>Pipeline automation</strong> — Airflow orchestration, S3 transfers, zero-touch delivery</li>
-            <li><strong>Infrastructure as code</strong> — Terraform-managed AWS and Snowflake environments</li>
+            <li><strong>Product-eng ownership</strong> &mdash; architecture, delivery, and day-to-day execution on the platform.</li>
+            <li><strong>Cross-team coordination</strong> &mdash; infra, analytics, legal/compliance, and external vendors (Datavant, AWS).</li>
+            <li><strong>Client-facing</strong> &mdash; SLAs, audit readiness, expert determination requirements, contract delivery.</li>
+            <li><strong>Bias toward shipping</strong> &mdash; I bring my own hands to the keyboard when it accelerates the team. Same-week feedback loops.</li>
+            <li><strong>Public artifacts</strong> &mdash; case studies, architecture diagrams, post-incident docs that travel beyond the team.</li>
           </ul>
         </div>
 
         <div class="about-section reveal">
-          <h2>Technical Expertise</h2>
+          <h2>Where I've led before</h2>
+          <p>Before RedSail, I was Director of Full Stack Development at Nimble Solutions &mdash; hand-picked by the CIO to lead three separate engineering teams across the US and Hyderabad. Owned technology due diligence for four acquisitions, traveled to India to integrate an acquired team, and built enterprise systems that transformed how the business ran.</p>
+        </div>
+
+        <div class="about-section reveal">
+          <h2>Stack I lead with</h2>
           <div class="tech-grid">
             <div class="tech-category">
-              <h3>Data Platforms</h3>
-              <p>Snowflake, AWS (S3, Lambda, MWAA), Airflow, Terraform</p>
+              <h3>Cloud &amp; Orchestration</h3>
+              <p>AWS (S3, Lambda, MWAA V3), Airflow, Terraform, IAM trust policy work</p>
             </div>
             <div class="tech-category">
-              <h3>Pipeline</h3>
-              <p>Python, SQL, ETL/ELT, de-identification, Datavant tokenization, HIPAA compliance</p>
+              <h3>Data Platform</h3>
+              <p>Snowflake at 6B-record scale, Python, SQL, ETL/ELT, clustering &amp; cost design</p>
             </div>
             <div class="tech-category">
-              <h3>Delivery</h3>
-              <p>Automated client transfers, data quality monitoring, infrastructure as code</p>
+              <h3>Compliance &amp; Privacy</h3>
+              <p>HIPAA, expert determination, Datavant tokenization, multi-tenant isolation</p>
             </div>
           </div>
         </div>
 
         <div class="about-section reveal">
-          <h2>Background</h2>
-          <p>Before building the data monetization platform, I served as Director of Full Stack Development at Nimble Solutions — managing 16+ engineers across the US and India, hand-picked by the CIO. Led technology due diligence for 4 acquisitions, traveled to Hyderabad to integrate an acquired dev team, and delivered enterprise systems that transformed business operations.</p>
+          <h2>What I'm looking for</h2>
+          <p>The right opportunity in healthcare data &mdash; pharma, life sciences, real-world evidence, payer/PBM analytics, or any company that makes money on clinical data products. I'm interested in roles where I own a data product or platform end-to-end and lead the team behind it. Remote-first, US-based.</p>
+          <p>If that's you, the fastest path is a LinkedIn DM. I read every one.</p>
         </div>
       </div>
 
       <div class="about-cta reveal">
-        <a href="/contact" class="cta-button">Get in Touch</a>
-        <a href="/case-studies" class="secondary-link">See my work &rarr;</a>
+        <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" rel="noopener" class="cta-button">Connect on LinkedIn</a>
+        <a href="/case-studies" class="secondary-link">See the architecture &rarr;</a>
       </div>
     </div>
   </div>
@@ -140,10 +156,58 @@ import MainLayout from "../layouts/MainLayout.astro";
       position: relative;
     }
     #molecule-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-    .about-content { max-width: 680px; width: 100%; position: relative; z-index: 1; }
+    .about-content { max-width: 920px; width: 100%; position: relative; z-index: 1; }
+    .about-header {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+    .about-header-text { display: flex; flex-direction: column; }
     .about-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--primary-color); margin-bottom: 22px; display: block; }
-    .about-content h1 { font-size: 48px; font-weight: 700; margin-bottom: 8px; }
-    .about-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 48px; }
+    .about-content h1 { font-size: 48px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .about-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 14px; }
+    .about-tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: 0.85;
+    }
+
+    .about-portrait { display: flex; justify-content: center; }
+    .portrait-frame {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      padding: 3px;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.5) 0%, rgba(124, 58, 237, 0.2) 100%);
+      box-shadow: 0 12px 40px rgba(168, 85, 247, 0.18), 0 0 0 1px rgba(168, 85, 247, 0.18);
+    }
+    .portrait-frame::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: conic-gradient(from 0deg, rgba(168, 85, 247, 0.45), rgba(124, 58, 237, 0.0), rgba(168, 85, 247, 0.45));
+      border-radius: 50%;
+      z-index: -1;
+      animation: portraitGlow 8s linear infinite;
+    }
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+    @keyframes portraitGlow {
+      to { transform: rotate(360deg); }
+    }
     .about-sections { display: flex; flex-direction: column; gap: 40px; }
     .about-section h2 { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: var(--text-color); }
     .about-section p { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; }
@@ -162,6 +226,13 @@ import MainLayout from "../layouts/MainLayout.astro";
     .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
     .secondary-link { color: var(--primary-color); text-decoration: none; font-size: 16px; font-weight: 500; transition: opacity 0.3s; }
     .secondary-link:hover { opacity: 0.7; }
-    @media (max-width: 768px) { .about-content h1 { font-size: 36px; } .tech-grid { grid-template-columns: 1fr; } .about-cta { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 768px) {
+      .about-content h1 { font-size: 36px; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .about-cta { flex-direction: column; align-items: flex-start; }
+      .about-header { grid-template-columns: 1fr; gap: 28px; text-align: center; margin-bottom: 40px; }
+      .about-header-text { align-items: center; }
+      .portrait-frame { width: 180px; height: 180px; }
+    }
   </style>
 </MainLayout>

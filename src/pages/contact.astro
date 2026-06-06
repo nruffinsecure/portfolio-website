@@ -9,53 +9,53 @@ const hasError = Astro.url.searchParams.get("error") === "true";
     <div class="contact-card">
       <div class="contact-header">
         <span class="tag">LET'S CONNECT</span>
-        <h1>Get in Touch</h1>
-        <p>Have a role, a project, or just want to connect — I'd like to hear from you.</p>
+        <h1>Open to the right opportunity.</h1>
+        <p>I read every LinkedIn message and email. The fastest path is a DM &mdash; I respond within a day.</p>
       </div>
 
-      <div class="calendly-section">
-        <a href="https://calendly.com/nickruffin" target="_blank" class="calendly-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
-          Schedule a Call
+      <div class="lookingfor">
+        <h2 class="lf-heading">What I'm looking for</h2>
+        <ul class="lf-list">
+          <li><strong>Industry:</strong> Healthcare data &mdash; pharma, life sciences, RWE, payer/PBM analytics, EHR analytics, or any company monetizing clinical data.</li>
+          <li><strong>Scope:</strong> A role where I own a data product or platform end-to-end &mdash; architecture, team, roadmap, client commitments.</li>
+          <li><strong>Location:</strong> Remote, US-based. Open to occasional travel.</li>
+          <li><strong>Comp:</strong> Looking for meaningful equity alongside base. Specifics in conversation.</li>
+        </ul>
+      </div>
+
+      <div class="primary-actions">
+        <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" rel="noopener" class="primary-cta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          DM me on LinkedIn
+        </a>
+        <a href="mailto:nruffinsecure@gmail.com" class="secondary-cta-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          nruffinsecure@gmail.com
         </a>
       </div>
 
-      <div class="or-divider"><span>or send a message</span></div>
-
-      {hasError && (
-        <div class="error-banner">Something went wrong. Please try again or email me directly at nruffinsecure@gmail.com.</div>
-      )}
-
-      <form class="intake-form" action="/api/submit-quote" method="POST">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required placeholder="John Smith" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="john@example.com" />
-        </div>
-        <div class="form-group">
-          <label for="pain_point">Message</label>
-          <textarea id="pain_point" name="pain_point" rows="4" required placeholder="What's on your mind?"></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-
-      <div class="divider"></div>
-
-      <div class="alt-contact">
-        <p class="alt-label">Prefer to reach out directly?</p>
-        <div class="action-buttons">
-          <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" class="secondary-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-            LinkedIn
-          </a>
-          <a href="mailto:nruffinsecure@gmail.com" class="secondary-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-            nruffinsecure@gmail.com
-          </a>
-        </div>
+      <div class="form-collapse">
+        <details>
+          <summary>Prefer a form?</summary>
+          {hasError && (
+            <div class="error-banner">Something went wrong. Please try again or email me directly at nruffinsecure@gmail.com.</div>
+          )}
+          <form class="intake-form" action="/api/submit-quote" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="John Smith" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="pain_point">What's the role / what brings you here?</label>
+              <textarea id="pain_point" name="pain_point" rows="4" required placeholder="Tell me about the role or what brings you here..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </details>
       </div>
     </div>
   </div>
@@ -158,13 +158,102 @@ const hasError = Astro.url.searchParams.get("error") === "true";
     .contact-header h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
     .contact-header p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
 
-    .calendly-section { text-align: center; margin-bottom: 8px; }
-    .calendly-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border-radius: 10px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 24px var(--primary-glow); }
-    .calendly-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .lookingfor {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(168, 85, 247, 0.12);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 28px;
+    }
+    .lf-heading {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .lf-list { list-style: none; padding: 0; margin: 0; }
+    .lf-list li {
+      padding: 8px 0 8px 18px;
+      position: relative;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .lf-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 5px; height: 5px;
+      background: var(--primary-color);
+      border-radius: 50%;
+    }
+    .lf-list strong { color: var(--text-color); font-weight: 600; }
 
-    .or-divider { text-align: center; margin: 24px 0; position: relative; }
-    .or-divider::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(168, 85, 247, 0.1); }
-    .or-divider span { position: relative; background: #080010; padding: 0 16px; color: var(--text-muted); font-size: 13px; }
+    .primary-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .primary-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+      color: white;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 24px var(--primary-glow);
+    }
+    .primary-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .secondary-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      transition: all 0.2s;
+    }
+    .secondary-cta-btn:hover { background: rgba(168, 85, 247, 0.08); border-color: rgba(168, 85, 247, 0.4); }
+
+    .form-collapse details {
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      background: rgba(168, 85, 247, 0.02);
+    }
+    .form-collapse summary {
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      list-style: none;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+    }
+    .form-collapse summary::-webkit-details-marker { display: none; }
+    .form-collapse summary::after {
+      content: " +";
+      color: var(--primary-color);
+    }
+    .form-collapse details[open] summary { margin-bottom: 16px; }
+    .form-collapse details[open] summary::after { content: " -"; }
 
     .error-banner { background: rgba(255, 59, 48, 0.1); border: 1px solid rgba(255, 59, 48, 0.2); border-radius: 10px; padding: 14px 16px; margin-bottom: 24px; color: #ff6b6b; font-size: 14px; text-align: center; }
 
@@ -187,14 +276,6 @@ const hasError = Astro.url.searchParams.get("error") === "true";
     .form-group textarea { resize: vertical; }
     .submit-btn { padding: 16px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; box-shadow: 0 4px 24px var(--primary-glow); }
     .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
-
-    .divider { height: 1px; background: rgba(168, 85, 247, 0.1); margin: 32px 0; }
-
-    .alt-contact { text-align: center; }
-    .alt-label { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
-    .action-buttons { display: flex; flex-direction: column; gap: 10px; }
-    .secondary-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 500; text-decoration: none; background: var(--card-bg); color: var(--text-muted); border: 1px solid var(--card-border); transition: all 0.2s; }
-    .secondary-btn:hover { background: rgba(168, 85, 247, 0.08); border-color: rgba(168, 85, 247, 0.25); color: var(--text-color); }
 
     @media (max-width: 600px) { .contact-card { padding: 36px 20px; } .contact-header h1 { font-size: 26px; } }
   </style>

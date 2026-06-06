@@ -5,12 +5,17 @@
   <canvas id="lab-canvas"></canvas>
   <div class="hero-fog"></div>
   <div class="hero-content">
-    <span class="service-tag hero-reveal hero-reveal-1">Engineering Leader | Healthcare Data Platforms</span>
-    <h1 class="hero-reveal hero-reveal-2">I build data platforms<br/>that generate revenue.</h1>
-    <p class="hero-subtitle hero-reveal hero-reveal-3">$9M+ data monetization platform. 6 billion records. 50+ automated workflows.<br/>Snowflake, AWS, Airflow — from raw data to production at scale.</p>
+    <span class="service-tag hero-reveal hero-reveal-1">Manager, Data Product Engineering &middot; RedSail Technologies</span>
+    <h1 class="hero-reveal hero-reveal-2">Healthcare data platforms,<br/>built to generate revenue.</h1>
+    <p class="hero-subtitle hero-reveal hero-reveal-3">I lead the team behind a $9M/year clinical data monetization platform &mdash; 6B records across pharma, life sciences, and real-world evidence buyers. Snowflake, AWS, MWAA V3 at scale. Previously Director of Full Stack Development at Nimble Solutions, leading three engineering teams across the US and India.</p>
     <div class="cta-wrapper hero-reveal hero-reveal-4">
-      <a href="/case-studies" class="primary-cta">See My Work</a>
-      <a href="/contact" class="secondary-cta">Get in Touch</a>
+      <a href="/case-studies" class="primary-cta">See the Architecture</a>
+      <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" rel="noopener" class="secondary-cta">Connect on LinkedIn</a>
+    </div>
+    <div class="hero-meta hero-reveal hero-reveal-4">
+      <span class="meta-item"><span class="meta-dot"></span>Open to opportunities</span>
+      <span class="meta-sep">&middot;</span>
+      <span class="meta-item">Remote / St. Louis, MO</span>
     </div>
   </div>
 </section>
@@ -345,8 +350,8 @@
     border: 1px solid rgba(168, 85, 247, 0.25);
     border-radius: 100px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #c084fc;
     margin-bottom: 1.5rem;
@@ -367,12 +372,12 @@
 
   .hero-subtitle {
     font-family: 'Outfit', sans-serif;
-    font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
     font-weight: 300;
     line-height: 1.7;
     color: rgba(200, 190, 220, 0.85);
-    margin-bottom: 2.5rem;
-    max-width: 680px;
+    margin-bottom: 2rem;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -381,6 +386,7 @@
     display: flex;
     gap: 1.2rem;
     justify-content: center;
+    margin-bottom: 1.6rem;
   }
 
   .primary-cta,
@@ -417,6 +423,32 @@
     transform: translateY(-2px);
   }
 
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: rgba(200, 190, 220, 0.65);
+    text-transform: uppercase;
+    flex-wrap: wrap;
+  }
+  .meta-item { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .meta-dot {
+    width: 6px; height: 6px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+  .meta-sep { opacity: 0.4; }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
   @media (max-width: 768px) {
     .cta-wrapper {
       flex-direction: column;
@@ -432,5 +464,7 @@
       font-size: clamp(1.8rem, 7vw, 2.8rem);
     }
     .hero-subtitle br { display: none; }
+    .hero-meta { font-size: 0.68rem; }
+    .meta-sep { display: none; }
   }
 </style>

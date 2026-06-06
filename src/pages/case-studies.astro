@@ -8,42 +8,55 @@ import MainLayout from "../layouts/MainLayout.astro";
     <div class="projects-inner">
       <div class="projects-header">
         <span class="projects-tag reveal">CASE STUDIES</span>
-        <h1 class="reveal reveal-delay-1">Real results at enterprise scale</h1>
-        <p class="reveal reveal-delay-2">How I've built de-identification pipelines, automated data delivery, and turned raw healthcare data into revenue-generating assets.</p>
+        <h1 class="reveal reveal-delay-1">Architecture, scale, and the work behind the headline numbers.</h1>
+        <p class="reveal reveal-delay-2">Each case study is a real system I led the build on &mdash; running in production today, generating revenue, delivering to enterprise clients in pharma, life sciences, and real-world evidence.</p>
       </div>
-      <div class="one-card-wrapper reveal">
-        <div class="major-project-card">
-          <h2>How We Built a $9M Data Platform from the Ground Up</h2>
-          <p class="project-intro">A pharmaceutical analytics company needed to monetize billions of clinical records while maintaining strict privacy compliance. I designed and built the entire pipeline — from data transformation to automated client delivery.</p>
-          <div class="stage-block">
-            <div class="stage-title"><span>Stage 1</span><hr /></div>
-            <strong>Turning Raw Data into Revenue-Ready Assets</strong>
-            <p>Processed and de-identified billions of clinical claims records, transforming raw upstream data into clean, compliant datasets ready for monetization.</p>
-            <a href="/case-studies/snowflake-transformation" class="phase-link">Read the full story &rarr;</a>
+
+      <div class="flagship-wrapper reveal">
+        <a href="/case-studies/v2-tokenization-rebuild" class="flagship-card">
+          <div class="flagship-badge">FLAGSHIP &middot; 2026</div>
+          <h2>Rebuilding Tokenization on MWAA V3</h2>
+          <p class="flagship-summary">A ground-up rewrite of the tokenization pipeline that powers RedSail's $9M data monetization platform. Migrated from Airflow V1 to MWAA V3, restructured the DAG into parallel client chains, and pre-hashed archive joins to cut wall-clock against a 35-37 minute baseline.</p>
+          <div class="flagship-stats">
+            <div class="flagship-stat"><span>6B</span><span class="stat-label">records</span></div>
+            <div class="flagship-stat"><span>8+</span><span class="stat-label">enterprise clients</span></div>
+            <div class="flagship-stat"><span>V1&rarr;V3</span><span class="stat-label">migration</span></div>
+            <div class="flagship-stat"><span>$9M</span><span class="stat-label">ARR platform</span></div>
           </div>
-          <div class="stage-block">
-            <div class="stage-title"><span>Stage 2</span><hr /></div>
-            <strong>Privacy-First Data Linking at Scale</strong>
-            <p>Implemented secure tokenization across 6 billion records, enabling cross-organization analytics while maintaining full HIPAA compliance and patient privacy.</p>
-            <a href="/case-studies/datavant-tokenization" class="phase-link">Read the full story &rarr;</a>
-          </div>
-          <div class="stage-block">
-            <div class="stage-title"><span>Stage 3</span><hr /></div>
-            <strong>Automating Delivery to Save 40+ Hours/Month</strong>
-            <p>Built automated pipelines that replaced manual data delivery processes, enabling daily secure transfers to multiple clients with zero manual intervention.</p>
-            <a href="/case-studies/airflow-pipeline" class="phase-link">Read the full story &rarr;</a>
-          </div>
-          <div class="results-bar">
-            <div class="result-stat"><span class="stat-number">$9M+</span><span class="stat-label">Annual Revenue</span></div>
-            <div class="result-stat"><span class="stat-number">6B</span><span class="stat-label">Records Processed</span></div>
-            <div class="result-stat"><span class="stat-number">40+</span><span class="stat-label">Hours Saved/Month</span></div>
-          </div>
-        </div>
+          <span class="flagship-link">Read the case study &rarr;</span>
+        </a>
+      </div>
+
+      <div class="more-header reveal">
+        <span class="more-tag">PLATFORM FOUNDATIONS</span>
+        <h3>The platform underneath</h3>
+        <p>The V2 rebuild stands on three foundations &mdash; the de-id pipeline, the tokenization layer, and the automated delivery infrastructure. Each is a system I designed and built.</p>
+      </div>
+
+      <div class="cards-grid">
+        <a href="/case-studies/snowflake-transformation" class="case-card reveal">
+          <span class="case-card-tag">DE-IDENTIFICATION</span>
+          <h3>Turning raw claims into revenue-ready assets</h3>
+          <p>How billions of clinical claims records get transformed and de-identified through expert determination &mdash; the foundation that makes the rest of the platform possible.</p>
+          <span class="case-card-link">Read more &rarr;</span>
+        </a>
+        <a href="/case-studies/datavant-tokenization" class="case-card reveal reveal-delay-1">
+          <span class="case-card-tag">TOKENIZATION (V1)</span>
+          <h3>Privacy-first linking at 6B-record scale</h3>
+          <p>The original Datavant tokenization implementation &mdash; HIPAA-compliant cross-organization linking that unlocked the platform's entire monetization model.</p>
+          <span class="case-card-link">Read more &rarr;</span>
+        </a>
+        <a href="/case-studies/airflow-pipeline" class="case-card reveal reveal-delay-2">
+          <span class="case-card-tag">DELIVERY</span>
+          <h3>Automating delivery to save 40+ hours/month</h3>
+          <p>Airflow-orchestrated transfers replacing manual SFTP delivery. 50+ daily workflows, zero manual intervention, per-client SLAs honored without on-call burn.</p>
+          <span class="case-card-link">Read more &rarr;</span>
+        </a>
       </div>
 
       <div class="case-cta reveal">
-        <p>This is the kind of work I do.</p>
-        <a href="/contact" class="cta-button">Get in Touch</a>
+        <p>Want to talk to someone who's actually built and scaled this?</p>
+        <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" rel="noopener" class="cta-button">Connect on LinkedIn</a>
       </div>
     </div>
   </div>
@@ -92,7 +105,6 @@ import MainLayout from "../layouts/MainLayout.astro";
           ctx!.lineWidth = 1.5;
           ctx!.stroke();
 
-          // Head glow
           const glow = ctx!.createRadialGradient(s.x, s.y, 0, s.x, s.y, 6);
           glow.addColorStop(0, `hsla(${s.hue}, 90%, 75%, ${s.alpha * 2})`);
           glow.addColorStop(1, `hsla(${s.hue}, 80%, 60%, 0)`);
@@ -124,46 +136,132 @@ import MainLayout from "../layouts/MainLayout.astro";
       position: relative;
     }
     #dataflow-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-    .projects-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
-    .projects-header { text-align: center; margin-bottom: 48px; max-width: 700px; }
+    .projects-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1100px; }
+    .projects-header { text-align: center; margin-bottom: 48px; max-width: 760px; }
     .projects-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--primary-color); margin-bottom: 22px; display: block; }
-    .projects-header h1 { font-size: 42px; font-weight: 700; margin-bottom: 14px; }
-    .projects-header p { font-size: 17px; color: var(--text-muted); line-height: 1.6; }
+    .projects-header h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 700; margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.15; }
+    .projects-header p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; }
 
-    .one-card-wrapper { display: flex; justify-content: center; width: 100%; }
-    .major-project-card {
-      background: var(--card-bg);
+    .flagship-wrapper { width: 100%; max-width: 880px; margin-bottom: 60px; }
+    .flagship-card {
+      display: block;
+      background: linear-gradient(180deg, rgba(168, 85, 247, 0.06) 0%, rgba(124, 58, 237, 0.1) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.25);
       border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
-      max-width: 700px;
-      padding: 48px 36px;
+      padding: 42px 38px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+      position: relative;
+    }
+    .flagship-card:hover {
+      border-color: rgba(168, 85, 247, 0.5);
+      box-shadow: 0 12px 48px rgba(168, 85, 247, 0.18);
+      transform: translateY(-3px);
+    }
+    .flagship-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      border-radius: 100px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: #c084fc;
+      margin-bottom: 18px;
+    }
+    .flagship-card h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .flagship-summary {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+    }
+    .flagship-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 18px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      border: 1px solid rgba(168, 85, 247, 0.12);
+      margin-bottom: 1.6rem;
+    }
+    .flagship-stat { text-align: center; display: flex; flex-direction: column; gap: 4px; }
+    .flagship-stat > span:first-child { font-family: 'JetBrains Mono', monospace; font-size: 1.05rem; font-weight: 700; color: var(--primary-color); }
+    .flagship-stat .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .flagship-link {
+      color: var(--primary-color);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .more-header { text-align: center; margin-bottom: 28px; max-width: 720px; }
+    .more-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--primary-color); display: block; margin-bottom: 14px; }
+    .more-header h3 { font-size: 1.6rem; font-weight: 600; color: var(--text-color); margin-bottom: 12px; letter-spacing: -0.01em; }
+    .more-header p { font-size: 0.98rem; color: var(--text-muted); line-height: 1.7; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      width: 100%;
+      max-width: 1080px;
+      margin-bottom: 60px;
+    }
+    .case-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 28px 26px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
       display: flex;
       flex-direction: column;
-      border: 1px solid var(--card-border);
-      transition: border-color 0.4s, box-shadow 0.4s;
+      gap: 12px;
     }
-    .major-project-card:hover { border-color: rgba(168, 85, 247, 0.3); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.1); }
-    .major-project-card > h2 { font-size: 1.4rem; color: var(--primary-color); font-weight: 700; margin-bottom: 0.5rem; text-align: center; }
-    .project-intro { font-size: 0.95rem; color: var(--text-muted); text-align: center; line-height: 1.7; margin-bottom: 2rem; }
-    .stage-block { margin-bottom: 28px; }
-    .stage-title { margin-bottom: 8px; display: flex; align-items: center; gap: 14px; }
-    .stage-title span { font-size: 1rem; font-weight: 700; color: var(--primary-color); font-family: 'JetBrains Mono', monospace; }
-    .stage-title hr { border: none; border-top: 1px solid rgba(168, 85, 247, 0.2); flex: 1; margin: 0; }
-    .stage-block strong { display: block; margin-bottom: 7px; color: var(--text-color); font-size: 1rem; }
-    .stage-block p { line-height: 1.7; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px; }
-    .phase-link { color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: opacity 0.3s; }
-    .phase-link:hover { opacity: 0.7; }
-    .results-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.5rem; padding: 24px; background: var(--primary-subtle); border-radius: 12px; text-align: center; border: 1px solid var(--card-border); }
-    .result-stat { display: flex; flex-direction: column; gap: 4px; }
-    .stat-number { font-size: 1.6rem; font-weight: 700; color: var(--primary-color); }
-    .stat-label { font-size: 0.8rem; color: var(--text-muted); }
+    .case-card:hover {
+      border-color: rgba(168, 85, 247, 0.3);
+      box-shadow: 0 8px 32px rgba(168, 85, 247, 0.1);
+      transform: translateY(-3px);
+    }
+    .case-card-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--primary-color); }
+    .case-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--text-color); line-height: 1.35; margin: 0; }
+    .case-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin: 0; flex: 1; }
+    .case-card-link { color: var(--primary-color); font-size: 0.88rem; font-weight: 500; }
 
-    .case-cta { margin-top: 60px; text-align: center; }
-    .case-cta p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; }
-    .cta-button { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border-radius: 10px; text-decoration: none; font-size: 16px; font-weight: 600; box-shadow: 0 4px 24px var(--primary-glow); transition: all 0.3s; }
+    .case-cta { margin-top: 30px; text-align: center; }
+    .case-cta p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; }
+    .cta-button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 4px 24px var(--primary-glow);
+      transition: all 0.3s;
+    }
     .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
 
-    @media (max-width: 768px) { .projects-header h1 { font-size: 30px; } .major-project-card { padding: 24px 20px; } .results-bar { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .flagship-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .flagship-card { padding: 28px 22px; }
+      .flagship-card h2 { font-size: 1.35rem; }
+    }
   </style>
 </MainLayout>
