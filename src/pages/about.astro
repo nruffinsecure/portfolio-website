@@ -11,7 +11,7 @@ import MainLayout from "../layouts/MainLayout.astro";
           <span class="about-tag reveal">ABOUT</span>
           <h1 class="reveal reveal-delay-1">Nick Ruffin</h1>
           <p class="about-subtitle reveal reveal-delay-2">Manager, Data Product Engineering &middot; RedSail Technologies</p>
-          <p class="about-tagline reveal reveal-delay-3">St. Louis, MO &middot; Open to opportunities in healthcare data</p>
+          <p class="about-tagline reveal reveal-delay-3">St. Louis, MO &middot; 12+ years in software &amp; data engineering</p>
         </div>
         <div class="about-portrait reveal reveal-delay-2">
           <div class="portrait-frame">
@@ -40,19 +40,27 @@ import MainLayout from "../layouts/MainLayout.astro";
 
         <div class="about-section reveal">
           <h2>Where I've led before</h2>
-          <p>Before RedSail, I was Director of Full Stack Development at Nimble Solutions &mdash; hand-picked by the CIO to lead three separate engineering teams across the US and Hyderabad. Owned technology due diligence for four acquisitions, traveled to India to integrate an acquired team, and built enterprise systems that transformed how the business ran.</p>
+          <p>Before RedSail, I was Director of Full Stack Development at Nimble Solutions, leading three separate engineering teams across the US and Hyderabad. Owned technology due diligence for four acquisitions, traveled to India to integrate an acquired team, and built enterprise systems that transformed how the business ran.</p>
         </div>
 
         <div class="about-section reveal">
           <h2>Stack I lead with</h2>
           <div class="tech-grid">
             <div class="tech-category">
-              <h3>Cloud &amp; Orchestration</h3>
-              <p>AWS (S3, Lambda, MWAA V3), Airflow, Terraform, IAM trust policy work</p>
+              <h3>AWS</h3>
+              <p>S3, Lambda, MWAA V3, ECS, Fargate, IAM, CloudWatch, EventBridge, Secrets Manager, STS</p>
+            </div>
+            <div class="tech-category">
+              <h3>Orchestration &amp; IaC</h3>
+              <p>Airflow, Terraform, GitHub Actions, IAM trust policies, cross-account roles</p>
             </div>
             <div class="tech-category">
               <h3>Data Platform</h3>
-              <p>Snowflake at 6B-record scale, Python, SQL, ETL/ELT, clustering &amp; cost design</p>
+              <p>Snowflake at 6B-record scale, SQL, Python, ETL/ELT, clustering &amp; cost design</p>
+            </div>
+            <div class="tech-category">
+              <h3>AI &amp; Tooling</h3>
+              <p>Claude Code agents, AI-augmented engineering, custom skills, automation harnesses</p>
             </div>
             <div class="tech-category">
               <h3>Compliance &amp; Privacy</h3>
@@ -216,7 +224,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     .about-list li:last-child { border-bottom: none; }
     .about-list li::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; background: var(--primary-color); border-radius: 50%; }
     .about-list li strong { color: var(--text-color); }
-    .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .tech-category { background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--card-border); transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
     .tech-category:hover { border-color: rgba(168, 85, 247, 0.3); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1); transform: translateY(-2px); }
     .tech-category h3 { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }

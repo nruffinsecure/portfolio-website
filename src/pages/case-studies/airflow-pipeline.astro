@@ -2,191 +2,229 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Automating Pipeline Delivery | Case Study">
-  <div class="project-detail-bg">
-    <div class="project-detail-card">
+<MainLayout title="Automated Multi-Client Delivery | Case Study">
+  <div class="case-bg">
+    <div class="case-shell">
       <a href="/case-studies" class="back-button">&larr; Back to Case Studies</a>
-      <div class="project-detail-content">
-        <h1>How We Automated Pipeline Orchestration to Save 40+ Hours/Month</h1>
-        <p class="summary">
-          Manual data delivery was eating up engineering time and creating
-          reliability problems. We built an automated orchestration system that
-          handles daily delivery to multiple clients — hands-free.
-        </p>
 
-        <h2>The Challenge</h2>
+      <header class="case-header">
+        <span class="case-eyebrow">FOUNDATION CASE STUDY &middot; DELIVERY</span>
+        <h1>Automating Multi-Client Delivery on Airflow + AWS</h1>
+        <p class="case-lede">
+          The delivery layer that took daily client transfers off engineering's plate
+          entirely &mdash; orchestrated transfers across pharma, life sciences, and RWE buyers
+          with per-client SLAs, security models, and schedules. 50+ workflows running daily, no on-call burn.
+        </p>
+        <div class="case-meta">
+          <div class="meta-block"><span class="meta-key">ROLE</span><span class="meta-val">Architect &amp; builder</span></div>
+          <div class="meta-block"><span class="meta-key">SCALE</span><span class="meta-val">50+ daily workflows, 8+ clients</span></div>
+          <div class="meta-block"><span class="meta-key">STACK</span><span class="meta-val">Airflow (MWAA), Lambda, S3, IAM, EventBridge, Terraform</span></div>
+        </div>
+      </header>
+
+      <section class="case-section">
+        <h2>The problem</h2>
         <p>
-          The client was manually preparing and delivering data files to
-          multiple pharma partners on a daily basis. Each partner had different
-          security requirements, file formats, and delivery schedules. The
-          process was error-prone and consumed 40+ hours of engineering time
-          per month.
+          Before this layer existed, every client got their data through a manual process &mdash;
+          someone running queries, packaging files, validating outputs, then handing off via SFTP
+          or cross-account S3. Each client had different security requirements, different file
+          formats, and different schedules. It consumed 40+ hours of engineering time per month
+          and broke regularly when somebody forgot a step.
         </p>
+      </section>
 
-        <h2>What We Built</h2>
-        <ul>
-          <li>
-            Modular Python DAGs (Directed Acyclic Graphs) to standardize ETL
-            tasks across all clients.
-          </li>
-          <li>
-            YAML-based pipeline configuration for easy modification, scaling,
-            and onboarding new clients without code changes.
-          </li>
-          <li>
-            Scheduled jobs (daily/historical) that join de-identified claims
-            and tokenized tables to produce client-ready analytic datasets.
-          </li>
+      <section class="case-section">
+        <h2>What I built</h2>
+
+        <div class="block-grid">
+          <div class="block">
+            <h3>Standardized transfer DAGs</h3>
+            <p>One DAG pattern that any client can plug into: pull from Snowflake, validate, package per client spec, drop to the client's S3 path. New client onboarding is a config change, not a code change.</p>
+          </div>
+          <div class="block">
+            <h3>Cross-account delivery via STS</h3>
+            <p>STS AssumeRole for temporary, least-privilege access to client S3 buckets. Scoped IAM policies per client path. Secrets Manager for any credentials that can't ride on IAM.</p>
+          </div>
+          <div class="block">
+            <h3>Per-client lag &amp; schedule awareness</h3>
+            <p>Some clients deliver yesterday's date in today's file; some run weekly only on Mondays; some need same-day. Schedules and lag rules encoded in DAG config, not buried in code.</p>
+          </div>
+          <div class="block">
+            <h3>EventBridge + Lambda triggers</h3>
+            <p>EventBridge fires Lambdas on file arrival to send manifests, kick off downstream jobs, and notify ops. Unattended deliveries that confirm themselves end-to-end.</p>
+          </div>
+          <div class="block">
+            <h3>Audit trail by default</h3>
+            <p>Every transfer logs row counts, file hashes, and delivery confirmation. Auditors and clients can verify any historical delivery without engineering involvement.</p>
+          </div>
+          <div class="block">
+            <h3>Terraform-managed end-to-end</h3>
+            <p>S3 buckets, IAM roles, MWAA environments, EventBridge rules &mdash; all in Terraform. New client onboarding spins up infrastructure deterministically.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>Why it matters</h2>
+        <ul class="bullets">
+          <li>This is the layer clients actually see. If delivery fails, the platform fails &mdash; tokenization elegance doesn't matter if the file doesn't land.</li>
+          <li>40+ hours/month back to engineering. That's the difference between firefighting deliveries and building the next thing.</li>
+          <li>Onboarding a new buyer used to take days of engineering work. Now it's hours, mostly config.</li>
+          <li>The orchestration patterns here became the foundation for the V2 tokenization rebuild's per-client chain isolation.</li>
         </ul>
+      </section>
 
-        <h2>Security & Infrastructure</h2>
-        <ul>
-          <li>
-            <strong>Secure Cross-Account Delivery</strong>: Flexible
-            authentication patterns to meet diverse client security needs:
-            <ul>
-              <li>
-                AWS STS AssumeRole for temporary, least-privilege access
-              </li>
-              <li>
-                Secrets Manager integration for secure key rotation
-              </li>
-              <li>
-                Scoped IAM policies restricting access to specific S3 paths
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>Automated Event Scheduling</strong>: AWS EventBridge
-            triggers Lambda functions for reliable, unattended data shipments.
-          </li>
-        </ul>
+      <section class="case-section">
+        <h2>What evolved</h2>
+        <p>
+          This delivery layer ran on Airflow V1. AWS deprecated V1; the migration to MWAA V3 was
+          one of the forcing functions for the
+          <a href="/case-studies/v2-tokenization-rebuild" class="inline-link">V2 tokenization rebuild</a>.
+          Per-client transfer DAGs got rewritten with V3-compatible patterns &mdash; inline DAG definitions,
+          updated IAM trust policies across executor ARNs, and idempotent retry semantics that V1 didn't enforce.
+        </p>
+      </section>
 
-        <h2>Results</h2>
-        <ul>
-          <li>
-            <strong>40+ hours/month saved</strong> — daily automated, secure
-            data transfer for multiple clients.
-          </li>
-          <li>
-            New client onboarding reduced from days to hours — no code changes
-            needed for new schedules or data splits.
-          </li>
-          <li>
-            Improved compliance and auditability across all data deliveries.
-          </li>
-        </ul>
-
-        <div class="tech-stack-detail">
-          <strong>Tech:</strong>
-          <span>Apache Airflow (MWAA)</span>
-          <span>Python</span>
-          <span>YAML</span>
-          <span>AWS Lambda</span>
-          <span>S3</span>
-          <span>EventBridge</span>
-          <span>IAM</span>
+      <div class="case-footer">
+        <p>Want to talk about multi-tenant orchestration or healthcare data delivery at scale?</p>
+        <div class="footer-buttons">
+          <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" rel="noopener" class="footer-cta">Connect on LinkedIn</a>
+          <a href="/case-studies" class="footer-link">See more case studies &rarr;</a>
         </div>
       </div>
     </div>
   </div>
 
   <style>
-    .project-detail-bg {
+    .case-bg {
       min-height: 100vh;
-      width: 100vw;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.7)),
-        url("/images/case_studies_tech.png") no-repeat center center;
-      background-size: cover;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 72px;
+      background: var(--background-color);
+      color: var(--text-color);
+      padding: 100px 20px 80px;
     }
-    .project-detail-card {
-      max-width: 830px;
-      margin: 40px auto;
-      width: 100%;
-      background: rgba(25, 30, 55, 0.68);
-      border-radius: 22px;
-      padding: 48px 40px 52px 40px;
-      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.13);
-      backdrop-filter: blur(14px) saturate(130%);
-    }
+    .case-shell { max-width: 880px; margin: 0 auto; }
     .back-button {
       display: inline-block;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-      color: #2997ff;
+      margin-bottom: 2.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--primary-color);
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s;
+      transition: opacity 0.3s;
     }
-    .back-button:hover {
-      color: #147bcd;
-      text-decoration: underline;
+    .back-button:hover { opacity: 0.7; }
+
+    .case-header { margin-bottom: 4rem; }
+    .case-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 18px;
     }
-    .project-detail-content {
-      color: #f5f5f7;
-    }
-    h1 {
-      color: #2997ff;
-      font-size: 2.1rem;
+    .case-header h1 {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
       font-weight: 700;
-      margin-bottom: 0.9rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(180deg, #ffffff 0%, #c8b8e8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .summary {
-      font-size: 1.13rem;
-      color: #f5f5f7;
-      margin-bottom: 1.4rem;
-      line-height: 1.6;
+    .case-lede {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-weight: 300;
     }
-    p {
-      font-size: 1.05rem;
-      color: #d2d2d7;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+    .case-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
     }
-    h2 {
-      font-size: 1.18rem;
-      color: #79bbff;
-      margin-top: 2rem;
-      margin-bottom: 0.7rem;
+    .meta-block { display: flex; flex-direction: column; gap: 6px; }
+    .meta-key { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--primary-color); text-transform: uppercase; }
+    .meta-val { font-size: 0.92rem; color: var(--text-color); font-weight: 500; }
+
+    .case-section { margin-bottom: 3.5rem; }
+    .case-section h2 {
+      font-size: 1.35rem;
       font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.01em;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--card-border);
     }
-    ul {
-      margin: 0;
-      margin-bottom: 1.1rem;
-      padding-left: 1.2em;
-    }
-    ul li {
-      font-size: 1.07rem;
-      margin-bottom: 0.2em;
+    .case-section p { font-size: 1rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1rem; }
+    .case-section .inline-link { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+    .case-section .inline-link:hover { opacity: 0.75; }
+    .bullets { list-style: none; padding: 0; margin: 0; }
+    .bullets li {
+      padding: 10px 0 10px 22px;
+      position: relative;
+      font-size: 0.97rem;
+      color: var(--text-muted);
       line-height: 1.6;
     }
-    .tech-stack-detail {
-      margin-top: 2.2rem;
-      padding: 0.7rem 0.9rem;
-      background: rgba(41, 151, 255, 0.09);
-      border-radius: 13px;
-      font-size: 1.02rem;
-      color: #2997ff;
-      font-weight: 500;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
+    .bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 6px; height: 6px;
+      background: var(--primary-color);
+      border-radius: 50%;
     }
-    .tech-stack-detail strong {
-      font-weight: 700;
-      margin-right: 10px;
-      color: #147bcd;
+
+    .block-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .block {
+      padding: 22px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
-    @media (max-width: 800px) {
-      .project-detail-card {
-        padding: 20px 8px 22px 8px;
-      }
+    .block:hover { border-color: rgba(168, 85, 247, 0.3); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.06); }
+    .block h3 { font-size: 1rem; font-weight: 600; color: var(--text-color); margin-bottom: 8px; }
+    .block p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin: 0; }
+
+    .case-footer {
+      margin-top: 4rem;
+      padding: 32px;
+      background: linear-gradient(180deg, rgba(168, 85, 247, 0.04) 0%, rgba(124, 58, 237, 0.08) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.18);
+      border-radius: 14px;
+      text-align: center;
+    }
+    .case-footer p { font-size: 1rem; color: var(--text-muted); margin-bottom: 1.4rem; }
+    .footer-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; align-items: center; }
+    .footer-cta {
+      padding: 0.85rem 2rem;
+      background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 24px var(--primary-glow);
+    }
+    .footer-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .footer-link { color: var(--primary-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    .footer-link:hover { opacity: 0.7; }
+
+    @media (max-width: 720px) {
+      .case-meta { grid-template-columns: 1fr; }
+      .block-grid { grid-template-columns: 1fr; }
     }
   </style>
 </MainLayout>
