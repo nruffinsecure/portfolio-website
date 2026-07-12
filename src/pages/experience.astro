@@ -4,65 +4,97 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="Experience | Nick Ruffin">
   <div class="projects-container">
-    <canvas id="circuit-canvas"></canvas>
+    <div class="bg-grid"></div>
     <div class="projects-inner">
       <div class="projects-header">
-        <span class="projects-tag reveal">TRACK RECORD</span>
-        <h1 class="reveal reveal-delay-1">Built it. Scaled it. Running in production.</h1>
-        <p class="reveal reveal-delay-2">The data monetization platform I built generates $9M+ in annual revenue, processes 6 billion de-identified records, and runs 50+ automated workflows daily.</p>
+        <span class="projects-tag reveal">EXPERIENCE</span>
+        <h1 class="reveal reveal-delay-1">Twelve years of engineering. Pharmacy, data, and enterprise systems.</h1>
+        <p class="reveal reveal-delay-2">Currently leading engineering for RedSail Technologies' pharmacy-data monetization platform. Previously Director, Full Stack Development at Nimble Solutions through four healthcare acquisitions.</p>
       </div>
 
       <div class="one-card-wrapper reveal">
         <div class="major-project-card">
-          <h2>$9M+ Data Monetization Platform</h2>
-          <p class="project-intro">Architected and built the entire data monetization infrastructure — from raw data transformation through expert determination and Datavant tokenization to automated client delivery on Snowflake and AWS.</p>
+          <div class="role-header">
+            <div>
+              <h2>Manager, Data Product Engineering</h2>
+              <p class="role-company">RedSail Technologies</p>
+            </div>
+            <span class="role-dates">Feb 2025 &ndash; Present</span>
+          </div>
+          <p class="project-intro">Lead engineering for RedSail's pharmacy-data monetization platform &mdash; serving eight enterprise RWE and pharma manufacturer customers across three delivery motions. Primary technical partner for customer relationships and BD.</p>
+
           <div class="stage-block">
-            <div class="stage-title"><span>Stage 1</span><hr /></div>
-            <strong>Turning Raw Data into Revenue-Ready Assets</strong>
-            <p>Designed and built data transformation pipelines that process billions of clinical claims records, turning raw upstream data into clean, compliant datasets ready for monetization.</p>
+            <div class="stage-title"><span>The Platform</span><hr /></div>
+            <strong>Three delivery motions, one platform</strong>
+            <p><strong>Datavant-tokenized feeds</strong> for RWE aggregators, running on AWS Fargate + ECS + Snowflake. <strong>Identified PHI into customer-controlled Azure environments</strong> for buyers running their own tokenization engines. <strong>Cross-source combined feeds</strong> joining multiple pharmacy systems &mdash; the newest motion, unlocking expansion at existing accounts.</p>
           </div>
           <div class="stage-block">
-            <div class="stage-title"><span>Stage 2</span><hr /></div>
-            <strong>Privacy-First Data Linking at Scale</strong>
-            <p>Implemented secure Datavant tokenization across 6 billion records, enabling cross-organization analytics while maintaining full HIPAA compliance through expert determination.</p>
+            <div class="stage-title"><span>The Growth</span><hr /></div>
+            <strong>~50% YoY to $9M ARR, on expansion</strong>
+            <p>Datavant-tokenized customer set grew ~50% year-over-year to $9M ARR entirely through expansion &mdash; every account renewed, next-generation tokenized feeds delivered into each of them, plus a new combined feed adding expansion at a top RWE customer.</p>
           </div>
           <div class="stage-block">
-            <div class="stage-title"><span>Stage 3</span><hr /></div>
-            <strong>Automating Delivery to Save 40+ Hours/Month</strong>
-            <p>Built Airflow-orchestrated pipelines on AWS that replaced manual data delivery processes, orchestrating 50+ daily workflows with zero manual intervention.</p>
+            <div class="stage-title"><span>The Differentiation</span><hr /></div>
+            <strong>NCPDP-standard pharmacy-data fluency</strong>
+            <p>Most RWE and pharma customer engineering teams know claims but not pharmacy transactions. I serve as the technical translator into their data teams &mdash; join-key design, cross-source reconciliation, and file-format work &mdash; and provide the same framing on BD calls and contract reviews so commercial commitments match delivery reality.</p>
           </div>
-          <div class="results-bar">
-            <div class="result-stat"><span class="stat-number">$9M+</span><span class="stat-label">Annual Revenue</span></div>
-            <div class="result-stat"><span class="stat-number">6B</span><span class="stat-label">Records Processed</span></div>
-            <div class="result-stat"><span class="stat-number">50+</span><span class="stat-label">Daily Workflows</span></div>
-            <div class="result-stat"><span class="stat-number">40+</span><span class="stat-label">Hours Saved/Month</span></div>
+          <div class="stage-block">
+            <div class="stage-title"><span>The Governance</span><hr /></div>
+            <strong>Regulatory readiness across the platform</strong>
+            <p>HIPAA compliance, Expert Determination coordination with third-party evaluators, proof-of-delivery audit trails, and provenance documentation for customer legal reviews. Building the engineering function to remove single-person dependencies from customer delivery.</p>
           </div>
         </div>
       </div>
 
       <div class="stack-banner reveal">
-        <span class="stack-label">TECHNICAL EXPERTISE</span>
+        <span class="stack-label">CURRENT STACK</span>
         <div class="stack-items">
           <span class="stack-item">Snowflake</span><span class="stack-dot"></span>
-          <span class="stack-item">AWS (S3, Lambda, MWAA)</span><span class="stack-dot"></span>
+          <span class="stack-item">AWS (Fargate, ECS, MWAA, S3, Lambda)</span><span class="stack-dot"></span>
+          <span class="stack-item">Azure</span><span class="stack-dot"></span>
+          <span class="stack-item">Datavant</span><span class="stack-dot"></span>
           <span class="stack-item">Airflow</span><span class="stack-dot"></span>
-          <span class="stack-item">Python</span><span class="stack-dot"></span>
           <span class="stack-item">Terraform</span><span class="stack-dot"></span>
-          <span class="stack-item">Datavant</span>
+          <span class="stack-item">GitHub Actions</span><span class="stack-dot"></span>
+          <span class="stack-item">Python</span><span class="stack-dot"></span>
+          <span class="stack-item">SQL</span>
         </div>
       </div>
 
       <div class="prior-section reveal">
-        <span class="prior-tag">PRIOR LEADERSHIP</span>
+        <span class="prior-tag">PRIOR EXPERIENCE</span>
+
         <div class="prior-card">
-          <h3>Director of Full Stack Development — Nimble Solutions</h3>
-          <p>Before building the data monetization platform, I led a 16-person engineering department across the US and India. I was hand-picked by the CIO, led technology due diligence for 4 acquisitions, traveled to Hyderabad to integrate an acquired dev team, and built enterprise systems that transformed business operations.</p>
+          <div class="role-header">
+            <div>
+              <h3>Director, Full Stack Development</h3>
+              <p class="role-company">Nimble Solutions</p>
+            </div>
+            <span class="role-dates">Aug 2021 &ndash; Feb 2025</span>
+          </div>
+          <p>Reported to the CIO. Led three functional engineering teams &mdash; software, data, and RPA, across US and offshore &mdash; through the company's inorganic growth phase.</p>
+          <ul class="prior-list">
+            <li>Technical partner to the CIO on four healthcare acquisitions &mdash; supported technical due diligence, TCO analysis, integration sequencing, and stack rationalization. Traveled to Hyderabad to fold the acquired team into US operations.</li>
+            <li>Designed and shipped an AR reimbursement work queue system &mdash; revenue-ordered, backed by historical AR aging &mdash; that lifted rep throughput to 30+ claims/day per rep.</li>
+            <li>Integrated 20+ practice management systems into a unified data warehouse via RPA-based extraction and API ingestion &mdash; patterns that made post-acquisition system consolidation economically feasible instead of a rebuild-per-acquisition drag on margin.</li>
+            <li>Partnered with CIO, VP of Infrastructure, and CISO on technical strategy, vendor evaluations, and annual capex/opex planning; established CI/CD (60% deployment-time reduction) and 90%+ test coverage across US and offshore teams.</li>
+          </ul>
+        </div>
+
+        <div class="prior-card">
+          <div class="role-header">
+            <div>
+              <h3>Senior Full Stack Developer</h3>
+              <p class="role-company">Core &amp; Main</p>
+            </div>
+            <span class="role-dates">Jun 2017 &ndash; Aug 2021</span>
+          </div>
+          <p>Built enterprise data applications in C#/.NET and SQL supporting 200+ concurrent corporate users across operations.</p>
         </div>
       </div>
 
       <div class="case-cta reveal">
-        <p>This is what I build.</p>
-        <a href="/contact" class="cta-button">Get in Touch</a>
+        <a href="/nicholas-ruffin-resume.pdf" target="_blank" class="cta-button">Download Resume</a>
       </div>
     </div>
   </div>
@@ -122,7 +154,7 @@ import MainLayout from "../layouts/MainLayout.astro";
             ctx!.lineTo(midX, node.y);
             ctx!.lineTo(midX, target.y);
             ctx!.lineTo(target.x, target.y);
-            ctx!.strokeStyle = 'rgba(168, 85, 247, 0.08)';
+            ctx!.strokeStyle = 'rgba(0, 0, 0, 0.05)';
             ctx!.lineWidth = 1;
             ctx!.stroke();
 
@@ -131,7 +163,7 @@ import MainLayout from "../layouts/MainLayout.astro";
             const px = node.x + (target.x - node.x) * pulsePos;
             const py = node.y + (target.y - node.y) * pulsePos;
             const pulseGlow = ctx!.createRadialGradient(px, py, 0, px, py, 8);
-            pulseGlow.addColorStop(0, 'rgba(168, 85, 247, 0.4)');
+            pulseGlow.addColorStop(0, 'rgba(0, 0, 0, 0.12)');
             pulseGlow.addColorStop(1, 'rgba(168, 85, 247, 0)');
             ctx!.fillStyle = pulseGlow;
             ctx!.beginPath();
@@ -190,13 +222,17 @@ import MainLayout from "../layouts/MainLayout.astro";
       border: 1px solid var(--card-border);
       transition: border-color 0.4s, box-shadow 0.4s;
     }
-    .major-project-card:hover { border-color: rgba(168, 85, 247, 0.3); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.1); }
-    .major-project-card > h2 { font-size: 1.5rem; color: var(--primary-color); font-weight: 700; margin-bottom: 0.5rem; text-align: center; }
-    .project-intro { font-size: 0.95rem; color: var(--text-muted); text-align: center; line-height: 1.7; margin-bottom: 2rem; }
+    .major-project-card:hover { border-color: rgba(0, 0, 0, 0.12); box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06); }
+    .role-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 1rem; flex-wrap: wrap; }
+    .role-header h2 { font-size: 1.35rem; color: var(--primary-color); font-weight: 700; margin: 0; line-height: 1.3; }
+    .role-header h3 { font-size: 1.15rem; color: var(--text-color); font-weight: 700; margin: 0; line-height: 1.3; }
+    .role-company { font-size: 0.95rem; color: var(--text-muted); margin-top: 4px; font-style: italic; }
+    .role-dates { font-size: 0.85rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; white-space: nowrap; padding-top: 4px; }
+    .project-intro { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; }
     .stage-block { margin-bottom: 28px; }
     .stage-title { margin-bottom: 8px; display: flex; align-items: center; gap: 14px; }
     .stage-title span { font-size: 1rem; font-weight: 700; color: var(--primary-color); font-family: 'JetBrains Mono', monospace; }
-    .stage-title hr { border: none; border-top: 1px solid rgba(168, 85, 247, 0.2); flex: 1; margin: 0; }
+    .stage-title hr { border: none; border-top: 1px solid rgba(0, 0, 0, 0.1); flex: 1; margin: 0; }
     .stage-block strong { display: block; margin-bottom: 7px; color: var(--text-color); font-size: 1rem; }
     .stage-block p { line-height: 1.7; color: var(--text-muted); font-size: 0.95rem; }
     .results-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 1.5rem; padding: 24px; background: var(--primary-subtle); border-radius: 12px; text-align: center; border: 1px solid var(--card-border); }
@@ -210,17 +246,19 @@ import MainLayout from "../layouts/MainLayout.astro";
     .stack-item { color: var(--text-color); font-size: 14px; font-weight: 500; }
     .stack-dot { width: 4px; height: 4px; background: var(--primary-color); border-radius: 50%; }
 
-    .prior-section { max-width: 700px; width: 100%; margin-top: 48px; text-align: center; }
-    .prior-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--primary-color); display: block; margin-bottom: 22px; }
-    .prior-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 32px; text-align: left; transition: border-color 0.4s, box-shadow 0.4s; }
-    .prior-card:hover { border-color: rgba(168, 85, 247, 0.25); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.08); }
-    .prior-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-color); margin-bottom: 12px; }
-    .prior-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+    .prior-section { max-width: 700px; width: 100%; margin-top: 48px; text-align: center; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+    .prior-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--primary-color); display: block; margin-bottom: 6px; }
+    .prior-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 32px; text-align: left; transition: border-color 0.4s, box-shadow 0.4s; width: 100%; }
+    .prior-card:hover { border-color: rgba(0, 0, 0, 0.12); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
+    .prior-card > p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+    .prior-list { list-style: none; padding: 0; margin: 0; }
+    .prior-list li { padding: 10px 0 10px 20px; position: relative; font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; }
+    .prior-list li::before { content: ""; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; background: var(--primary-color); border-radius: 50%; }
 
     .case-cta { margin-top: 60px; text-align: center; }
     .case-cta p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; }
-    .cta-button { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border-radius: 10px; text-decoration: none; font-size: 16px; font-weight: 600; box-shadow: 0 4px 24px var(--primary-glow); transition: all 0.3s; }
-    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .cta-button { display: inline-block; padding: 14px 32px; background: #191918; color: #ffffff; border-radius: 10px; text-decoration: none; font-size: 16px; font-weight: 600; box-shadow: 0 4px 24px var(--primary-glow); transition: all 0.3s; }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12); }
 
     @media (max-width: 768px) {
       .projects-header h1 { font-size: 30px; }

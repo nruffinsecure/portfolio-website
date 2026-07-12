@@ -5,12 +5,12 @@ const hasError = Astro.url.searchParams.get("error") === "true";
 
 <MainLayout title="Contact | Nick Ruffin">
   <div class="contact-container">
-    <canvas id="signal-canvas"></canvas>
+    <div class="bg-grid"></div>
     <div class="contact-card">
       <div class="contact-header">
-        <span class="tag">LET'S CONNECT</span>
+        <span class="tag">CONTACT</span>
         <h1>Get in Touch</h1>
-        <p>Have a role, a project, or just want to connect — I'd like to hear from you.</p>
+        <p>Interested in connecting with people working on pharmacy data, RWE, tokenized signal, and the commercial motions built on top.</p>
       </div>
 
       <div class="calendly-section">
@@ -142,7 +142,7 @@ const hasError = Astro.url.searchParams.get("error") === "true";
     }
     #signal-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
     .contact-card {
-      background: rgba(168, 85, 247, 0.03);
+      background: rgba(0, 0, 0, 0.02);
       backdrop-filter: blur(20px);
       border: 1px solid var(--card-border);
       border-radius: 20px;
@@ -159,11 +159,11 @@ const hasError = Astro.url.searchParams.get("error") === "true";
     .contact-header p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
 
     .calendly-section { text-align: center; margin-bottom: 8px; }
-    .calendly-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border-radius: 10px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 24px var(--primary-glow); }
-    .calendly-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .calendly-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; background: #191918; color: #ffffff; border-radius: 10px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 24px var(--primary-glow); }
+    .calendly-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12); }
 
     .or-divider { text-align: center; margin: 24px 0; position: relative; }
-    .or-divider::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(168, 85, 247, 0.1); }
+    .or-divider::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(0, 0, 0, 0.06); }
     .or-divider span { position: relative; background: #080010; padding: 0 16px; color: var(--text-muted); font-size: 13px; }
 
     .error-banner { background: rgba(255, 59, 48, 0.1); border: 1px solid rgba(255, 59, 48, 0.2); border-radius: 10px; padding: 14px 16px; margin-bottom: 24px; color: #ff6b6b; font-size: 14px; text-align: center; }
@@ -172,7 +172,7 @@ const hasError = Astro.url.searchParams.get("error") === "true";
     .form-group { display: flex; flex-direction: column; gap: 6px; }
     .form-group label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
     .form-group input, .form-group textarea {
-      background: rgba(168, 85, 247, 0.04);
+      background: rgba(0, 0, 0, 0.02);
       border: 1px solid var(--card-border);
       border-radius: 10px;
       padding: 14px 16px;
@@ -183,18 +183,18 @@ const hasError = Astro.url.searchParams.get("error") === "true";
       outline: none;
     }
     .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(160, 154, 176, 0.4); }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1); }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06); }
     .form-group textarea { resize: vertical; }
-    .submit-btn { padding: 16px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; box-shadow: 0 4px 24px var(--primary-glow); }
-    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .submit-btn { padding: 16px; background: #191918; color: #ffffff; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; box-shadow: 0 4px 24px var(--primary-glow); }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12); }
 
-    .divider { height: 1px; background: rgba(168, 85, 247, 0.1); margin: 32px 0; }
+    .divider { height: 1px; background: rgba(0, 0, 0, 0.06); margin: 32px 0; }
 
     .alt-contact { text-align: center; }
     .alt-label { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
     .action-buttons { display: flex; flex-direction: column; gap: 10px; }
     .secondary-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 500; text-decoration: none; background: var(--card-bg); color: var(--text-muted); border: 1px solid var(--card-border); transition: all 0.2s; }
-    .secondary-btn:hover { background: rgba(168, 85, 247, 0.08); border-color: rgba(168, 85, 247, 0.25); color: var(--text-color); }
+    .secondary-btn:hover { background: rgba(0, 0, 0, 0.05); border-color: rgba(0, 0, 0, 0.12); color: var(--text-color); }
 
     @media (max-width: 600px) { .contact-card { padding: 36px 20px; } .contact-header h1 { font-size: 26px; } }
   </style>

@@ -4,57 +4,58 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="About | Nick Ruffin">
   <div class="about-container">
-    <canvas id="molecule-canvas"></canvas>
+    <div class="bg-grid"></div>
     <div class="about-content">
       <span class="about-tag reveal">ABOUT</span>
       <h1 class="reveal reveal-delay-1">Nick Ruffin</h1>
-      <p class="about-subtitle reveal reveal-delay-2">Engineering Leader | Healthcare Data Platforms</p>
+      <p class="about-subtitle reveal reveal-delay-2">Manager, Data Product Engineering &middot; RedSail Technologies</p>
 
       <div class="about-sections">
         <div class="about-section reveal">
           <h2>What I Do</h2>
-          <p>I build data platforms that turn raw healthcare data into compliant, deliverable products at enterprise scale. My focus is the full lifecycle — ingestion, de-identification, tokenization, and automated delivery.</p>
-          <p>I built the data monetization platform at a national pharmacy services company — from raw claims data through expert determination, Datavant tokenization, to automated Snowflake + AWS delivery. That platform generates $9M+ annually, processes 6 billion de-identified records, and runs 50+ automated workflows daily with zero manual intervention.</p>
+          <p>I lead engineering for RedSail's pharmacy-data monetization platform &mdash; serving eight enterprise RWE and pharma manufacturer customers across three delivery motions: Datavant-tokenized feeds, identified PHI into customer-controlled Azure environments, and cross-source combined feeds joining multiple pharmacy systems.</p>
+          <p>The Datavant-tokenized customer set has grown ~50% YoY to $9M ARR &mdash; entirely on expansion, not new logos. Every account renewed, next-generation tokenized feeds delivered into each of them, plus a new combined feed adding expansion at a top RWE customer.</p>
         </div>
 
         <div class="about-section reveal">
-          <h2>Core Strengths</h2>
-          <ul class="about-list">
-            <li><strong>Data platform architecture</strong> — end-to-end design from raw data to client delivery</li>
-            <li><strong>De-identification</strong> — expert determination, HIPAA compliance, privacy infrastructure</li>
-            <li><strong>Tokenization</strong> — Datavant integration for cross-dataset linking at scale</li>
-            <li><strong>Pipeline automation</strong> — Airflow orchestration, S3 transfers, zero-touch delivery</li>
-            <li><strong>Infrastructure as code</strong> — Terraform-managed AWS and Snowflake environments</li>
-          </ul>
+          <h2>The Differentiation</h2>
+          <p>Most RWE and pharma customer engineering teams know claims but not pharmacy transactions. I serve as the embedded translator on <strong>NCPDP-standard pharmacy-data fluency</strong> &mdash; join-key design, cross-source reconciliation, and file-format work &mdash; and provide the same technical framing on BD calls and contract reviews so commercial commitments match delivery reality.</p>
+          <p>I partner with business development on deals from technical review through delivery execution: sit in on new-business conversations, review draft contracts for delivery feasibility, then execute end-to-end through engineering handoff and customer stakeholder communication. I coordinate cross-product data sourcing across RedSail alongside our VP.</p>
         </div>
 
         <div class="about-section reveal">
-          <h2>Technical Expertise</h2>
+          <h2>Regulatory &amp; Data Governance</h2>
+          <p>HIPAA compliance, Expert Determination coordination with third-party evaluators, proof-of-delivery audit trails, and provenance documentation for customer legal reviews. Building the engineering function &mdash; hiring, code standards, deployment discipline (Airflow, Terraform, GitHub Actions) &mdash; to remove single-person dependencies from customer delivery.</p>
+        </div>
+
+        <div class="about-section reveal">
+          <h2>Technical Focus</h2>
           <div class="tech-grid">
             <div class="tech-category">
-              <h3>Data Platforms</h3>
-              <p>Snowflake, AWS (S3, Lambda, MWAA), Airflow, Terraform</p>
-            </div>
-            <div class="tech-category">
-              <h3>Pipeline</h3>
-              <p>Python, SQL, ETL/ELT, de-identification, Datavant tokenization, HIPAA compliance</p>
+              <h3>Platform</h3>
+              <p>Snowflake (Procs/Streams/Tasks, multi-instance), AWS (MWAA, S3, Lambda, Fargate, ECS, IAM), Azure for customer-controlled delivery</p>
             </div>
             <div class="tech-category">
               <h3>Delivery</h3>
-              <p>Automated client transfers, data quality monitoring, infrastructure as code</p>
+              <p>Datavant tokenization, Apache Airflow, Terraform, GitHub Actions, Python, SQL, HIPAA / Expert Determination</p>
+            </div>
+            <div class="tech-category">
+              <h3>Data Products</h3>
+              <p>De-identified pharmacy transaction data, RWE feed productization, cross-source combined feeds, provenance &amp; audit</p>
             </div>
           </div>
         </div>
 
         <div class="about-section reveal">
           <h2>Background</h2>
-          <p>Before building the data monetization platform, I served as Director of Full Stack Development at Nimble Solutions — managing 16+ engineers across the US and India, hand-picked by the CIO. Led technology due diligence for 4 acquisitions, traveled to Hyderabad to integrate an acquired dev team, and delivered enterprise systems that transformed business operations.</p>
+          <p>Before RedSail I was Director, Full Stack Development at Nimble Solutions from 2021 to 2025. Reported to the CIO and led three functional engineering teams &mdash; software, data, and RPA, across US and offshore &mdash; through the company's inorganic growth phase. Technical partner to the CIO on four healthcare acquisitions; integrated 20+ practice management systems into a unified data warehouse via RPA-based extraction and API ingestion; shipped an AR reimbursement work queue that lifted rep throughput to 30+ claims/day.</p>
+          <p>Prior to Nimble, four years as Senior Full Stack Developer at Core &amp; Main building enterprise data applications on C#/.NET and SQL. Twelve years of engineering across pharmacy, healthcare data, and enterprise systems. Bachelor of Science in Computer Science, University of Phoenix.</p>
         </div>
       </div>
 
       <div class="about-cta reveal">
-        <a href="/contact" class="cta-button">Get in Touch</a>
-        <a href="/case-studies" class="secondary-link">See my work &rarr;</a>
+        <a href="/nicholas-ruffin-resume.pdf" target="_blank" class="cta-button">Download Resume</a>
+        <a href="/experience" class="secondary-link">See experience &rarr;</a>
       </div>
     </div>
   </div>
@@ -148,18 +149,18 @@ import MainLayout from "../layouts/MainLayout.astro";
     .about-section h2 { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: var(--text-color); }
     .about-section p { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; }
     .about-list { list-style: none; padding: 0; }
-    .about-list li { padding: 12px 0; padding-left: 20px; position: relative; font-size: 16px; color: var(--text-muted); line-height: 1.5; border-bottom: 1px solid rgba(168, 85, 247, 0.08); }
+    .about-list li { padding: 12px 0; padding-left: 20px; position: relative; font-size: 16px; color: var(--text-muted); line-height: 1.5; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
     .about-list li:last-child { border-bottom: none; }
     .about-list li::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; background: var(--primary-color); border-radius: 50%; }
     .about-list li strong { color: var(--text-color); }
     .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .tech-category { background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--card-border); transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
-    .tech-category:hover { border-color: rgba(168, 85, 247, 0.3); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1); transform: translateY(-2px); }
+    .tech-category:hover { border-color: rgba(0, 0, 0, 0.12); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); transform: translateY(-2px); }
     .tech-category h3 { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
     .tech-category p { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 0; }
     .about-cta { margin-top: 60px; display: flex; align-items: center; gap: 24px; }
-    .cta-button { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border-radius: 10px; text-decoration: none; font-size: 16px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 24px var(--primary-glow); }
-    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .cta-button { display: inline-block; padding: 14px 32px; background: #191918; color: #ffffff; border-radius: 10px; text-decoration: none; font-size: 16px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 24px var(--primary-glow); }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12); }
     .secondary-link { color: var(--primary-color); text-decoration: none; font-size: 16px; font-weight: 500; transition: opacity 0.3s; }
     .secondary-link:hover { opacity: 0.7; }
     @media (max-width: 768px) { .about-content h1 { font-size: 36px; } .tech-grid { grid-template-columns: 1fr; } .about-cta { flex-direction: column; align-items: flex-start; } }
