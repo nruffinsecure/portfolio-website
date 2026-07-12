@@ -4,81 +4,58 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="About | Nick Ruffin">
   <div class="about-container">
-    <canvas id="molecule-canvas"></canvas>
+    <div class="bg-grid"></div>
     <div class="about-content">
-      <div class="about-header">
-        <div class="about-header-text">
-          <span class="about-tag reveal">ABOUT</span>
-          <h1 class="reveal reveal-delay-1">Nick Ruffin</h1>
-          <p class="about-subtitle reveal reveal-delay-2">Manager, Data Product Engineering &middot; RedSail Technologies</p>
-          <p class="about-tagline reveal reveal-delay-3">St. Louis, MO &middot; 12+ years in software &amp; data engineering</p>
-        </div>
-        <div class="about-portrait reveal reveal-delay-2">
-          <div class="portrait-frame">
-            <img src="/images/nick.jpg" alt="Nick Ruffin" loading="eager" />
-          </div>
-        </div>
-      </div>
+      <span class="about-tag reveal">ABOUT</span>
+      <h1 class="reveal reveal-delay-1">Nick Ruffin</h1>
+      <p class="about-subtitle reveal reveal-delay-2">Manager, Data Product Engineering &middot; RedSail Technologies</p>
 
       <div class="about-sections">
         <div class="about-section reveal">
-          <h2>What I do</h2>
-          <p>I lead the team that builds and runs RedSail's clinical data monetization platform &mdash; a $9M ARR product on top of 6 billion de-identified pharmacy claims records, delivering to enterprise clients across pharma, life sciences, and real-world evidence.</p>
-          <p>I architected the platform and now lead the team building on top of it. The work spans Snowflake, AWS (S3, Lambda, MWAA), Airflow, Terraform, and Datavant tokenization &mdash; from raw upstream data through expert determination to automated client delivery. I'm currently leading the V2 tokenization rebuild on MWAA V3.</p>
+          <h2>What I Do</h2>
+          <p>I lead engineering for RedSail's pharmacy-data monetization platform &mdash; serving eight enterprise RWE and pharma manufacturer customers across three delivery motions: Datavant-tokenized feeds, identified PHI into customer-controlled Azure environments, and cross-source combined feeds joining multiple pharmacy systems.</p>
+          <p>The Datavant-tokenized customer set has grown ~50% YoY to $9M ARR &mdash; entirely on expansion, not new logos. Every account renewed, next-generation tokenized feeds delivered into each of them, plus a new combined feed adding expansion at a top RWE customer.</p>
         </div>
 
         <div class="about-section reveal">
-          <h2>How I lead</h2>
-          <ul class="about-list">
-            <li><strong>Product-eng ownership</strong> &mdash; architecture, delivery, and day-to-day execution on the platform.</li>
-            <li><strong>Cross-team coordination</strong> &mdash; infra, analytics, legal/compliance, and external vendors (Datavant, AWS).</li>
-            <li><strong>Client-facing</strong> &mdash; SLAs, audit readiness, expert determination requirements, contract delivery.</li>
-            <li><strong>Bias toward shipping</strong> &mdash; I bring my own hands to the keyboard when it accelerates the team. Same-week feedback loops.</li>
-            <li><strong>Public artifacts</strong> &mdash; case studies, architecture diagrams, post-incident docs that travel beyond the team.</li>
-          </ul>
+          <h2>The Differentiation</h2>
+          <p>Most RWE and pharma customer engineering teams know claims but not pharmacy transactions. I serve as the embedded translator on <strong>NCPDP-standard pharmacy-data fluency</strong> &mdash; join-key design, cross-source reconciliation, and file-format work &mdash; and provide the same technical framing on BD calls and contract reviews so commercial commitments match delivery reality.</p>
+          <p>I partner with business development on deals from technical review through delivery execution: sit in on new-business conversations, review draft contracts for delivery feasibility, then execute end-to-end through engineering handoff and customer stakeholder communication. I coordinate cross-product data sourcing across RedSail alongside our VP.</p>
         </div>
 
         <div class="about-section reveal">
-          <h2>Where I've led before</h2>
-          <p>Before RedSail, I was Director of Full Stack Development at Nimble Solutions, leading three separate engineering teams across the US and Hyderabad. Owned technology due diligence for four acquisitions, traveled to India to integrate an acquired team, and built enterprise systems that transformed how the business ran.</p>
+          <h2>Regulatory &amp; Data Governance</h2>
+          <p>HIPAA compliance, Expert Determination coordination with third-party evaluators, proof-of-delivery audit trails, and provenance documentation for customer legal reviews. Building the engineering function &mdash; hiring, code standards, deployment discipline (Airflow, Terraform, GitHub Actions) &mdash; to remove single-person dependencies from customer delivery.</p>
         </div>
 
         <div class="about-section reveal">
-          <h2>Stack I lead with</h2>
+          <h2>Technical Focus</h2>
           <div class="tech-grid">
             <div class="tech-category">
-              <h3>AWS</h3>
-              <p>S3, Lambda, MWAA V3, ECS, Fargate, IAM, CloudWatch, EventBridge, Secrets Manager, STS</p>
+              <h3>Platform</h3>
+              <p>Snowflake (Procs/Streams/Tasks, multi-instance), AWS (MWAA, S3, Lambda, Fargate, ECS, IAM), Azure for customer-controlled delivery</p>
             </div>
             <div class="tech-category">
-              <h3>Orchestration &amp; IaC</h3>
-              <p>Airflow, Terraform, GitHub Actions, IAM trust policies, cross-account roles</p>
+              <h3>Delivery</h3>
+              <p>Datavant tokenization, Apache Airflow, Terraform, GitHub Actions, Python, SQL, HIPAA / Expert Determination</p>
             </div>
             <div class="tech-category">
-              <h3>Data Platform</h3>
-              <p>Snowflake at 6B-record scale, SQL, Python, ETL/ELT, clustering &amp; cost design</p>
-            </div>
-            <div class="tech-category">
-              <h3>AI &amp; Tooling</h3>
-              <p>Claude Code agents, AI-augmented engineering, custom skills, automation harnesses</p>
-            </div>
-            <div class="tech-category">
-              <h3>Compliance &amp; Privacy</h3>
-              <p>HIPAA, expert determination, Datavant tokenization, multi-tenant isolation</p>
+              <h3>Data Products</h3>
+              <p>De-identified pharmacy transaction data, RWE feed productization, cross-source combined feeds, provenance &amp; audit</p>
             </div>
           </div>
         </div>
 
         <div class="about-section reveal">
-          <h2>What I'm looking for</h2>
-          <p>The right opportunity in healthcare data &mdash; pharma, life sciences, real-world evidence, payer/PBM analytics, or any company that makes money on clinical data products. I'm interested in roles where I own a data product or platform end-to-end and lead the team behind it. Remote-first, US-based.</p>
-          <p>If that's you, the fastest path is a LinkedIn DM. I read every one.</p>
+          <h2>Background</h2>
+          <p>Before RedSail I was Director, Full Stack Development at Nimble Solutions from 2021 to 2025. Reported to the CIO and led three functional engineering teams &mdash; software, data, and RPA, across US and offshore &mdash; through the company's inorganic growth phase. Technical partner to the CIO on four healthcare acquisitions; integrated 20+ practice management systems into a unified data warehouse via RPA-based extraction and API ingestion; shipped an AR reimbursement work queue that lifted rep throughput to 30+ claims/day.</p>
+          <p>Prior to Nimble, four years as Senior Full Stack Developer at Core &amp; Main building enterprise data applications on C#/.NET and SQL. Twelve years of engineering across pharmacy, healthcare data, and enterprise systems. Bachelor of Science in Computer Science, University of Phoenix.</p>
         </div>
       </div>
 
       <div class="about-cta reveal">
-        <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" rel="noopener" class="cta-button">Connect on LinkedIn</a>
-        <a href="/case-studies" class="secondary-link">See the architecture &rarr;</a>
+        <a href="/nicholas-ruffin-resume.pdf" target="_blank" class="cta-button">Download Resume</a>
+        <a href="/experience" class="secondary-link">See experience &rarr;</a>
       </div>
     </div>
   </div>
@@ -164,83 +141,28 @@ import MainLayout from "../layouts/MainLayout.astro";
       position: relative;
     }
     #molecule-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-    .about-content { max-width: 920px; width: 100%; position: relative; z-index: 1; }
-    .about-header {
-      display: grid;
-      grid-template-columns: 1fr 240px;
-      gap: 48px;
-      align-items: center;
-      margin-bottom: 60px;
-    }
-    .about-header-text { display: flex; flex-direction: column; }
+    .about-content { max-width: 680px; width: 100%; position: relative; z-index: 1; }
     .about-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--primary-color); margin-bottom: 22px; display: block; }
-    .about-content h1 { font-size: 48px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
-    .about-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 14px; }
-    .about-tagline {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      opacity: 0.85;
-    }
-
-    .about-portrait { display: flex; justify-content: center; }
-    .portrait-frame {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      overflow: hidden;
-      position: relative;
-      padding: 3px;
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.5) 0%, rgba(124, 58, 237, 0.2) 100%);
-      box-shadow: 0 12px 40px rgba(168, 85, 247, 0.18), 0 0 0 1px rgba(168, 85, 247, 0.18);
-    }
-    .portrait-frame::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: conic-gradient(from 0deg, rgba(168, 85, 247, 0.45), rgba(124, 58, 237, 0.0), rgba(168, 85, 247, 0.45));
-      border-radius: 50%;
-      z-index: -1;
-      animation: portraitGlow 8s linear infinite;
-    }
-    .portrait-frame img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 25%;
-      display: block;
-    }
-    @keyframes portraitGlow {
-      to { transform: rotate(360deg); }
-    }
+    .about-content h1 { font-size: 48px; font-weight: 700; margin-bottom: 8px; }
+    .about-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 48px; }
     .about-sections { display: flex; flex-direction: column; gap: 40px; }
     .about-section h2 { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: var(--text-color); }
     .about-section p { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; }
     .about-list { list-style: none; padding: 0; }
-    .about-list li { padding: 12px 0; padding-left: 20px; position: relative; font-size: 16px; color: var(--text-muted); line-height: 1.5; border-bottom: 1px solid rgba(168, 85, 247, 0.08); }
+    .about-list li { padding: 12px 0; padding-left: 20px; position: relative; font-size: 16px; color: var(--text-muted); line-height: 1.5; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
     .about-list li:last-child { border-bottom: none; }
     .about-list li::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; background: var(--primary-color); border-radius: 50%; }
     .about-list li strong { color: var(--text-color); }
-    .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .tech-category { background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--card-border); transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
-    .tech-category:hover { border-color: rgba(168, 85, 247, 0.3); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1); transform: translateY(-2px); }
+    .tech-category:hover { border-color: rgba(0, 0, 0, 0.12); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); transform: translateY(-2px); }
     .tech-category h3 { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
     .tech-category p { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 0; }
     .about-cta { margin-top: 60px; display: flex; align-items: center; gap: 24px; }
-    .cta-button { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%); color: white; border-radius: 10px; text-decoration: none; font-size: 16px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 24px var(--primary-glow); }
-    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5); }
+    .cta-button { display: inline-block; padding: 14px 32px; background: #191918; color: #ffffff; border-radius: 10px; text-decoration: none; font-size: 16px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 24px var(--primary-glow); }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12); }
     .secondary-link { color: var(--primary-color); text-decoration: none; font-size: 16px; font-weight: 500; transition: opacity 0.3s; }
     .secondary-link:hover { opacity: 0.7; }
-    @media (max-width: 768px) {
-      .about-content h1 { font-size: 36px; }
-      .tech-grid { grid-template-columns: 1fr; }
-      .about-cta { flex-direction: column; align-items: flex-start; }
-      .about-header { grid-template-columns: 1fr; gap: 28px; text-align: center; margin-bottom: 40px; }
-      .about-header-text { align-items: center; }
-      .portrait-frame { width: 180px; height: 180px; }
-    }
+    @media (max-width: 768px) { .about-content h1 { font-size: 36px; } .tech-grid { grid-template-columns: 1fr; } .about-cta { flex-direction: column; align-items: flex-start; } }
   </style>
 </MainLayout>
