@@ -5,20 +5,20 @@ import MainLayout from "../../layouts/MainLayout.astro";
 <MainLayout title="Rebuilding Tokenization on MWAA V3 | Case Study">
   <div class="case-bg">
     <div class="case-shell">
-      <a href="/case-studies" class="back-button">&larr; Back to Case Studies</a>
+      <a href="/experience" class="back-button">&larr; Back to Case Studies</a>
 
       <header class="case-header">
         <span class="case-eyebrow">FLAGSHIP CASE STUDY &middot; 2026</span>
         <h1>Rebuilding Tokenization on MWAA V3</h1>
         <p class="case-lede">
-          A ground-up rewrite of the tokenization pipeline that powers RedSail's $9M data monetization platform.
+          A ground-up rewrite of the tokenization pipeline behind an enterprise pharmacy-data monetization platform.
           Migrated from Airflow V1 to MWAA V3 on AWS, reorganized the DAG into parallel client chains,
           and pre-hashed archive joins to cut a 35-37 minute wall-clock baseline.
         </p>
         <div class="case-meta">
           <div class="meta-block"><span class="meta-key">ROLE</span><span class="meta-val">Lead architect &amp; engineer</span></div>
-          <div class="meta-block"><span class="meta-key">SCALE</span><span class="meta-val">6B records, 8+ enterprise clients</span></div>
-          <div class="meta-block"><span class="meta-key">STACK</span><span class="meta-val">MWAA V3, Snowflake, Datavant, Terraform, Python</span></div>
+          <div class="meta-block"><span class="meta-key">SCALE</span><span class="meta-val">6B+ records, multi-tenant delivery</span></div>
+          <div class="meta-block"><span class="meta-key">STACK</span><span class="meta-val">MWAA V3, Snowflake, Terraform, Python</span></div>
         </div>
       </header>
 
@@ -34,7 +34,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <li>Sequential client processing capped throughput regardless of warehouse size.</li>
           <li>Archive joins re-hashed PII on every run &mdash; expensive and wasteful at 6B-record scale.</li>
           <li>MWAA V1 deprecation forced a migration window with concrete deadlines.</li>
-          <li>Tokenize step had safety gaps that created drift between Snowflake and Datavant outputs.</li>
+          <li>The tokenize step had safety gaps that created drift between Snowflake state and tokenization outputs.</li>
         </ul>
       </section>
 
@@ -44,24 +44,24 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <div class="arch-row">
             <div class="arch-node">
               <span class="node-label">SOURCE</span>
-              <span class="node-name">transaction_log</span>
+              <span class="node-name">Transaction source</span>
               <span class="node-meta">~6B rows &middot; daily</span>
             </div>
             <span class="arch-arrow">&rarr;</span>
             <div class="arch-node">
               <span class="node-label">DE-ID</span>
-              <span class="node-name">TRANSACTION_DEID</span>
+              <span class="node-name">De-identified layer</span>
               <span class="node-meta">expert determination</span>
             </div>
             <span class="arch-arrow">&rarr;</span>
             <div class="arch-node">
               <span class="node-label">TOKENIZE</span>
-              <span class="node-name">Datavant V2</span>
+              <span class="node-name">Tokenization V2</span>
               <span class="node-meta">pre-hashed archive joins</span>
             </div>
           </div>
           <div class="arch-row arch-fanout">
-            <div class="arch-trunk">FAN-OUT: parallel client chains (8+)</div>
+            <div class="arch-trunk">FAN-OUT: parallel client chains</div>
             <div class="arch-clients">
               <span class="client-pill">pharma analytics</span>
               <span class="client-pill">life sciences</span>
@@ -76,7 +76,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <div class="arch-row">
             <div class="arch-node arch-node-output">
               <span class="node-label">DELIVERY</span>
-              <span class="node-name">S3 + Azure</span>
+              <span class="node-name">S3 + customer cloud</span>
               <span class="node-meta">per-client SLAs &middot; manifests &middot; audit trail</span>
             </div>
           </div>
@@ -101,11 +101,11 @@ import MainLayout from "../../layouts/MainLayout.astro";
           </div>
           <div class="block">
             <h3>Tokenize safety fixes</h3>
-            <p>Closed drift gaps between Snowflake state and Datavant outputs. Idempotent retries, manifest validation, and explicit failure modes that page rather than silently complete.</p>
+            <p>Closed drift gaps between Snowflake state and tokenization outputs. Idempotent retries, manifest validation, and explicit failure modes that page rather than silently complete.</p>
           </div>
           <div class="block">
             <h3>Multi-tenant feed orchestration</h3>
-            <p>Per-client schedules, lag awareness (Veeva and Millenium deliver yesterday's date, CPESN runs Mondays only), and consistent transfer DAG conventions across the fleet.</p>
+            <p>Per-client schedules, source-lag awareness where upstream systems deliver on different cadences, and consistent transfer DAG conventions across the fleet.</p>
           </div>
           <div class="block">
             <h3>Terraform-managed infrastructure</h3>
@@ -122,12 +122,12 @@ import MainLayout from "../../layouts/MainLayout.astro";
             <span class="result-cap">Daily wall-clock baseline before perf-tuning round; current XL-warehouse run targets sub-45 min total.</span>
           </div>
           <div class="result-cell">
-            <span class="result-number">8+ clients</span>
+            <span class="result-number">Per-client isolation</span>
             <span class="result-cap">Each running as an independent, isolated chain &mdash; one slow client no longer blocks the others.</span>
           </div>
           <div class="result-cell">
             <span class="result-number">Zero drift</span>
-            <span class="result-cap">Tokenize safety fixes eliminated reconciliation gaps between Snowflake state and Datavant outputs.</span>
+            <span class="result-cap">Tokenize safety fixes eliminated reconciliation gaps between Snowflake state and tokenization outputs.</span>
           </div>
           <div class="result-cell">
             <span class="result-number">V3 in prod</span>
@@ -141,8 +141,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
         <ul class="bullets">
           <li>Architecture decisions: parallelization model, where hashing lives, MWAA V3 patterns.</li>
           <li>Cross-team coordination: IAM trust policy negotiations with infra; client-side onboarding for migrated feeds.</li>
-          <li>Performance tuning: warehouse-size validation (XL vs L baselines), clustering follow-ups on TRANSACTION_DEID.</li>
-          <li>Roadmap: historical tokenization backfill DAG (next), run_pipeline_log + Sigma BI reporting (in flight with the analytics director).</li>
+          <li>Performance tuning: warehouse-size validation (XL vs L baselines), clustering follow-ups on the de-identified layer.</li>
         </ul>
       </section>
 
@@ -150,7 +149,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
         <p>Want to talk about how this kind of platform gets built &mdash; or hire someone who's done it?</p>
         <div class="footer-buttons">
           <a href="https://www.linkedin.com/in/nicholas-ruffin-a9b767102" target="_blank" rel="noopener" class="footer-cta">Connect on LinkedIn</a>
-          <a href="/case-studies" class="footer-link">See more case studies &rarr;</a>
+          <a href="/experience" class="footer-link">See more case studies &rarr;</a>
         </div>
       </div>
     </div>
