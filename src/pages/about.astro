@@ -13,13 +13,15 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="about-sections">
         <div class="about-section reveal">
           <h2>What I Do</h2>
-          <p>I lead engineering for RedSail's pharmacy-data monetization platform &mdash; serving enterprise RWE and pharma manufacturer customers across multiple delivery motions: tokenized de-identified feeds, identified PHI into customer-controlled cloud environments, and cross-source combined feeds joining multiple pharmacy systems.</p>
-          <p>I am consolidating customer feeds onto a shared combined-feed pipeline to cut per-customer tokenization and processing cost, retiring redundant legacy pipelines while holding delivery continuity for every account on the platform.</p>
+          <p>I manage commercial data delivery for RedSail's pharmacy-data monetization platform. I own <strong>nearly 40 live production feeds to 30+ pharma manufacturer, RWE, and alt-data organizations</strong>. That spans <strong>18 manufacturer copay assistance and voucher discount programs</strong>, clinical program feeds, and the de-identified, patient-level tokenized claims data licensed for analytics on a 7-figure ARR platform.</p>
+          <p>Two distinct motions. The program feeds are DUA-governed and operational, held to latency, coverage, and reliability commitments. The analytics products go out as tokenized de-identified feeds, as identified PHI into customer-controlled AWS or Azure environments for buyers running their own tokenization engines, and as cross-source combined feeds joining multiple pharmacy systems.</p>
+          <p>I own the de-identification lifecycle end to end: identified pharmacy transactions in, de-identification and Expert Determination certification, patient-level tokenization, then delivery into the customer's own environment. I manage the tokenization vendor relationship behind it.</p>
+          <p>Delivery runs across a multi-cloud estate of AWS and Azure and multiple Snowflake accounts. I am consolidating customer feeds onto a shared combined-feed pipeline to cut per-customer tokenization and processing cost, retiring redundant legacy pipelines while holding delivery continuity for every account.</p>
         </div>
 
         <div class="about-section reveal">
           <h2>The Differentiation</h2>
-          <p>Most RWE and pharma customer engineering teams know claims but not pharmacy transactions. I serve as the embedded translator on <strong>NCPDP-standard pharmacy-data fluency</strong> &mdash; join-key design, cross-source reconciliation, and file-format work &mdash; and provide the same technical framing on business development calls and contract reviews so commercial commitments match delivery reality.</p>
+          <p>Pharmacy transaction data is not claims data, and customer engineering teams usually find that out mid-integration. I set the technical standard for how customers consume <strong>NCPDP-standard pharmacy data</strong>: join-key design, cross-source reconciliation, and file-format decisions across every customer integration. I provide the same technical framing on business development calls and contract reviews so commercial commitments match delivery reality.</p>
           <p>I partner with business development on deals from technical review through delivery execution: sit in on new-business conversations, review draft contracts for delivery feasibility, then execute end-to-end through engineering handoff and customer stakeholder communication. I coordinate cross-product data sourcing across RedSail alongside our VP.</p>
         </div>
 
@@ -33,7 +35,7 @@ import MainLayout from "../layouts/MainLayout.astro";
           <div class="tech-grid">
             <div class="tech-category">
               <h3>Platform</h3>
-              <p>Snowflake (Procs/Streams/Tasks, multi-instance), AWS (MWAA, S3, Lambda, Fargate, ECS, IAM), customer-controlled cloud delivery</p>
+              <p>Multi-cloud AWS + Azure; multiple Snowflake accounts (Procs/Streams/Tasks); AWS MWAA, S3, Lambda, Fargate, ECS, IAM; SFTP / S3 / Azure Blob delivery</p>
             </div>
             <div class="tech-category">
               <h3>Delivery</h3>
@@ -41,14 +43,14 @@ import MainLayout from "../layouts/MainLayout.astro";
             </div>
             <div class="tech-category">
               <h3>Data Products</h3>
-              <p>De-identified pharmacy transaction data, RWE feed productization, cross-source combined feeds, provenance &amp; audit</p>
+              <p>Manufacturer copay assistance &amp; voucher discount program feeds, de-identified patient-level tokenized claims data, cross-source combined feeds, provenance &amp; audit</p>
             </div>
           </div>
         </div>
 
         <div class="about-section reveal">
           <h2>Background</h2>
-          <p>Before RedSail I was Director, Full Stack Development at Nimble Solutions from 2021 to 2025. Reported to the CIO and led three functional engineering teams &mdash; software, data, and RPA, across US and offshore &mdash; through the company's inorganic growth phase. Technical partner to the CIO on four healthcare acquisitions; integrated 20+ practice management systems into a unified data warehouse via RPA-based extraction and API ingestion; shipped an AR reimbursement work queue that lifted rep throughput to 30+ claims/day.</p>
+          <p>Before RedSail I was Director, Full Stack Development at Nimble Solutions from 2021 to 2025, reporting to the CIO. I built out and managed the software and RPA engineering teams across US and offshore, plus a project manager, and later took on the data team. The software team shipped a microservices .NET AR reimbursement work queue on an n-tiered architecture with full monitoring and observability, lifting rep throughput to 30+ claims/day, and integrated 20+ practice management systems into a unified data warehouse via RPA-based extraction, Azure function apps, and custom API integrations through Availity and Waystar. Across four healthcare acquisitions I supported technical due diligence alongside our VP of Infrastructure, CISO, and CIO, then integrated the acquired applications into our platform.</p>
           <p>Prior to Nimble, four years as Senior Full Stack Developer at Core &amp; Main building enterprise data applications on C#/.NET and SQL. Twelve years of engineering across pharmacy, healthcare data, and enterprise systems. Bachelor of Science in Computer Science, University of Phoenix.</p>
         </div>
       </div>
