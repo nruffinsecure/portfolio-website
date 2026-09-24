@@ -6,7 +6,7 @@
   <title>Nicholas Ruffin - Resume</title>
   <style>
     @page {
-      margin: 0.35in 0.5in;
+      margin: 0.3in 0.5in;
       size: letter;
     }
 
@@ -19,7 +19,7 @@
     body {
       font-family: 'Georgia', serif;
       font-size: 8.75pt;
-      line-height: 1.2;
+      line-height: 1.14;
       color: #1a1a1a;
     }
 
@@ -40,7 +40,7 @@
     .contact {
       font-size: 9pt;
       color: #555;
-      margin-bottom: 8px;
+      margin-bottom: 3px;
     }
 
     .contact a {
@@ -54,8 +54,8 @@
       color: #2c5282;
       border-bottom: 1.5px solid #2c5282;
       padding-bottom: 2px;
-      margin-top: 6px;
-      margin-bottom: 3px;
+      margin-top: 4px;
+      margin-bottom: 2px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -67,7 +67,7 @@
 
     .skills-table td {
       vertical-align: top;
-      padding: 1px 0;
+      padding: 0;
     }
 
     .skills-table td:first-child {
@@ -78,7 +78,7 @@
     }
 
     .job {
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .job-header {
@@ -112,7 +112,7 @@
     }
 
     li {
-      margin-bottom: 1.5px;
+      margin-bottom: 0.5px;
     }
 
     b {
@@ -136,39 +136,44 @@
 <body>
 
   <h1>NICHOLAS RUFFIN</h1>
-  <div class="subtitle">Manager, Data Engineering &middot; Health Data &amp; RWE</div>
+  <div class="subtitle">Manager, Data Engineering &middot; Commercial Pharmacy Data &amp; RWE</div>
   <div class="contact">Ellisville, MO &nbsp;|&nbsp; nruffinsecure@gmail.com &nbsp;|&nbsp;
     <a href="https://linkedin.com/in/nicholas-ruffin">linkedin.com/in/nicholas-ruffin</a></div>
 
   <h2>Professional Summary</h2>
-  <p>Engineering leader for a pharmacy-data monetization platform serving enterprise RWE and pharma
-    manufacturer customers across multiple delivery motions, including tokenized de-identified feeds, identified PHI
-    delivered into customer-controlled cloud environments, and cross-source combined feeds joining multiple pharmacy
-    systems. Also lead the operational partner-data feeds behind manufacturer copay and voucher programs, PBM
-    partners, and pharmacy-services networks. Manage a team of data engineers. Durable differentiation:
-    NCPDP-standard pharmacy-data fluency as the technical translator into customer engineering teams whose
-    depth is claims, not pharmacy transactions. Previously Director, Full Stack Development, leading three functional
-    engineering teams (software, data, RPA) through four healthcare
-    acquisitions reporting to the CIO. Twelve years of engineering across pharmacy, healthcare data, and enterprise
-    systems.</p>
+  <p>Engineering leader for commercial pharmacy-data delivery on a 7-figure ARR monetization platform. Own
+    <b>nearly 40 live production data feeds</b> to <b>30+ pharma manufacturer, RWE, and alt-data organizations</b>,
+    spanning <b>18 manufacturer copay assistance and voucher discount programs</b>, clinical program feeds, and
+    de-identified patient-level tokenized claims data licensed for analytics. Own the <b>de-identification lifecycle
+      end to end</b>: identified pharmacy transactions in, de-identification and Expert Determination certification,
+    patient-level tokenization, then delivery into the customer&rsquo;s own environment. Manage a team of data
+    engineers and set the technical standard for how customers consume NCPDP pharmacy data. Previously <b>Director, Full Stack Development</b>, building out software and RPA teams and
+    supporting four healthcare acquisitions reporting to the CIO. Twelve years of engineering across pharmacy,
+    healthcare data, and enterprise systems.</p>
 
   <h2>Areas of Focus</h2>
   <table class="skills-table">
     <tr>
       <td>Commercial &amp; Delivery</td>
-      <td>Close partnership with business development on renewals and new business (technical delivery lens);
-        contract-to-delivery execution; customer stakeholder communication; cross-product data sourcing across
-        RedSail alongside VP; audit &amp; proof-of-delivery evidence</td>
+      <td>Business development partnership on renewals and new business (technical delivery lens);
+        contract-to-delivery execution; customer stakeholder communication; cross-product data sourcing alongside VP;
+        proof-of-delivery evidence</td>
+    </tr>
+    <tr>
+      <td>Program Feeds</td>
+      <td>Manufacturer copay assistance &amp; voucher discount programs, clinical program feeds, PBM and
+        pharmacy-services partner feeds; DUA-governed operational delivery on latency, coverage, and reliability</td>
     </tr>
     <tr>
       <td>Data Products</td>
-      <td>De-identified &amp; tokenized pharmacy transaction data, Expert Determination, RWE feed productization,
-        cross-source combined feeds, HIPAA compliance</td>
+      <td>De-identified &amp; patient-level tokenized pharmacy transaction data, Expert Determination, RWE feed
+        productization, cross-source combined feeds, HIPAA compliance</td>
     </tr>
     <tr>
       <td>Platform</td>
-      <td>Snowflake (Procs/Streams/Tasks, multi-instance), AWS (MWAA, S3, Lambda, Fargate, ECS, IAM), Apache Airflow,
-        Terraform, GitHub Actions, Python, SQL</td>
+      <td>Multi-cloud (AWS + Azure), multiple Snowflake accounts; Snowflake (Procs/Streams/Tasks), AWS (MWAA, S3,
+        Lambda, Fargate, ECS, IAM), Apache Airflow, Terraform, GitHub Actions, Python, SQL, SFTP / S3 / Azure Blob
+        delivery</td>
     </tr>
   </table>
 
@@ -179,33 +184,33 @@
       <span class="job-title">Manager, Data Engineering | RedSail Technologies</span>
       <span class="job-date">Feb 2025 &ndash; Present</span>
     </div>
-    <div class="job-company">Data engineering leadership within RedSail&rsquo;s data monetization organization. Lead
-      engineering for the monetization platform and the operational partner-data feeds; primary technical partner for
-      RWE and manufacturer customer relationships.</div>
+    <div class="job-company">Data engineering leadership within RedSail&rsquo;s data monetization organization; primary
+      technical partner for RWE and manufacturer customer relationships.</div>
     <ul>
+      <li><b>Own commercial data delivery to pharma manufacturers &mdash; nearly 40 live production feeds to 30+
+          organizations.</b> Includes <b>18 manufacturer copay assistance and voucher discount programs</b> plus
+        clinical program and pharmacy-services partner feeds. A DUA-governed operational motion distinct from the
+        analytics products, sold and held to latency, coverage, and reliability commitments.</li>
+      <li><b>Lead engineering across three delivery motions:</b> <b>de-identified, patient-level tokenized claims
+          feeds</b> (AWS Fargate + ECS + Snowflake), <b>identified PHI into customer-controlled AWS or Azure
+          environments</b> for customers running their own tokenization engines, and <b>cross-source combined feeds</b>
+        joining multiple pharmacy systems.</li>
+      <li><b>Run delivery across a multi-cloud estate</b> (AWS and Azure, multiple Snowflake accounts) and am
+        <b>consolidating customer feeds onto a shared combined-feed pipeline</b>, cutting per-customer tokenization cost
+        and retiring legacy pipelines without interrupting delivery.</li>
       <li><b>Manage a team of data engineers</b>, assigning end-to-end ownership of customer-facing feed migrations and
         cutovers, with code standards and deployment discipline (Airflow, Terraform, GitHub Actions) that remove
         single-person dependencies from customer delivery.</li>
-      <li><b>Lead engineering for a pharmacy-data monetization platform</b> serving enterprise RWE and pharma
-        manufacturer customers across multiple delivery motions: <b>tokenized de-identified feeds</b> (AWS Fargate +
-        ECS + Snowflake) for the RWE-aggregator segment, <b>identified PHI into customer-controlled cloud
-          environments</b> for customers running their own tokenization engines, and <b>cross-source combined
-          feeds</b> joining multiple pharmacy systems.</li>
-      <li><b>Driving a platform consolidation onto a shared combined-feed pipeline</b> to cut per-customer
-        tokenization and processing cost, retiring redundant legacy pipelines while holding delivery continuity for
-        every account on the platform.</li>
-      <li><b>Lead engineering for the operational partner-data feeds.</b> Manufacturer copay and voucher programs,
-        PBM partners, and pharmacy-services networks. A distinct delivery motion (DUA-governed operational feeds)
-        from the analytics-oriented monetization platform, sold on latency, coverage, and reliability.</li>
-      <li><b>Turned NCPDP-standard fluency into a technical differentiation.</b> Customers&rsquo; engineering teams
-        know claims but not pharmacy transactions. I serve as the embedded translator for their data teams on
-        join-key design, cross-source reconciliation, and file-format questions, and provide the same technical
-        framing on business development calls and contract reviews so commercial commitments match delivery
+      <li><b>Own the de-identification lifecycle end to end</b> &mdash; identified pharmacy transactions in,
+        de-identification and Expert Determination certification, patient-level tokenization, then delivery into the
+        customer&rsquo;s own environment &mdash; and manage the tokenization vendor relationship.</li>
+      <li><b>Set the technical standard for how customers consume NCPDP pharmacy data:</b> join-key design,
+        cross-source reconciliation, and file-format decisions across every customer integration, and the same
+        technical framing on business development calls and contract reviews so commercial commitments match delivery
         reality.</li>
-      <li><b>Partner with business development on renewals and new business from technical review through
-          delivery.</b> Sit in on new-business conversations, review draft contracts for delivery feasibility, scope
-        and price historical backfills as line items on dataset sales, then execute the commitments end-to-end
-        across engineering, customer stakeholders, and other RedSail product areas alongside our VP.</li>
+      <li><b>Partner with business development from technical review through delivery.</b> Review draft contracts for
+        delivery feasibility, scope and price historical backfills as line items on dataset sales, then execute
+        commitments across engineering, customer stakeholders, and other RedSail product areas alongside our VP.</li>
       <li><b>Regulatory readiness &amp; data governance:</b> HIPAA compliance, Expert Determination coordination
         with third-party evaluators, proof-of-delivery audit trails, and provenance documentation for customer
         legal reviews.</li>
@@ -217,17 +222,19 @@
       <span class="job-title">Director, Full Stack Development | Nimble Solutions</span>
       <span class="job-date">Aug 2021 &ndash; Feb 2025</span>
     </div>
-    <div class="job-company">Reporting to the CIO, led three functional engineering teams (software, data, and RPA)
-      across US and offshore, through the company&rsquo;s inorganic growth phase.</div>
+    <div class="job-company">Reporting to the CIO, built out and managed the software and RPA engineering teams (US and
+      offshore) plus a project manager, and later took on the data team, through the company&rsquo;s inorganic growth
+      phase.</div>
     <ul>
       <li><b>Technical partner to the CIO on four healthcare acquisitions.</b> Supported technical due diligence,
         TCO analysis, integration sequencing, and stack rationalization; traveled to Hyderabad to fold the acquired
         team into US operations.</li>
-      <li><b>Designed and shipped an AR reimbursement work queue</b>, revenue-ordered and backed by historical AR
-        aging, lifting rep throughput to <b>30+ claims/day per rep</b>.</li>
-      <li><b>Integrated 20+ practice management systems into a unified data warehouse</b> via RPA-based extraction
-        and API ingestion. These patterns made post-acquisition system consolidation economically feasible instead
-        of a rebuild-per-acquisition drag on margin.</li>
+      <li><b>Designed and shipped a microservices .NET AR reimbursement work queue</b> on an n-tiered architecture with
+        full monitoring and observability, revenue-ordered and backed by historical AR aging, lifting rep throughput to
+        <b>30+ claims/day per rep</b>.</li>
+      <li><b>Integrated 20+ practice management systems into a unified data warehouse</b> via RPA-based extraction,
+        Azure function apps, and custom API integrations through Availity and Waystar, making post-acquisition
+        consolidation feasible without a rebuild per acquisition.</li>
       <li>Partnered with CIO, VP of Infrastructure, and CISO on technical strategy, vendor evaluations, and annual
         capex/opex planning; established CI/CD (<b>60% deployment-time reduction</b>) and <b>90%+ test coverage</b>
         across US and offshore teams.</li>
