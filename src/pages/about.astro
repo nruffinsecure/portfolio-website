@@ -8,26 +8,27 @@ import MainLayout from "../layouts/MainLayout.astro";
     <div class="about-content">
       <span class="about-tag reveal">ABOUT</span>
       <h1 class="reveal reveal-delay-1">Nick Ruffin</h1>
-      <p class="about-subtitle reveal reveal-delay-2">Manager, Data Engineering &middot; RedSail Technologies</p>
+      <p class="about-subtitle reveal reveal-delay-2">Program Leader, Retail Pharmacy Data &middot; RedSail Technologies</p>
 
       <div class="about-sections">
         <div class="about-section reveal">
           <h2>What I Do</h2>
-          <p>I manage commercial data delivery for RedSail's pharmacy-data monetization platform. I own <strong>nearly 40 live production feeds to 30+ pharma manufacturer, RWE, and alt-data organizations</strong>. That spans <strong>18 manufacturer copay assistance and voucher discount programs</strong>, clinical program feeds, and the de-identified, patient-level tokenized claims data licensed for analytics on a 7-figure ARR platform.</p>
-          <p>Two distinct motions. The program feeds are DUA-governed and operational, held to latency, coverage, and reliability commitments. The analytics products go out as tokenized de-identified feeds, as identified PHI into customer-controlled AWS or Azure environments for buyers running their own tokenization engines, and as cross-source combined feeds joining multiple pharmacy systems.</p>
-          <p>I own the de-identification lifecycle end to end: identified pharmacy transactions in, de-identification and Expert Determination certification, patient-level tokenization, then delivery into the customer's own environment. I manage the tokenization vendor relationship behind it.</p>
-          <p>Delivery runs across a multi-cloud estate of AWS and Azure and multiple Snowflake accounts. I am consolidating customer feeds onto a shared combined-feed pipeline to cut per-customer tokenization and processing cost, retiring redundant legacy pipelines while holding delivery continuity for every account.</p>
+          <p>I own commercial data delivery for a pharmacy-data monetization program built on NCPDP pharmacy transactions, and I manage the engineering team that builds and runs it. We deliver across three motions: de-identified patient-level tokenized claims, identified PHI delivered into customer-controlled AWS or Azure environments, and cross-source combined feeds joining multiple pharmacy systems.</p>
+          <p>The program serves patient-journey and real-world evidence platforms, market access and payer intelligence, life-sciences market and competitive intelligence, prescriber-level commercial analytics, financial and alt-data research, and community-pharmacy clinical networks.</p>
+          <p>I also manage the delivery of reporting back to drug manufacturers for our copay assistance, voucher, and clinical programs, where I own the engineering and the delivery commitments rather than the programs themselves.</p>
         </div>
 
         <div class="about-section reveal">
-          <h2>The Differentiation</h2>
-          <p>Pharmacy transaction data is not claims data, and customer engineering teams usually find that out mid-integration. I set the technical standard for how customers consume <strong>NCPDP-standard pharmacy data</strong>: join-key design, cross-source reconciliation, and file-format decisions across every customer integration. I provide the same technical framing on business development calls and contract reviews so commercial commitments match delivery reality.</p>
-          <p>I partner with business development on deals from technical review through delivery execution: sit in on new-business conversations, review draft contracts for delivery feasibility, then execute end-to-end through engineering handoff and customer stakeholder communication. I coordinate cross-product data sourcing across RedSail alongside our VP.</p>
+          <h2>Why This Data Is Different</h2>
+          <p>Our software sits directly inside the pharmacy and our switch carries the claim, so we capture the raw NCPDP transmission whole: the request the pharmacy sent, the routing header from the switch, the response the processor returned, and the adjudication itself, down to what the patient was charged at the counter. The record is captured at the source rather than reassembled after adjudication.</p>
+          <p>Tokenization is what makes it longitudinal. Customers stitch a patient journey across pharmacy systems and link it to the medical claims and lab data they already hold, which is what opened the real-world evidence and patient-journey segment to us at all.</p>
+          <p>I carry the client relationships through onboarding, expansion, and renewal. Contracts come to me for review alongside business development and sales, where I hold the line on delivery methods, service levels, field-level agreement, and fill rates, and no monetization commitment goes out without my delivery review.</p>
         </div>
 
         <div class="about-section reveal">
           <h2>Regulatory &amp; Data Governance</h2>
-          <p>HIPAA compliance, Expert Determination coordination with third-party evaluators, proof-of-delivery audit trails, and provenance documentation for customer legal reviews. Building the engineering function &mdash; hiring, code standards, deployment discipline (Airflow, Terraform, GitHub Actions) &mdash; to remove single-person dependencies from customer delivery.</p>
+          <p>None of this data could be sold commercially without a defensible HIPAA determination. I run the Expert Determination process end to end with third-party evaluators, including re-certification as fields and populations change, and paired with the data-rights terms in our pharmacy agreements it is what ungates commercial use. Proof-of-delivery audit trails and provenance documentation are what carry a customer's legal review.</p>
+          <p>My team operates the platform end to end as the organization's only external delivery path: infrastructure defined as code, access controlled per customer, every transfer monitored and evidenced, and new customers onboarded as configuration rather than a build.</p>
         </div>
 
         <div class="about-section reveal">
@@ -35,29 +36,41 @@ import MainLayout from "../layouts/MainLayout.astro";
           <div class="tech-grid">
             <div class="tech-category">
               <h3>Platform</h3>
-              <p>Multi-cloud AWS + Azure; multiple Snowflake accounts (Procs/Streams/Tasks); AWS MWAA, S3, Lambda, Fargate, ECS, IAM; SFTP / S3 / Azure Blob delivery</p>
+              <p>Snowflake (multi-account, Procs/Streams/Tasks), AWS (IAM, Lambda, S3, EventBridge, MWAA, Fargate, ECS), Azure, Databricks and Iceberg tables, SFTP</p>
             </div>
             <div class="tech-category">
               <h3>Delivery</h3>
-              <p>third-party tokenization, Apache Airflow, Terraform, GitHub Actions, Python, SQL, HIPAA / Expert Determination</p>
+              <p>Patient-level tokenization, Apache Airflow on MWAA, Terraform, GitHub Actions, CloudWatch, Python, SQL, HIPAA and Expert Determination</p>
             </div>
             <div class="tech-category">
               <h3>Data Products</h3>
-              <p>Manufacturer copay assistance &amp; voucher discount program feeds, de-identified patient-level tokenized claims data, cross-source combined feeds, provenance &amp; audit</p>
+              <p>De-identified and patient-level tokenized pharmacy transaction data, cross-source combined feeds, manufacturer program reporting, provenance &amp; audit</p>
             </div>
           </div>
         </div>
 
         <div class="about-section reveal">
+          <h2>From Engineer to Program Leader</h2>
+          <p>I spent my early years as an engineer solving problems in code. What moved me past that was watching where the real constraints actually sat: not in the application, but in the agreement behind it, the compliance posture that gated whether work could be sold at all, and the question of which team owned which piece. Those decisions were being made somewhere I was not, and they determined whether anything I built mattered.</p>
+          <p>So I moved toward them. Owning a program means holding the engineering and the commercial reality in the same hand: what we can commit to in a contract, what the compliance evidence will actually support, and what the team can operate on Monday. The engineering background is why that judgment holds up, because I have never had to guess whether a commitment was deliverable.</p>
+
+        </div>
+
+        <div class="about-section reveal">
           <h2>Background</h2>
-          <p>Before RedSail I was Director, Full Stack Development at Nimble Solutions from 2021 to 2025, reporting to the CIO. I built out and managed the software and RPA engineering teams across US and offshore, plus a project manager, and later took on the data team. The software team shipped a microservices .NET AR reimbursement work queue on an n-tiered architecture with full monitoring and observability, lifting rep throughput to 30+ claims/day, and integrated 20+ practice management systems into a unified data warehouse via RPA-based extraction, Azure function apps, and custom API integrations through Availity and Waystar. Across four healthcare acquisitions I supported technical due diligence alongside our VP of Infrastructure, CISO, and CIO, then integrated the acquired applications into our platform.</p>
+          <p>Before RedSail I was Director, Full Stack Development at Nimble Solutions from 2021 to 2025, where I built out, hired into, and ran the software and RPA engineering teams across the US and Hyderabad, plus a project manager, and later took on the data team. I owned the accounts receivable platform: collectors had been working unpaid claims out of spreadsheets at roughly 20 touches a day with no way to tell which were worth the call, and we replaced that with a work queue ordered by recoverable revenue, lifting throughput past 30 claims a day per rep.</p>
+          <p>The data behind it sat in practice management systems and clearinghouses, so the software team built cloud function apps and custom API integrations where an interface existed, and the RPA team automated report extraction where none did, feeding the warehouse through ETL. That path is what made each newly acquired system a configuration problem instead of a rebuild across four healthcare acquisitions, where I was the CIO's technical partner on due diligence alongside our VP of Infrastructure and CISO.</p>
           <p>Prior to Nimble, four years as Senior Full Stack Developer at Core &amp; Main building enterprise data applications on C#/.NET and SQL. Twelve years of engineering across pharmacy, healthcare data, and enterprise systems. Bachelor of Science in Computer Science, University of Phoenix.</p>
+        </div>
+        <div class="about-section reveal">
+          <h2>Get In Touch</h2>
+          <p>If you are working on commercial health data, real-world evidence, or pharmacy data products and think there is something worth talking about, reach out. The contact page goes straight to me.</p>
         </div>
       </div>
 
       <div class="about-cta reveal">
         <a href="/nicholas-ruffin-resume.pdf" target="_blank" class="cta-button">Download Resume</a>
-        <a href="/experience" class="secondary-link">See experience &rarr;</a>
+        <a href="/contact" class="secondary-link">Get in touch &rarr;</a>
       </div>
     </div>
   </div>

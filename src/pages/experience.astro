@@ -8,8 +8,8 @@ import MainLayout from "../layouts/MainLayout.astro";
     <div class="projects-inner">
       <div class="projects-header">
         <span class="projects-tag reveal">EXPERIENCE</span>
-        <h1 class="reveal reveal-delay-1">Twelve years of engineering. Pharmacy, data, and enterprise systems.</h1>
-        <p class="reveal reveal-delay-2">Currently leading engineering for RedSail Technologies' pharmacy-data monetization platform. Previously Director, Full Stack Development at Nimble Solutions through four healthcare acquisitions.</p>
+        <h1 class="reveal reveal-delay-1">One product line per role. Here is what it took to run them.</h1>
+        <p class="reveal reveal-delay-2">Program leader in retail pharmacy data with an engineering background, building the platforms and running the operations behind multiple product lines. Previously Director, Full Stack Development at Nimble Solutions through four healthcare acquisitions.</p>
       </div>
 
       <div class="one-card-wrapper reveal">
@@ -21,32 +21,37 @@ import MainLayout from "../layouts/MainLayout.astro";
             </div>
             <span class="role-dates">Feb 2025 &ndash; Present</span>
           </div>
-          <p class="project-intro">Manage commercial data delivery for RedSail's pharmacy-data monetization platform, with ownership of nearly 40 live production feeds to 30+ pharma manufacturer, RWE, and alt-data organizations. Primary technical partner for customer relationships and business development.</p>
+          <p class="project-intro">Data Monetization program leader within the RedSail Advantage Solutions team. I own engineering and delivery for the monetization program and its customer feeds, and I deliver the data feeds behind the copay assistance, voucher, and clinical programs owned by adjacent program teams.</p>
 
           <div class="stage-block">
-            <div class="stage-title"><span>The Commercial Motion</span><hr /></div>
-            <strong>18 manufacturer copay assistance and voucher discount programs</strong>
-            <p>The feeds pharma manufacturers run their patient-affordability programs on, plus clinical program and pharmacy-services partner feeds. DUA-governed and operational rather than analytical &mdash; sold and held to latency, coverage, and reliability commitments, where a missed delivery is a commercial problem, not a backlog item.</p>
+            <div class="stage-title"><span>The Product</span><hr /></div>
+            <strong>Raw transmissions were an operational record, not a product</strong>
+            <p>Our software sits directly inside the pharmacy and our switch carries the claim, so we capture the raw NCPDP transmission whole: the request the pharmacy sent, the routing header from the switch, the response the processor returned, and the adjudication itself, down to what the patient was charged at the counter. Alongside our VP I shaped that feed into one coherent, rights-checked data product, and because the same asset answers a different question for each buyer it sells many times over instead of being rebuilt per deal &mdash; therapy history for real-world evidence and patient-journey platforms, coverage and copay reality for market access, dispensing behavior for prescriber-level analytics, and demand signal for financial and alt-data research. It runs today as a multi-year licensed portfolio that has renewed and expanded every cycle.</p>
           </div>
           <div class="stage-block">
-            <div class="stage-title"><span>The Platform</span><hr /></div>
-            <strong>Multiple delivery motions, one 7-figure ARR platform</strong>
-            <p><strong>De-identified, patient-level tokenized claims feeds</strong> for RWE aggregators, running on AWS Fargate + ECS + Snowflake. <strong>Identified PHI into customer-controlled AWS or Azure environments</strong> for buyers running their own tokenization engines. <strong>Cross-source combined feeds</strong> joining multiple pharmacy systems &mdash; the newest motion, unlocking expansion at existing accounts. Growth comes from expansion, not new logos.</p>
+            <div class="stage-title"><span>The Unlock</span><hr /></div>
+            <strong>De-identified claims could not be tied to a patient over time</strong>
+            <p>That kept us out of the segment that pays most for longitudinal data. My team engineered the patient-level tokenization engine, which opened real-world evidence and patient-journey customers: they measure overlap against their own population before they buy, then link our dispensing history to the medical claims and lab data they already hold.</p>
           </div>
           <div class="stage-block">
-            <div class="stage-title"><span>The Estate</span><hr /></div>
-            <strong>Multi-cloud delivery and platform consolidation</strong>
-            <p>Delivery runs across AWS and Azure and multiple Snowflake accounts. I am migrating customer feeds onto a shared combined-feed pipeline to cut per-customer tokenization and processing cost, retiring redundant legacy pipelines while holding delivery continuity for every account on the platform.</p>
+            <div class="stage-title"><span>The Gate</span><hr /></div>
+            <strong>None of it could be sold without a defensible HIPAA determination</strong>
+            <p>I run Expert Determination end to end with third-party evaluators, including re-certification as fields and populations change. Paired with the data-rights terms in our pharmacy agreements, that is what ungated commercial use of the data across the pharmacy network, and the evidence is what carries a customer's legal review.</p>
           </div>
           <div class="stage-block">
-            <div class="stage-title"><span>The Differentiation</span><hr /></div>
-            <strong>NCPDP-standard pharmacy-data fluency</strong>
-            <p>Pharmacy transaction data is not claims data, and customer engineering teams usually find that out mid-integration. I set the technical standard for how customers consume it &mdash; join-key design, cross-source reconciliation, and file-format decisions across every customer integration &mdash; and provide the same framing on business development calls and contract reviews so commercial commitments match delivery reality.</p>
+            <div class="stage-title"><span>The Consolidation</span><hr /></div>
+            <strong>Two acquisitions left every feed on an inconsistent foundation</strong>
+            <p>New pharmacy systems and new claim shapes meant more source data but every existing customer feed sitting on shifting ground, and every live agreement needing rework. I consolidated the platform onto one shared pipeline and ran the customer renewal project alongside it with business development and sales, agreeing the new data shape with acquired leadership and carrying it back through each contract. Customers and internal teams now work from one data shape, and no monetization commitment goes out without my delivery review.</p>
           </div>
           <div class="stage-block">
-            <div class="stage-title"><span>The Governance</span><hr /></div>
-            <strong>Regulatory readiness across the platform</strong>
-            <p>HIPAA compliance, Expert Determination coordination with third-party evaluators, proof-of-delivery audit trails, and provenance documentation for customer legal reviews. Building the engineering function to remove single-person dependencies from customer delivery.</p>
+            <div class="stage-title"><span>The Programs</span><hr /></div>
+            <strong>Manufacturers could not see what their program money bought</strong>
+            <p>A cross-functional team builds the reporting behind our copay assistance, voucher, and clinical programs and I own its delivery to the manufacturers, showing the abandonment at the counter a program prevented and whether the behavior it paid for actually changed. It reaches the pharmacy as part of what our software already does rather than as another line they have to buy, which is why the programs scale across the install base at all.</p>
+          </div>
+          <div class="stage-block">
+            <div class="stage-title"><span>The Operations</span><hr /></div>
+            <strong>Delivery had grown as one-off pipelines that could not be audited or scaled</strong>
+            <p>My team rebuilt it as a governed enterprise platform we operate end to end, and we are the organization's only external delivery path: infrastructure defined as code, access controlled per customer, every transfer monitored and evidenced, and new customers onboarded as configuration rather than a build.</p>
           </div>
         </div>
       </div>
@@ -55,8 +60,9 @@ import MainLayout from "../layouts/MainLayout.astro";
         <span class="stack-label">CURRENT STACK</span>
         <div class="stack-items">
           <span class="stack-item">Snowflake</span><span class="stack-dot"></span>
-          <span class="stack-item">AWS (Fargate, ECS, MWAA, S3, Lambda)</span><span class="stack-dot"></span>
-          
+          <span class="stack-item">AWS (IAM, Lambda, S3, EventBridge, MWAA, Fargate, ECS)</span><span class="stack-dot"></span>
+          <span class="stack-item">Azure</span><span class="stack-dot"></span>
+          <span class="stack-item">Databricks</span><span class="stack-dot"></span>
           <span class="stack-item">Tokenization</span><span class="stack-dot"></span>
           <span class="stack-item">Airflow</span><span class="stack-dot"></span>
           <span class="stack-item">Terraform</span><span class="stack-dot"></span>
@@ -77,12 +83,13 @@ import MainLayout from "../layouts/MainLayout.astro";
             </div>
             <span class="role-dates">Aug 2021 &ndash; Feb 2025</span>
           </div>
-          <p>Reported to the CIO. Built out and managed the software and RPA engineering teams across US and offshore, plus a project manager, and later took on the data team, through the company's inorganic growth phase.</p>
+          <p>Software engineering and RPA leader under the IT organization, across onshore and offshore operations, through the company's inorganic growth phase. I owned the accounts receivable application platform; everything below is what it took to run it.</p>
           <ul class="prior-list">
-            <li>Technical partner to the CIO on four healthcare acquisitions &mdash; supported technical due diligence, TCO analysis, integration sequencing, and stack rationalization. Traveled to Hyderabad to fold the acquired team into US operations.</li>
-            <li>Designed and shipped a microservices .NET AR reimbursement work queue on an n-tiered architecture with full monitoring and observability &mdash; revenue-ordered, backed by historical AR aging &mdash; that lifted rep throughput to 30+ claims/day per rep.</li>
-            <li>Integrated 20+ practice management systems into a unified data warehouse via RPA-based extraction, Azure function apps, and custom API integrations through Availity and Waystar &mdash; patterns that made post-acquisition system consolidation economically feasible instead of a rebuild-per-acquisition drag on margin.</li>
-            <li>Partnered with CIO, VP of Infrastructure, and CISO on technical strategy, vendor evaluations, and annual capex/opex planning; established CI/CD (60% deployment-time reduction) and 90%+ test coverage across US and offshore teams.</li>
+            <li>Collectors worked unpaid claims out of spreadsheets at roughly 20 touches a day, with no way to tell which claims were worth the call, so the highest-recovery claims aged next to the worthless ones. I owned the platform and the team that built it, and we replaced the spreadsheets with a work queue ordered by recoverable revenue against historical AR aging. Throughput went past 30 claims a day per rep.</li>
+            <li>The queue was only as good as the claim data behind it, and that data sat in practice management systems and clearinghouses, some with an interface and most without. My software team built cloud function apps and custom API integrations through Availity and Waystar, pulling claim status, remittance and denial detail, and eligibility, so the application worked from a current picture instead of a stale extract assembled by hand.</li>
+            <li>For the systems with no interface at all, the only data that existed was a report a human could run. My RPA team, split onshore and offshore, automated those pulls into the data lake, where the data team normalized them through ETL into the warehouse the application consumed. That path made each newly acquired practice management system a configuration problem instead of a rebuild.</li>
+            <li>Four healthcare acquisitions, each arriving with its own stack to absorb. I was the CIO's technical partner on due diligence alongside our VP of Infrastructure and CISO, on the annual total cost of ownership review, on integration sequencing and stack rationalization, then integrated the acquired applications into our platform. Traveled to Hyderabad to fold the acquired team into US operations.</li>
+            <li>Built out and ran the software and RPA teams across the US and Hyderabad, 16+ engineers plus a project manager coordinating delivery across them, and later took on the data team. Hired into every function and set the CI/CD and test-coverage standards they delivered against.</li>
           </ul>
         </div>
 

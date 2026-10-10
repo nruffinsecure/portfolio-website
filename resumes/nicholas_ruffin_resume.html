@@ -6,7 +6,7 @@
   <title>Nicholas Ruffin - Resume</title>
   <style>
     @page {
-      margin: 0.3in 0.5in;
+      margin: 0.35in 0.5in;
       size: letter;
     }
 
@@ -19,7 +19,7 @@
     body {
       font-family: 'Georgia', serif;
       font-size: 8.75pt;
-      line-height: 1.2;
+      line-height: 1.25;
       color: #1a1a1a;
     }
 
@@ -40,7 +40,7 @@
     .contact {
       font-size: 9pt;
       color: #555;
-      margin-bottom: 3px;
+      margin-bottom: 8px;
     }
 
     .contact a {
@@ -54,8 +54,8 @@
       color: #2c5282;
       border-bottom: 1.5px solid #2c5282;
       padding-bottom: 2px;
-      margin-top: 4px;
-      margin-bottom: 2px;
+      margin-top: 7px;
+      margin-bottom: 3px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -67,18 +67,17 @@
 
     .skills-table td {
       vertical-align: top;
-      padding: 0;
+      padding: 1.5px 0;
     }
 
     .skills-table td:first-child {
       font-weight: 700;
-      width: 100px;
-      white-space: nowrap;
+      width: 132px;
       padding-right: 10px;
     }
 
     .job {
-      margin-bottom: 2px;
+      margin-bottom: 5px;
     }
 
     .job-header {
@@ -112,11 +111,38 @@
     }
 
     li {
+      margin-bottom: 3px;
+    }
+
+    li.line {
+      margin-top: 4px;
+      margin-bottom: 3px;
+    }
+
+    span.line-label {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    ul ul {
+      list-style-type: square;
+      padding-left: 16px;
+      margin-top: 2px;
       margin-bottom: 1px;
+    }
+
+    ul ul li {
+      margin-bottom: 2px;
     }
 
     b {
       font-weight: 700;
+    }
+
+    .stack-line {
+      font-size: 8.25pt;
+      color: #444;
+      margin-top: 2px;
     }
 
     .education-row {
@@ -141,39 +167,50 @@
     <a href="https://linkedin.com/in/nicholas-ruffin">linkedin.com/in/nicholas-ruffin</a></div>
 
   <h2>Professional Summary</h2>
-  <p>Engineering leader for commercial pharmacy-data delivery on a 7-figure ARR monetization platform. Own
-    nearly 40 live production data feeds to 30+ pharma manufacturer, RWE, and alt-data organizations,
-    spanning 18 manufacturer copay assistance and voucher discount programs, clinical program feeds, and
-    de-identified patient-level tokenized claims data licensed for analytics. Own the de-identification lifecycle
-      end to end: identified pharmacy transactions in, de-identification and Expert Determination certification,
-    patient-level tokenization, then delivery into the customer&rsquo;s own environment. Manage a team of data
-    engineers and set the technical standard for how customers consume NCPDP pharmacy data. Previously Director, Full Stack Development, building out software and RPA teams and
-    supporting four healthcare acquisitions reporting to the CIO. Twelve years of engineering across pharmacy,
-    healthcare data, and enterprise systems.</p>
+  <p>I am a program leader in the retail pharmacy space with an engineering background, building the platforms and
+    running the operations behind multiple product lines. I own commercial data delivery for a pharmacy-data
+    monetization program built on NCPDP pharmacy transactions, and I manage the engineering team that builds and runs
+    it. We deliver across three motions: de-identified patient-level tokenized claims, identified PHI delivered into
+    customer-controlled AWS or Azure environments, and cross-source combined feeds joining multiple pharmacy systems.
+    Tokenization is what makes the data longitudinal, and I own that de-identification lifecycle end to end, through
+    Expert Determination certification and delivery into the customer's own environment. I also manage the delivery
+    of reporting back to drug manufacturers for our copay assistance, voucher, and clinical programs, where I own the
+    engineering and the delivery commitments rather than the programs themselves. Before RedSail I was Director of
+    Full Stack Development at Nimble Solutions, where I built the accounts receivable platform that replaced
+    spreadsheet collections with revenue-ordered work, running the software, RPA, and data teams that built the
+    application and supplied the data behind it.</p>
 
-  <h2>Areas of Focus</h2>
+  <h2>Programs</h2>
   <table class="skills-table">
     <tr>
-      <td>Commercial &amp; Delivery</td>
-      <td>Business development partnership on renewals and new business (technical delivery lens);
-        contract-to-delivery execution; customer stakeholder communication; cross-product data sourcing alongside VP;
-        proof-of-delivery evidence</td>
+      <td>Data Monetization</td>
+      <td>A de-identified dataset built on unmodified, native NCPDP transmissions captured at the point of dispense,
+        as the pharmacy sent them. That is what cannot be recreated: datasets assembled downstream from switches or
+        payer adjudication are already modified and never see cash, discount-card, rejected, or reversed activity,
+        and the source is an installed pharmacy base a competitor would have to own the software to reach. Serves
+        patient-journey and real-world evidence platforms, market access and payer intelligence, life-sciences market
+        and competitive intelligence, prescriber-level commercial analytics, financial and alt-data research, and
+        community-pharmacy clinical networks. Tokenization is what unlocks it, letting customers stitch a patient
+        journey across pharmacy systems and link it to the medical claims and lab data they already hold.</td>
     </tr>
     <tr>
-      <td>Program Feeds</td>
-      <td>Manufacturer copay assistance &amp; voucher discount programs, clinical program feeds, PBM and
-        pharmacy-services partner feeds; DUA-governed operational delivery on latency, coverage, and reliability</td>
+      <td>Copay Assistance &amp; Voucher</td>
+      <td>Exists to stop patients from abandoning a prescription at the counter because the copay is too high. The
+        pharmacy keeps the fill and the revenue instead of returning it to stock; the manufacturer gets a patient who
+        starts and stays on therapy, plus the claim-level visibility to prove the program worked; we bill on the
+        program activity we process and deliver the reporting back that the manufacturer measures performance and
+        satisfies contractual audit obligations with. I own the engineering and the delivery commitments, not the
+        program.</td>
     </tr>
     <tr>
-      <td>Data Products</td>
-      <td>De-identified &amp; patient-level tokenized pharmacy transaction data, Expert Determination, RWE feed
-        productization, cross-source combined feeds, HIPAA compliance</td>
-    </tr>
-    <tr>
-      <td>Platform</td>
-      <td>Multi-cloud (AWS + Azure), multiple Snowflake accounts; Snowflake (Procs/Streams/Tasks), AWS (MWAA, S3,
-        Lambda, Fargate, ECS, IAM), Apache Airflow, Terraform, GitHub Actions, Python, SQL, SFTP / S3 / Azure Blob
-        delivery</td>
+      <td>Clinical</td>
+      <td>Exists to change a filling behaviour at the counter: a lapsed patient filling again, a 30-day
+        patient moved to 90-day, a formulary switch the plan now prefers. We find those patients in our own
+        transaction data, turn each into a care goal, and put it in front of pharmacy staff inside the dispensing
+        software, which is the only place a patient who is not filling can reliably be reached. The pharmacy earns on
+        each goal its staff engages, the manufacturer gets the behaviour changed plus the outcome reporting that wins
+        the renewal, and we bill on engagement and report on outcome. Same boundary: engineering and delivery
+        commitments owned, program direction owned by the program team.</td>
     </tr>
   </table>
 
@@ -184,37 +221,78 @@
       <span class="job-title">Manager, Data Engineering | RedSail Technologies</span>
       <span class="job-date">Feb 2025 &ndash; Present</span>
     </div>
-    <div class="job-company">Data engineering leadership within RedSail&rsquo;s Advantage Solutions team; primary
-      technical partner for RWE and manufacturer customer relationships.</div>
+    <div class="job-company">Data Monetization program leader within the RedSail Advantage Solutions team. I own
+      engineering and delivery for the monetization program and its customer feeds, and deliver the data feeds behind
+      the copay assistance, voucher, and clinical programs owned by adjacent program teams.</div>
     <ul>
-      <li>Own commercial data delivery to pharma manufacturers &mdash; nearly 40 live production feeds to 30+
-          organizations. Includes 18 manufacturer copay assistance and voucher discount programs plus
-        clinical program and pharmacy-services partner feeds. A DUA-governed operational motion distinct from the
-        analytics products, sold and held to latency, coverage, and reliability commitments.</li>
-      <li>Lead engineering across three delivery motions: de-identified, patient-level tokenized claims
-          feeds (AWS Fargate + ECS + Snowflake), identified PHI into customer-controlled AWS or Azure
-          environments for customers running their own tokenization engines, and cross-source combined feeds
-        joining multiple pharmacy systems.</li>
-      <li>Run delivery across a multi-cloud estate (AWS and Azure, multiple Snowflake accounts) and am
-        consolidating customer feeds onto a shared combined-feed pipeline, cutting per-customer tokenization cost
-        and retiring legacy pipelines without interrupting delivery.</li>
-      <li>Manage a team of data engineers, assigning end-to-end ownership of customer-facing feed migrations and
-        cutovers, with code standards and deployment discipline (Airflow, Terraform, GitHub Actions) that remove
-        single-person dependencies from customer delivery.</li>
-      <li>Own the de-identification lifecycle end to end &mdash; identified pharmacy transactions in,
-        de-identification and Expert Determination certification, patient-level tokenization, then delivery into the
-        customer&rsquo;s own environment &mdash; and manage the tokenization vendor relationship.</li>
-      <li>Set the technical standard for how customers consume NCPDP pharmacy data: join-key design,
-        cross-source reconciliation, and file-format decisions across every customer integration, and the same
-        technical framing on business development calls and contract reviews so commercial commitments match delivery
-        reality.</li>
-      <li>Partner with business development from technical review through delivery. Review draft contracts for
-        delivery feasibility, scope and price historical backfills as line items on dataset sales, then execute
-        commitments across engineering, customer stakeholders, and other RedSail product areas alongside our VP.</li>
-      <li>Regulatory readiness &amp; data governance: HIPAA compliance, Expert Determination coordination
-        with third-party evaluators, proof-of-delivery audit trails, and provenance documentation for customer
-        legal reviews.</li>
+      <li class="line"><span class="line-label">Data Monetization Program</span> Our software sits directly inside the
+        pharmacy and our switch carries the claim, so we capture the raw NCPDP transmission whole: the request the
+        pharmacy sent, the routing header from the switch, and the response the processor returned, whether that
+        processor is a PBM, a cash program, or a discount card. Prescriber, patient, drug, quantity, days supply, and
+        fill detail arrive alongside the adjudication itself, including what the plan paid and what the patient was
+        charged at the counter, which is a record no one downstream of us can reconstruct. I shaped that raw feed
+        into one coherent, readable, rights-checked data product, and because the same asset answers a different
+        question for each buyer, it sells many times over instead of being rebuilt per deal: therapy history for
+        real-world evidence and patient-journey platforms, coverage and copay reality for market access, dispensing
+        behaviour for prescriber-level commercial analytics, and demand signal for financial and alt-data research.
+        The program is now a $10M+ revenue line across 12 enterprise customers, licensed on multi-year agreements that have renewed and expanded every cycle.
+        <ul>
+          <li><b>Patient-level tokenization.</b> A customer evaluating the dataset wants to know how much of their own
+        population we actually cover before they buy, and afterward wants our dispensing history attached to the
+        patients they already track. Patient-level tokenization is what makes that possible: it unlocks patient
+        matching through overlap analysis against the customer's own data, then longitudinal linkage into the medical
+        claims and lab data they already hold. That is what opened the RWE aggregator and patient-journey segment to
+        us at all, because without a token our data is a snapshot of a fill, and with one it becomes a therapy history
+        they can follow across pharmacies and link to the rest of a patient's care.</li>
+          <li><b>Expert Determination.</b> Nothing could be sold commercially without it. Expert Determination, paired
+        with the data-rights terms in our pharmacy agreements, is what ungates commercial use of the data, and it is
+        the evidence that carries a customer's legal review. I run that process end to end with third-party
+        evaluators, including re-certification as fields and populations change, across a network of 18,000+ active pharmacies with roughly
+        17,000 rights-enabled for commercial use.</li>
+          <li><b>Platform consolidation after the BestRx and PrimeRx acquisitions.</b> Each acquisition brought its own
+        pharmacy system and its own claim shape, which meant more source data but also every existing customer feed
+        suddenly sitting on an inconsistent foundation. I brought all of those data feeds under one program and drove
+        consolidation onto a shared combined-feed pipeline, which meant meeting with the acquired leadership to agree
+        the new data shape, then taking that shape back through renewal reviews with existing customers so each one
+        signed off on what was changing and what their delivery would look like after. Per-customer tokenization and
+        processing cost came down, redundant legacy pipelines retired, and no live customer lost delivery continuity
+        through the cutover.</li>
+          <li><b>Delivery and client management.</b> The failure mode in data licensing is a contract signed on terms
+        engineering cannot hold, discovered after the first delivery. I run delivery across a multi-cloud estate,
+        into customer-controlled AWS and Azure environments for the customers who run their own tokenization engines
+        and will not take a vendor's token, and over SFTP and cloud storage for the rest, with the access model,
+        encryption, and proof-of-delivery evidence the contracts require. I carry the client relationships through
+        onboarding, expansion, and renewal, and contracts come to me for review alongside business development and
+        sales, where I hold the line on delivery methods, service levels, field-level agreement, and fill rates. The coverage volumes and sample
+        files prospects evaluate before they buy come from me, as does the pricing of historical backfills as line
+        items on dataset sales.</li>
+          <li><b>Team.</b> I manage a team of data engineers, assigning end-to-end ownership of customer-facing feed
+        migrations and cutovers by account rather than by task, so each engineer carries a customer and I carry the
+        program. Code standards and deployment discipline across the team remove single-person dependencies from
+        customer delivery, which is what lets a small team run a portfolio this size.</li>
+        </ul>
+      </li>
+      <li class="line"><span class="line-label">RxAdvantage (Copay Assistance and Voucher Reporting)</span> These are owned by adjacent program teams; I own the engineering and the delivery
+        commitments behind them. Manufacturers funding the programs cannot see what their money bought without
+        claim-level reporting back from the pharmacies running them, and it reaches the pharmacy as part of what our
+        software already does rather than as another line they have to buy, which is why the programs scale across the
+        install base at all.
+        <ul>
+          <li><b>Copay assistance and voucher reporting.</b> Shows the manufacturer how much abandonment at the
+            counter the program prevented: the fills that happened because the patient's cost came down, the share
+            the program absorbed, and the audit evidence the contract requires.</li>
+          <li><b>Clinical program reporting.</b> Shows whether the behaviour the program paid for actually changed,
+            measured on the same patients before and after, which is what the manufacturer renews on.</li>
+          <li><b>Operational delivery motion.</b> DUA-governed and held to latency, coverage, and reliability rather
+            than the analytics motion of the monetization platform, a different engineering problem and a different
+            set of commitments.</li>
+        </ul>
+      </li>
     </ul>
+    <div class="stack-line"><b>Stack:</b> Snowflake (multi-account, Procs/Streams/Tasks) &middot; AWS (IAM, Lambda, S3,
+      EventBridge, MWAA, Fargate, ECS) &middot; Azure &middot; Databricks and Iceberg tables (PMS team sources)
+      &middot; Apache Airflow &middot; Terraform &middot; GitHub Actions &middot; SFTP &middot; Python &middot; SQL
+    </div>
   </div>
 
   <div class="job">
@@ -222,23 +300,41 @@
       <span class="job-title">Director, Full Stack Development | Nimble Solutions</span>
       <span class="job-date">Aug 2021 &ndash; Feb 2025</span>
     </div>
-    <div class="job-company">Reporting to the CIO, built out and managed the software and RPA engineering teams (US and
-      offshore) plus a project manager, and later took on the data team, through the company&rsquo;s inorganic growth
-      phase.</div>
+    <div class="job-company">Software engineering and RPA leader under the IT organization, across onshore and
+      offshore operations, through the company&rsquo;s inorganic growth phase.</div>
     <ul>
-      <li>Technical partner to the CIO on four healthcare acquisitions. Supported technical due diligence,
-        TCO analysis, integration sequencing, and stack rationalization; traveled to Hyderabad to fold the acquired
-        team into US operations.</li>
-      <li>Designed and shipped a microservices .NET AR reimbursement work queue on an n-tiered architecture with
-        full monitoring and observability, revenue-ordered and backed by historical AR aging, lifting rep throughput to
-        30+ claims/day per rep.</li>
-      <li>Integrated 20+ practice management systems into a unified data warehouse via RPA-based extraction,
-        Azure function apps, and custom API integrations through Availity and Waystar, making post-acquisition
-        consolidation feasible without a rebuild per acquisition.</li>
-      <li>Partnered with CIO, VP of Infrastructure, and CISO on technical strategy, vendor evaluations, and annual
-        capex/opex planning; established CI/CD (60% deployment-time reduction) and 90%+ test coverage
-        across US and offshore teams.</li>
+      <li class="line"><span class="line-label">Accounts Receivable Application Platform</span> Before it existed, collectors worked unpaid claims out of
+        spreadsheets at roughly 20 touches a day, with no way to tell which claims were worth the call, so the
+        highest-recovery claims aged alongside the worthless ones. I owned the application and the team that built
+        it, and we replaced the spreadsheets with a work queue that ordered every rep's day by recoverable revenue
+        backed by historical AR aging. Throughput went past 30 claims a day per rep, and the work that got done
+        first was the work worth doing.
+        <ul>
+          <li><b>Cloud function apps and custom API integrations.</b> The queue was only as good as the claim data behind
+        it, and that data lived in practice management systems and clearinghouses, some with an interface and most
+        without. The software team built Azure function apps on schedules plus custom API integrations through
+        Availity and Waystar, pulling claim status, remittance and denial detail, and eligibility. That is what gave
+        the application a current picture of where every claim stood, instead of a stale extract someone assembled by
+        hand.</li>
+          <li><b>RPA integration feeding the warehouse.</b> For the systems with no interface at all, the only data that
+        existed was a report a human could run. The RPA team automated those report pulls and landed them in the data
+        lake, where the data team normalized them through ETL into the warehouse the application consumed. That path
+        is what made each newly acquired practice management system a configuration problem instead of a
+        rebuild.</li>
+          <li><b>Acquisition integration.</b> Four healthcare acquisitions in the growth phase, each arriving with its
+        own stack and its own systems to absorb. Technical partner to the CIO on due diligence, TCO analysis,
+        integration sequencing, and stack rationalization, then integrated the acquired applications into our
+        platform; traveled to Hyderabad to fold the acquired team into US operations.</li>
+          <li><b>Team.</b> Built out and managed 16+ engineers across three functions, software, RPA, and later data,
+        split between the US and Hyderabad, with a project manager coordinating delivery across them so I could stay
+        on architecture and the CIO's priorities rather than on scheduling. Hired into both teams and set the CI/CD
+        and test-coverage standards they delivered against.</li>
+        </ul>
+      </li>
     </ul>
+    <div class="stack-line"><b>Stack:</b> Azure (Function Apps, Active Directory for RBAC, Application Insights for
+      monitoring and observability, Blob Storage, SQL Server) &middot; C#/.NET microservices &middot; RPA automation
+      &middot; ETL into a unified data warehouse &middot; CI/CD</div>
   </div>
 
   <div class="job">
@@ -247,8 +343,8 @@
       <span class="job-date">Jun 2017 &ndash; Aug 2021</span>
     </div>
     <ul>
-      <li>Developed enterprise data applications using C#/.NET and SQL, supporting 200+ concurrent corporate
-        users across operations.</li>
+      <li>Developed enterprise data applications using C#/.NET and SQL, supporting 200+ concurrent corporate users
+        across operations.</li>
     </ul>
   </div>
 

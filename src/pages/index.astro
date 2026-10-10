@@ -12,41 +12,64 @@ import Hero from "../components/Hero.astro";
         <span class="section-tag reveal">FOCUS</span>
         <h3 class="reveal reveal-delay-1">Pharmacy data, commercialized under HIPAA.</h3>
         <p class="focus-lede reveal reveal-delay-1">
-          RedSail's monetization platform serves enterprise RWE, pharma manufacturer, and alt-data customers across multiple delivery motions. Pharmacy transaction data is not claims data, and I set the technical standard for how customers consume it: <strong>join-key design, cross-source reconciliation, and file-format decisions</strong> across every customer integration.
+          The software sits inside the pharmacy and the switch carries the claim, so the program captures the raw NCPDP transmission whole &mdash; the pharmacy's request, the routing header, the processor's response, and the adjudication itself. <strong>A dataset assembled downstream of adjudication cannot be made to look like this one</strong>, which is what makes it licensable rather than merely available.
         </p>
         <div class="focus-grid">
           <div class="focus-card reveal reveal-delay-1">
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
-            <h4>Tokenized de-identified feeds</h4>
-            <p>Delivery motion for RWE aggregators. AWS Fargate + ECS + Snowflake pipeline with third-party tokenization for privacy-preserving linkage.</p>
+            <h4>Patient-level tokenization</h4>
+            <p>Unlocks patient matching through overlap analysis against a customer's own population, then longitudinal linkage into the medical claims and lab data they already hold.</p>
           </div>
           <div class="focus-card reveal reveal-delay-2">
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="M2 8h20"/><path d="M6 12h4"/></svg>
             </div>
             <h4>Customer-controlled AWS or Azure</h4>
-            <p>Identified PHI landed into customer-owned AWS or Azure environments for buyers running their own tokenization &mdash; DUA-governed, HIPAA-compliant, provenance-tracked.</p>
+            <p>Identified data landed inside customer-owned environments for buyers running their own tokenization engines &mdash; DUA-governed, HIPAA-compliant, provenance-tracked.</p>
           </div>
           <div class="focus-card reveal reveal-delay-3">
             <div class="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </div>
             <h4>Cross-source combined feeds</h4>
-            <p>Joining multiple pharmacy systems into unified customer feeds &mdash; the newest delivery motion, unlocking expansion at existing accounts.</p>
+            <p>One shared pipeline joining multiple pharmacy systems, so customers and internal teams work from a single consistent data shape.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="platform-section">
-      <div class="platform-content">
-        <span class="section-tag reveal">THE PLATFORM</span>
-        <h3 class="reveal reveal-delay-1">Consolidating the platform onto a shared combined feed.</h3>
-        <p class="platform-lede reveal reveal-delay-2">
-          Migrating customer feeds onto a shared combined-feed pipeline to cut per-customer tokenization and processing cost, retiring redundant legacy pipelines while holding delivery continuity for every account on the platform.
-        </p>
+      <div class="focus-content">
+        <span class="section-tag reveal">WHAT I SOLVED</span>
+        <h3 class="reveal reveal-delay-1">Problems, and what each one unlocked.</h3>
+        <div class="focus-grid">
+          <div class="focus-card reveal reveal-delay-1">
+            <h4>Raw transmissions were a record, not a product</h4>
+            <p>Shaped them into a commercial data product held to NCPDP standards, so one asset answers a different question per buyer. It runs today as a multi-year licensed portfolio that has renewed and expanded every cycle.</p>
+          </div>
+          <div class="focus-card reveal reveal-delay-2">
+            <h4>De-identified claims could not follow a patient</h4>
+            <p>My team engineered the patient-level tokenization engine, which opened the real-world evidence and patient-journey segment: customers measure overlap against their own population before buying, then link our history to theirs.</p>
+          </div>
+          <div class="focus-card reveal reveal-delay-3">
+            <h4>None of it could be sold without a HIPAA determination</h4>
+            <p>I run Expert Determination with third-party evaluators, which paired with the data-rights terms in our pharmacy agreements ungated commercial use across the network.</p>
+          </div>
+          <div class="focus-card reveal reveal-delay-1">
+            <h4>Two acquisitions left every feed inconsistent</h4>
+            <p>Consolidated the platform onto one pipeline and ran the customer renewal project alongside it with business development and sales. No monetization commitment goes out without my delivery review.</p>
+          </div>
+          <div class="focus-card reveal reveal-delay-2">
+            <h4>Manufacturers could not see what their money bought</h4>
+            <p>I own delivery of the reporting behind our copay assistance, voucher, and clinical programs, showing the abandonment at the counter a program prevented and whether the behavior it paid for changed.</p>
+          </div>
+          <div class="focus-card reveal reveal-delay-3">
+            <h4>Delivery could not be audited or scaled</h4>
+            <p>My team rebuilt it as a governed enterprise platform: infrastructure defined as code, access controlled per customer, every transfer monitored and evidenced, and new customers onboarded as configuration rather than a build.</p>
+          </div>
+        </div>
         <a href="/experience" class="platform-cta reveal reveal-delay-3">See the full experience &rarr;</a>
       </div>
     </section>
